@@ -1,0 +1,70 @@
+.hero-heading p{
+    font-size: clamp(2rem,5vw,4rem) !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    top: 30%;
+    left: 10%;
+}
+.aftr-hero{
+    display: flex;
+}
+.slick-arrow{
+    position: absolute;
+    top: 150%;
+    left: 0;
+}
+.slick-next{
+    left: 10%;
+}
+.slick-next::before{
+    display: none;
+}
+.slick-prev::before{
+    display: none;
+}
+.ataglancebox{
+    width: 100% !important;
+    aspect-ratio: 1/0.2 !important;
+    align-items: center;
+    padding: 0 2%;
+}
+.wwsgm{
+    padding: 0 !important;
+    display: flex;
+}
+
+.wwsgm-right{
+    width: 50% !important;
+}
+.wwsgm-img{
+    width: 80% !important;
+}
+.our-partners-logo{
+    width: 100% !important;
+    padding: 0 2%;
+}
+.globeDiv{
+    width: 50%;
+    aspect-ratio: 1/0.7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.globe{
+    width: 80%;
+    height: 70%;
+    border-radius: 10%;
+    position: relative;
+}
+.globeItem{
+    position: absolute !important;
+    margin: 0 !important;
+    top: 0;
+    left: 0;
+}
+.ma-list{
+    width: 100% !important;
+}
+.ma-list-row{
+    width: 90% !important;
+}
