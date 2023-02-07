@@ -17,44 +17,54 @@ import corp from '../../images/home/corp-training-bg.png'
 import ucam from '../../images/home/ucam-logo.png'
 import accsia from '../../images/home/acacia-logo.png'
 import emirates from '../../images/home/corp-clients/emirates-nbd-logo.png'
+import maImg1 from '../../images/media-centre/ma-img1.png'
+
 function Home() {
-    
+
     function CustomArrowR(props) {
         const { className, style, onClick } = props;
         return (
-          <div
-            className={className}
-            style={{ ...style, display: "block" }}
-            onClick={onClick}
-          >
-            <img className="slideBtn" src={rightArrow} alt="" />
-          </div>
+            <div
+                className={className}
+                style={{ ...style, display: "block" }}
+                onClick={onClick}
+            >
+                <img className="slideBtn" src={rightArrow} alt="" />
+            </div>
         );
-      }
-      function CustomArrowL(props) {
+    }
+    function CustomArrowL(props) {
         const { className, style, onClick } = props;
         return (
-          <div
-            className={className}
-            style={{ ...style, display: "block" }}
-            onClick={onClick}
-          >
-            <img className="slideBtn" src={leftArrow} alt="" />
-          </div>
+            <div
+                className={className}
+                style={{ ...style, display: "block" }}
+                onClick={onClick}
+            >
+                <img className="slideBtn" src={leftArrow} alt="" />
+            </div>
         );
-      }
-    
-    const settings={
+    }
+
+    const settings = {
         dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
         nextArrow: <CustomArrowR></CustomArrowR>,
-        prevArrow: <CustomArrowL></CustomArrowL>
+        prevArrow: <CustomArrowL></CustomArrowL>,
+        responsive: [
+            {
+              breakpoint: 560,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              }
+            }
+        ]
+    };
 
-      };
-    
 
     function increment() {
 
@@ -99,12 +109,12 @@ function Home() {
     },[])
 
 
-    
-  
-    return (
-        <div className='homeSection'>
 
-            <div class="hero" style={{background:`url(${banner})`,backgroundPosition:'center center',backgroundSize:'cover'}}>
+
+    return (
+        <div className='homeSection' style={{width:"100%",overflowX:'hidden'}}>
+
+            <div class="hero" style={{ background: `url(${banner})`, backgroundPosition: 'center center', backgroundSize: 'cover' }}>
 
                 <div class="hero-heading">
                     <p class="aos" data-aos="zoom-out-up" data-aos-duration="2000">Making students <br /> worldwide future <br />
@@ -116,78 +126,57 @@ function Home() {
 
 
             <section class="aftr-hero" >
-                <div class="aftr-hero-rec aos" data-aos="fade-right">
+                <div class="aftr-hero-rec aos" data-aos="fade-right" style={{ height: 'fit-content' }}>
                     <h2>Our Institutions & <br />Universities</h2>
                     <p>Westford provides academic degrees, diploma courses and <br />
                         professional certification in partnership with accredited awarding <br />
-                            organization and universities of international repute.</p>
+                        organization and universities of international repute.</p>
 
                 </div>
-                <div style={{width:'52%',display:'flex',alignItems:'center',height:"inherit",justifyContent:'center'}}>
-                    <div style={{width:'90%',height:'100%',display:'flex',justifyContent:'center',flexDirection:'column',position:'relative'}}>
-               
+                <div className='afterHeroSlider' style={{ width: '52%', display: 'flex', alignItems: 'center', height: "inherit", justifyContent: 'center' }}>
+                    <div style={{ width: '90%', height: '100%', display: 'flex', justifyContent: 'center', flexDirection: 'column', position: 'relative' }}>
+
                         <Slider {...settings}>
 
                             <div>
-                            <img src={sliderLogo} alt="" />
+                                <img src={sliderLogo} alt="" />
                             </div>
 
                             <div>
-                            <img src={sliderLogo} alt="" />
+                                <img src={sliderLogo} alt="" />
                             </div>
 
                             <div>
-                            <img src={sliderLogo} alt="" />
+                                <img src={sliderLogo} alt="" />
                             </div>
 
                             <div>
-                            <img src={sliderLogo} alt="" />
+                                <img src={sliderLogo} alt="" />
                             </div>
 
                             <div>
-                            <img src={sliderLogo} alt="" />
+                                <img src={sliderLogo} alt="" />
                             </div>
 
                             <div>
-                            <img src={sliderLogo} alt="" />
+                                <img src={sliderLogo} alt="" />
                             </div>
 
                             <div>
-                            <img src={sliderLogo} alt="" />
+                                <img src={sliderLogo} alt="" />
                             </div>
-                            
-                            
+
+
                         </Slider>
                     </div>
                 </div>
 
-                {/* <div class="right-side">
-                    <div class="img-scroll aos" data-aos="fade-left">
-                        <img class="clogo" src="" alt="acacia-logo" />
-                        <img class="clogo" src="/westfordeducation/images/home/westford-logo.png" alt="acacia-logo" />
-                        <img class="clogo" src="/westfordeducation/images/home/cambridge-internl-logo.png" alt="acacia-logo" />
-                        <img class="clogo" src="/westfordeducation/images/home/exceed-logo.png" alt="acacia-logo" />
 
-                    </div>
-
-                    <div class="next-btns">
-                        <div class="left-round">
-                            <img class="right-arrow" src="/westfordeducation/images/home/left-arrow-icon.svg"
-                                alt="Right arrow button" />
-                        </div>
-
-                        <div class="right-round">
-                            <img class="left-arrow" src="/westfordeducation/images/home/right-arrow-icon.svg"
-                                alt="Left arrow button" />
-                        </div>
-
-                    </div>
-                </div> */}
 
             </section>
 
 
-           <section class="ataglance">
+            <section class="ataglance">
                 <div class="glance-text">
                     <h2>At a Glance</h2>
                     <p>Westford Education Group is a leading provider of accredited international education to <br />
@@ -230,24 +219,24 @@ function Home() {
 
             </section>
 
-           <section class="whorv">
-                <div class="whorv-center-bg">
+            <section class="whorv" style={{ height: "fit-content", padding: "1rem 0" }}>
+                <div class="whorv-center-bg" style={{ width: '95%', height: 'fit-content', padding: "1rem" }}>
 
                     <div class="whorv-left-box">
                         <div class="left-box-txt">
-                            <h2>WHO ARE WE</h2>
+                            <h2 style={{fontSize:'clamp(2rem,3vw,3rem)'}}>WHO ARE WE</h2>
                             <div class="line"></div>
-                            <h3>Discover our Group</h3>
+                            <h3 style={{fontSize:'clamp(2rem,3vw,3rem)'}}>Discover our Group</h3>
                         </div>
 
-                        <div class="left-box-img-bg" data-aos="zoom-out-down" data-aos-duration="1000">
+                        <div style={{ width: "100%", minWidth: "20rem" }} class="left-box-img-bg" data-aos="zoom-out-down" data-aos-duration="1000">
                             <img src={homeLady} alt="" />
                         </div>
 
                     </div>
 
                     <div class="whorv-right-box">
-                        <div class="right-box-text">
+                        <div class="right-box-text" >
                             <p>Westford Education Group (WEG) is a leading provider of accredited international education and
                                 corporate training to aspiring learners across the globe.
                             </p>
@@ -263,7 +252,7 @@ function Home() {
                                 school WIFT. </p>
                         </div>
 
-                        <button class="whorv-btn contactUs"
+                        <button style={{ marginBottom: "1.5rem" }} class="whorv-btn contactUs"
                             onclick="window.location.href='westfordeducation/contact-us.html';">Learn
                             More</button>
 
@@ -275,17 +264,17 @@ function Home() {
             </section>
 
 
-              <section class="wwsgm" >
+            <section class="wwsgm" >
                 <div class="wwsgm-right">
 
                     <h2 class="aos" data-aos="zoom-in" data-aos-duration="1000">World wide <br /> student <br /> Geographic Mix <br /> (2021)</h2>
-                    <p class="aos" data-aos="zoom-in" data-aos-duration="1000">Lorem Ipsum is simply dummy text of the <br /> printing and typesetting
+                    <p class="aos" data-aos-duration="1000">Lorem Ipsum is simply dummy text of the <br /> printing and typesetting
                         industry.</p>
 
                 </div>
                 <div className='globeDiv'>
-                    <div className='globe' style={{background:`url(${globeImg})`}}>
-                    <div class="asia aos globeItem" data-aos="zoom-in-right" data-aos-duration="1000" style={{top:'10%',left:'0'}}>
+                    <div className='globe' style={{ background: `url(${globeImg})` }}>
+                        {/* <div class="asia aos globeItem" data-aos="zoom-in-right" data-aos-duration="1000" style={{top:'10%',left:'0'}}>
                             <h4>ASIA</h4>
                             <p>20%</p>
                         </div>
@@ -303,50 +292,173 @@ function Home() {
                         <div class="europe aos globeItem" data-aos="zoom-in-left" data-aos-duration="1000" style={{top:'18%',right:'-5%',left:'70%'}}>
                             <h4>EUROPE <br /> MIDDLE EAST <br /> & AFRICA</h4>
                             <p>40%</p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
-
-                {/* <div class="wwsgm-left" >
-                    <div class="wwsgm-img" style={{background:`url(${globeImg})`}}>
-                        <div class="asia aos" data-aos="zoom-in-right" data-aos-duration="1000">
-                            <h4>ASIA</h4>
-                            <p>20%</p>
-                        </div>
-
-                        <div class="america aos" data-aos="zoom-in-up" data-aos-duration="1000">
-                            <h4>AMERICA</h4>
-                            <p>30%</p>
-                        </div>
-
-                        <div class="world aos" data-aos="zoom-in-up" data-aos-duration="1000">
-                            <h4>REST OF <br /> THE WORLD</h4>
-                            <p>30%</p>
-                        </div>
-
-                        <div class="europe aos" data-aos="zoom-in-left" data-aos-duration="1000">
-                            <h4>EUROPE <br /> MIDDLE EAST <br /> & AFRICA</h4>
-                            <p>40%</p>
-                        </div>
-
-                    </div>
-
-                </div> */}
-
 
             </section>
 
 
 
-           <section class="our-partners">
+            <section class="our-partners" style={{height:'fit-content',marginBottom:'2rem'}}>
                 <div class="our-partners-title">
                     <h2>OUR PARTNERS</h2>
                     <h3>Partnering for business transformation</h3>
                 </div>
 
                 <div class="our-partners-logo">
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
 
-                    <div class="our-partners-logo-row1">
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+                    <div class="our-partner-logo">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+
+                    {/* <div class="our-partners-logo-row1">
                         <div class="our-partner-logo">
                             <div class="top-logo">
                                 <img src={ucam} alt="" />
@@ -528,7 +640,7 @@ function Home() {
 
                         </div>
 
-                    </div>
+                    </div> */}
 
 
                 </div>
@@ -542,8 +654,8 @@ function Home() {
             </section>
 
 
-           <section class="corp-training" style={{background:`url(${corp})`}}>
-                <div class="overlay">
+               <section class="corp-training" style={{background:`url(${corp})`,height:'fit-content'}}>
+                <div class="overlay" style={{height:'fit-content',padding:'1rem 0'}}>
                     <h2>Corporate Training</h2>
                     <p>Westford has an important presence in the corporate training circuit through our open enrollment
                         programs, <br />
@@ -560,7 +672,7 @@ function Home() {
             </section>
 
 
-             <section class="our-university">
+                  <section class="our-university">
 
                 <div class="our-university-title">
                     <h2>Own Universities</h2>
@@ -587,75 +699,16 @@ function Home() {
 
             </section>
 
-           {/* <section class="articles-blogs">
+            <section class="articles-blogs">
                 <div class="article-blog-headings">
                     <h2>Our Articles and Blogs</h2>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the <br />
                         industry's standard dummy text ever since the 1500s.</p>
                 </div>
 
-                <div class="slide-container swiper">
-                    <div class="slide-content">
-                        <div class="card-wrapper swiper-wrapper">
-
-                            <div class="card swiper-slide">
-                                <img src="/westfordeducation/images/home/art-sect-img1.png" alt="" />
-                                <div class="swipe-overlay">
-                                    <img src="/westfordeducation/images/home/art-sect-img-overlay.png" alt="" />
-                                </div>
-                                <div class="slider-top-btn">Marketing</div>
-                                <div class="slider-text">
-                                    <a href="#">
-                                        <p class="p1">Lorem Ipsum is simply dummy text of the printing and.</p>
-
-                                    </a>
-
-                                    <p class="p2">Nov 29 . 10 Min Read</p>
-                                </div>
-                            </div>
-
-                            <div class="card swiper-slide">
-                                <img src="/westfordeducation/images/home/art-sect-img2.png" alt="" />
-                                <div class="swipe-overlay">
-                                    <img src="/westfordeducation/images/home/art-sect-img-overlay.png" alt="" />
-                                </div>
-
-                                <div class="slider-top-btn">Marketing</div>
-                                <div class="slider-text">
-                                    <a href="#">
-                                        <p class="p1">Lorem Ipsum is simply dummy text of the printing and.</p>
-
-                                    </a>
-
-                                    <p class="p2">Nov 29 . 10 Min Read</p>
-                                </div>
-                            </div>
-
-                            <div class="card swiper-slide">
-                                <img src="/westfordeducation/images/home/art-sect-img3.png" alt="" />
-                                <div class="swipe-overlay">
-                                    <img src="/westfordeducation/images/home/art-sect-img-overlay.png" alt="" />
-                                </div>
-
-                                <div class="slider-top-btn">Marketing</div>
-                                <div class="slider-text">
-                                    <a href="#" >
-                                        <p class="p1">Lorem Ipsum is simply dummy text of the printing and.</p>
-
-                                    </a>
-
-                                    <p class="p2">Nov 29 . 10 Min Read</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-
-                    <div class="swiper-pagination"></div>
-
+                <div style={{display:'flex',columnGap:'2rem',flexWrap:'wrap',rowGap:"1rem",alignItems:'center',justifyContent:'center'}}>
+                
+                
                 </div>
 
                 <div class="article-blog-btn contactUs" onclick="window.location.href='/westfordeducation/media-centre.html';">
@@ -663,112 +716,51 @@ function Home() {
                 </div>
 
 
-            </section> */}
+            </section>
 
-
-             <section class="customers-media">
+            
+             <section class="customers-media" style={{height:'fit-content',justifyContent:'center'}}>
                 <div class="customer-media-txt">
                     <h2>Customers and media</h2>
                     <p>See some of the reviews here</p>
                 </div>
 
-                <div class="all-reviews">
-                    <div class="review-row1">
-
-                        <div class="review-individual">
-                            <div class="review-date">
-                                10 Jan, 2022
-                            </div>
-                            <div class="reviews-text">
-                                <p>Westford University College achieves significant milestones in 2021 Education</p>
-                            </div>
-
-                            <div class="reviews-source">
-                                <p>Corporate-news | Gulf News</p>
-                            </div>
-
-                        </div>
-
-                        <div class="review-individual">
-                            <div class="review-date">
-                                10 Jan, 2022
-                            </div>
-                            <div class="reviews-text">
-                                <p>Westford University College achieves significant milestones in 2021 Education</p>
-                            </div>
-
-                            <div class="reviews-source">
-                                <p>Corporate-news | Gulf News</p>
-                            </div>
-
-                        </div>
-
-                        <div class="review-individual">
-                            <div class="review-date">
-                                10 Jan, 2022
-                            </div>
-                            <div class="reviews-text">
-                                <p>Westford University College achieves significant milestones in 2021 Education</p>
-                            </div>
-
-                            <div class="reviews-source">
-                                <p>Corporate-news | Gulf News</p>
-                            </div>
-
-                        </div>
-
+                <div className='reviewAll'>
+                    <div className='reviewCard'>
+                        <span style={{background:'#285F71',color:'white',padding:'7px',marginTop:"7px"}}>10 Jan, 2022</span>
+                        <h3 style={{fontSize:'1.2rem',fontWeight:"600"}}>University of the future</h3>
+                        <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
                     </div>
-
-                    <div class="review-row2">
-
-                        <div class="review-individual">
-                            <div class="review-date">
-                                10 Jan, 2022
-                            </div>
-                            <div class="reviews-text">
-                                <p>Westford University College achieves significant milestones in 2021 Education</p>
-                            </div>
-
-                            <div class="reviews-source">
-                                <p>Corporate-news | Gulf News</p>
-                            </div>
-
-                        </div>
-
-                        <div class="review-individual">
-                            <div class="review-date">
-                                10 Jan, 2022
-                            </div>
-                            <div class="reviews-text">
-                                <p>Westford University College achieves significant milestones in 2021 Education</p>
-                            </div>
-
-                            <div class="reviews-source">
-                                <p>Corporate-news | Gulf News</p>
-                            </div>
-
-                        </div>
-
-                        <div class="review-individual">
-                            <div class="review-date">
-                                10 Jan, 2022
-                            </div>
-                            <div class="reviews-text">
-                                <p>Westford University College achieves significant milestones in 2021 Education</p>
-                            </div>
-
-                            <div class="reviews-source">
-                                <p>Corporate-news | Gulf News</p>
-                            </div>
-
-                        </div>
-
+                    <div className='reviewCard'>
+                        <span style={{background:'#285F71',color:'white',padding:'7px',marginTop:"7px"}}>10 Jan, 2022</span>
+                        <h3 style={{fontSize:'1.2rem',fontWeight:"600"}}>University of the future</h3>
+                        <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                    </div>
+                    <div className='reviewCard'>
+                        <span style={{background:'#285F71',color:'white',padding:'7px',marginTop:"7px"}}>10 Jan, 2022</span>
+                        <h3 style={{fontSize:'1.2rem',fontWeight:"600"}}>University of the future</h3>
+                        <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                    </div>
+                    <div className='reviewCard'>
+                        <span style={{background:'#285F71',color:'white',padding:'7px',marginTop:"7px"}}>10 Jan, 2022</span>
+                        <h3 style={{fontSize:'1.2rem',fontWeight:"600"}}>University of the future</h3>
+                        <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                    </div>
+                    <div className='reviewCard'>
+                        <span style={{background:'#285F71',color:'white',padding:'7px',marginTop:"7px"}}>10 Jan, 2022</span>
+                        <h3 style={{fontSize:'1.2rem',fontWeight:"600"}}>University of the future</h3>
+                        <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                    </div>
+                    <div className='reviewCard'>
+                        <span style={{background:'#285F71',color:'white',padding:'7px',marginTop:"7px"}}>10 Jan, 2022</span>
+                        <h3 style={{fontSize:'1.2rem',fontWeight:"600"}}>University of the future</h3>
+                        <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
                     </div>
                 </div>
 
             </section>
 
-            <section class="corporate-clients">
+            <section class="corporate-clients" style={{height:'fit-content'}}>
                 <div class="corporate-client-txt">
                     <h2>Corporate Clients</h2>
                     <p>We have served clients ranging from large corporates to SME companies, <br />
@@ -776,9 +768,9 @@ function Home() {
 
                 </div>
 
-                <div class="corp-client-logos">
-                    <div class="cc-logos-row1">
-                        <div class="cc-logo aos" data-aos="flip-left">
+                <div class="corp-client-logos" style={{width:"98%"}}>
+
+                <div class="cc-logo aos" data-aos="flip-left">
                             <img src={emirates} alt="" />
                         </div>
 
@@ -798,10 +790,6 @@ function Home() {
                             <img src="" alt="" />
                         </div>
 
-                    </div>
-
-                    <div class="cc-logos-row2">
-
                         <div class="cc-logo-empty">
                             <img src="" alt="" />
                         </div>
@@ -821,10 +809,6 @@ function Home() {
                         <div class="cc-logo aos" data-aos="flip-left">
                         <img src={emirates} alt="" />
                         </div>
-
-                    </div>
-
-                    <div class="cc-logos-row3">
 
                         <div class="cc-logo aos" data-aos="flip-left">
                         <img src={emirates} alt="" />
@@ -846,10 +830,6 @@ function Home() {
                             <img src="" alt="" />
                         </div>
 
-                    </div>
-
-                    <div class="cc-logos-row4">
-
                         <div class="cc-logo-empty">
                             <img src="" alt="" />
                         </div>
@@ -869,8 +849,12 @@ function Home() {
                         <div class="cc-logo aos" data-aos="flip-left">
                         <img src={emirates} alt="" />
                         </div>
+                    
 
-                    </div>
+                    
+
+                    
+
 
                 </div>
 
@@ -878,11 +862,6 @@ function Home() {
                     View More
                 </div>
             </section> 
-
-
-
-
-
 
 
         </div>

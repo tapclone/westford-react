@@ -20,7 +20,7 @@ function App() {
         <Route exact path='/mediaCentre' element={<MediaCentrePage></MediaCentrePage>}></Route>
         <Route exact path='/ourInstitution' element={<OurInstitutionsPage></OurInstitutionsPage>}></Route>
         <Route exact path='/ourPartners' element={<OurPartnersPage></OurPartnersPage>}></Route>
-        <Route exact path='/contact' element={<ContactUsPage></ContactUsPage>}></Route>
+        <Route exact path='' element={<ContactUsPage></ContactUsPage>}></Route>
       </Routes>
       </BrowserRouter>
       

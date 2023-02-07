@@ -3,9 +3,10 @@ import bannerOverLay from '../../src/images/westford assets/overlay.svg'
 import banner from '../../src/images/media-centre/hero-bg.png'
 import maImg1 from '../../src/images/media-centre/ma-img1.png'
 import article from '../../src/images/media-centre/main-article-img.png'
+import img from '../../src/images/home/art-sect-img1.png'
 function MediaCentre() {
   return (
-    <div>
+    <div style={{width:'100%',overflowX:'hidden'}}>
          <div class="hero" style={{backgroundImage:`url(${banner}),url(${bannerOverLay})`,backgroundPosition:"center center",backgroundSize:'cover',backgroundRepeat:"no-repeat",backgroundBlendMode:'multiply'}}>
 
 <div class="hero-heading">
@@ -17,34 +18,17 @@ function MediaCentre() {
 
 <section class="media-cntr-sec1 aos" data-aos="zoom-in" data-aos-duration="1500">
         <div class="media-cntr-sec1-headings">
-            <h2>Article and Blogs</h2>
+            <h2 style={{fontSize:'clamp(2rem,3vw,3rem)'}}>Article and Blogs</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                 has been the industry's standard dummy text ever since the 1500s</p>
         </div>
 
-        {/* <div class="main-article-box">
-            <div class="main-article-left" style={{width:'100%',height:'100%'}}>
-                <div class="ma-lft-img" style={{width:'100%',height:'100%'}}>
-                    <img src={article} alt="" />
-                </div>
-                <div class="ma-overlay" style={{width:'100%',height:'100%'}}></div>
-
-            </div>
-
-            <div class="main-article-right">
-                <h1>Why DBA’s from European Universities are higher in demand in Africa?</h1>
-                <p>When a crisis happens and times are tough it can be easy to lose focus on the
-                    importance of supporting and growing a strong </p>
-                <button onclick="window.location.href='/westfordeducation/article-one.html';">Read More</button>
-            </div>
-
-        </div> */}
-        <div style={{display:'flex',alignItems:'center',justifyContent:'center',aspectRatio:'1/0.4',width:'100%',marginTop:'5%'}}>
-            <div style={{width:'90%',display:'flex',justifyContent:'space-around'}}>
-                <div style={{width:'40%',height:'100%', borderRadius:"20px",   background: 'linear-gradient(360deg, #1F1F1F 0%, rgba(31, 31, 31, 0) 85.5%)'}}>
+        <div style={{display:'flex',alignItems:'center',justifyContent:'center',aspectRatio:'1/0.4',width:'100%'}}>
+            <div className='mediaCentreTop' style={{width:'90%',display:'flex',justifyContent:'space-around'}}>
+                <div style={{width:'40%',minWidth:"22rem",height:'100%', borderRadius:"20px",   background: 'linear-gradient(360deg, #1F1F1F 0%, rgba(31, 31, 31, 0) 85.5%)'}}>
                     <img style={{width:'100%',mixBlendMode:'multiply',borderRadius:'inherit'}} src={article} alt="" />
                 </div>
-                <div style={{width:'40%',height:'100%'}}>
+                <div className='mediaCentreTop2' style={{width:'40%',height:'100%'}}>
                     <h1>Why DBA’s from European Universities are higher in demand in Africa?</h1>
                     <p>When a crisis happens and times are tough it can be easy to lose focus on the
                     importance of supporting and growing a strong </p>
@@ -55,143 +39,157 @@ function MediaCentre() {
 
 
     </section>
+    <section className='articlesSection'>
+        
 
-    {/* <section class="articles-blogs">
-
-        <div class="slide-container swiper">
-            <div class="slide-content">
-                <div class="card-wrapper swiper-wrapper">
-
-                    <div class="card swiper-slide">
-                        <img src="/westfordeducation/images/home/art-sect-img1.png" alt="" />
-                        <div class="swipe-overlay">
-                            <img src="/westfordeducation/images/home/art-sect-img-overlay.png" alt="" />
-                        </div>
-                        <div class="slider-top-btn">Marketing</div>
-                        <div class="slider-text">
-                            <a href="#">
-                                <p class="p1" onclick="window.location.href='/westfordeducation/article-one.html';">
-                                    Lorem Ipsum is simply dummy text of the printing and.</p>
-
-                            </a>
-
-                            <p class="p2">Nov 29 . 10 Min Read</p>
-                        </div>
-                    </div>
-
-                    <div class="card swiper-slide">
-                        <img src="/westfordeducation/images/home/art-sect-img2.png" alt="" />
-                        <div class="swipe-overlay">
-                            <img src="/westfordeducation/images/home/art-sect-img-overlay.png" alt="" />
-                        </div>
-
-                        <div class="slider-top-btn">Marketing</div>
-                        <div class="slider-text">
-                            <a href="#">
-                                <p class="p1" onclick="window.location.href='/westfordeducation/article-one.html';">
-                                    Lorem Ipsum is simply dummy text of the printing and.</p>
-
-                            </a>
-
-                            <p class="p2">Nov 29 . 10 Min Read</p>
-                        </div>
-                    </div>
-
-                    <div class="card swiper-slide">
-                        <img src="/westfordeducation/images/home/art-sect-img3.png" alt="" />
-                        <div class="swipe-overlay">
-                            <img src="/westfordeducation/images/home/art-sect-img-overlay.png" alt="" />
-                        </div>
-
-                        <div class="slider-top-btn">Marketing</div>
-                        <div class="slider-text">
-                            <a href="#">
-                                <p class="p1" onclick="window.location.href='/westfordeducation/article-one.html';">
-                                    Lorem Ipsum is simply dummy text of the printing and.</p>
-
-                            </a>
-
-                            <p class="p2">Nov 29 . 10 Min Read</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-pagination"></div>
-
+        <div className='articleCard' style={{background:`url(${img})`,backgroundBlendMode:"multiply"}}>
+            <span style={{background:'white',padding:'7px',borderRadius:'5px',position:'absolute',top:'4%',left:'5%',}}>MARKETING</span> 
+            <p style={{color:'white',position:'absolute',bottom:'10%',padding:'0 2%',fontSize:'1.2rem',fontWeight:'500'}}> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p> 
+            <p style={{color:'white',position:'absolute',bottom:'1%',padding:'0 2%'}}>Nov 14  .  10 min Read</p>  
         </div>
 
-        <div class="article-blog-btn contactUs" onclick="window.location.href='/westfordeducation/media-centre.html';">
-            View More
+        <div className='articleCard' style={{background:`url(${img})`,backgroundBlendMode:"multiply"}}>
+            <span style={{background:'white',padding:'7px',borderRadius:'5px',position:'absolute',top:'4%',left:'5%',}}>MARKETING</span> 
+            <p style={{color:'white',position:'absolute',bottom:'10%',padding:'0 2%',fontSize:'1.2rem',fontWeight:'500'}}> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p> 
+            <p style={{color:'white',position:'absolute',bottom:'1%',padding:'0 2%'}}>Nov 14  .  10 min Read</p>  
         </div>
 
+        <div className='articleCard' style={{background:`url(${img})`,backgroundBlendMode:"multiply"}}>
+            <span style={{background:'white',padding:'7px',borderRadius:'5px',position:'absolute',top:'4%',left:'5%',}}>MARKETING</span> 
+            <p style={{color:'white',position:'absolute',bottom:'10%',padding:'0 2%',fontSize:'1.2rem',fontWeight:'500'}}> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p> 
+            <p style={{color:'white',position:'absolute',bottom:'1%',padding:'0 2%'}}>Nov 14  .  10 min Read</p>  
+        </div>
 
-    </section> */}
+        <div className='articleCard' style={{background:`url(${img})`,backgroundBlendMode:"multiply"}}>
+            <span style={{background:'white',padding:'7px',borderRadius:'5px',position:'absolute',top:'4%',left:'5%',}}>MARKETING</span> 
+            <p style={{color:'white',position:'absolute',bottom:'10%',padding:'0 2%',fontSize:'1.2rem',fontWeight:'500'}}> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p> 
+            <p style={{color:'white',position:'absolute',bottom:'1%',padding:'0 2%'}}>Nov 14  .  10 min Read</p>  
+        </div>
 
-    <section class="more-articles">
+        <div className='articleCard' style={{background:`url(${img})`,backgroundBlendMode:"multiply"}}>
+            <span style={{background:'white',padding:'7px',borderRadius:'5px',position:'absolute',top:'4%',left:'5%',}}>MARKETING</span> 
+            <p style={{color:'white',position:'absolute',bottom:'10%',padding:'0 2%',fontSize:'1.2rem',fontWeight:'500'}}> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p> 
+            <p style={{color:'white',position:'absolute',bottom:'1%',padding:'0 2%'}}>Nov 14  .  10 min Read</p>  
+        </div>
+
+        <div className='articleCard' style={{background:`url(${img})`,backgroundBlendMode:"multiply"}}>
+            <span style={{background:'white',padding:'7px',borderRadius:'5px',position:'absolute',top:'4%',left:'5%',}}>MARKETING</span> 
+            <p style={{color:'white',position:'absolute',bottom:'10%',padding:'0 2%',fontSize:'1.2rem',fontWeight:'500'}}> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p> 
+            <p style={{color:'white',position:'absolute',bottom:'1%',padding:'0 2%'}}>Nov 14  .  10 min Read</p>  
+        </div>
+
+    </section>
+
+    
+
+    <section class="more-articles" style={{height:'fit-content'}}>
         <div class="ma-headings">
             <h2>News and Events</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
         </div>
-
-        <div class="ma-list">
-            <div class="ma-list-row" style={{columnGap:'1rem'}}>
-                <div class="ma-list-single">
-                    <div class="ma-single-left">
-                        <img src={maImg1} alt="" />
+        <div className='newsAndArticles'>
+            <div className='rowNews'>
+            <div className='newsCard' style={{width:'33rem',height:'fit-content',display:'flex',border:'1px solid #CCCCCC',borderRadius:'20px'}}>
+                    <div  style={{width:'40%',backgroundPosition:"center",backgroundSize:"cover"}}>
+                    <img className='newsCardImg' style={{width:'100%'}} src={maImg1} alt="" />
                     </div>
-                    <div class="ma-single-right">
-                        <h3>Why DBA’s from European Universities are higher in...</h3>
-                        <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...
-                        </p>
-                        <h4> <a href="#"> Read more </a> </h4>
+                    <div style={{width:'60%',height:'100%',display:'flex',flexDirection:'column',alignItems:"stretch",padding:'0 1rem'}}>
+                        <h3 style={{fontWeight:'normal'}}>Why DBA’s from European Universities are higher in...</h3>
+                        <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...</p>
+                        <span style={{color:'red',textDecoration:'underline'}}>Read More</span>
                     </div>
-
+                </div>
+                <div className='newsCard' style={{width:'33rem',height:'fit-content',display:'flex',border:'1px solid #CCCCCC',borderRadius:'20px'}}>
+                    <div style={{width:'40%',backgroundPosition:"center",backgroundSize:"cover"}}>
+                    <img className='newsCardImg' style={{width:'100%'}} src={maImg1} alt="" />
+                    </div>
+                    <div style={{width:'60%',height:'100%',display:'flex',flexDirection:'column',alignItems:"stretch",padding:'0 1rem'}}>
+                        <h3 style={{fontWeight:'normal'}}>Why DBA’s from European Universities are higher in...</h3>
+                        <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...</p>
+                        <span style={{color:'red',textDecoration:'underline'}}>Read More</span>
+                    </div>
+                </div>
+                <div className='newsCard' style={{width:'33rem',height:'fit-content',display:'flex',border:'1px solid #CCCCCC',borderRadius:'20px'}}>
+                    <div style={{width:'40%',backgroundPosition:"center",backgroundSize:"cover"}}>
+                    <img className='newsCardImg' style={{width:'100%'}} src={maImg1} alt="" />
+                    </div>
+                    <div style={{width:'60%',height:'100%',display:'flex',flexDirection:'column',alignItems:"stretch",padding:'0 1rem'}}>
+                        <h3 style={{fontWeight:'normal'}}>Why DBA’s from European Universities are higher in...</h3>
+                        <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...</p>
+                        <span style={{color:'red',textDecoration:'underline'}}>Read More</span>
+                    </div>
+                </div>
+                <div className='newsCard' style={{width:'33rem',height:'fit-content',display:'flex',border:'1px solid #CCCCCC',borderRadius:'20px'}}>
+                    <div style={{width:'40%',backgroundPosition:"center",backgroundSize:"cover"}}>
+                        <img className='newsCardImg' style={{width:'100%'}} src={maImg1} alt="" />
+                    </div>
+                    <div style={{width:'60%',height:'100%',display:'flex',flexDirection:'column',alignItems:"stretch",padding:'0 1rem'}}>
+                        <h3 style={{fontWeight:'normal'}}>Why DBA’s from European Universities are higher in...</h3>
+                        <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...</p>
+                        <span style={{color:'red',textDecoration:'underline'}}>Read More</span>
+                    </div>
                 </div>
 
-                <div class="ma-list-single">
-                    <div class="ma-single-left">
-                        <img src={maImg1} alt="" />
-                    </div>
-                    <div class="ma-single-right">
-                        <h3>Why DBA’s from European Universities are higher in...</h3>
-                        <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...
-                        </p>
-                        <h4> <a href="#"> Read more </a> </h4>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="ma-list-row" style={{columnGap:'1rem'}}>
-                <div class="ma-list-single">
-                    <div class="ma-single-left">
-                        <img src={maImg1} alt="" />
-                    </div>
-                    <div class="ma-single-right">
-                        <h3>Why DBA’s from European Universities are higher in...</h3>
-                        <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...
-                        </p>
-                        <h4> <a href="#"> Read more </a> </h4>
-                    </div>
-
-                </div>
-
-                <div class="ma-list-single">
-                    <div class="ma-single-left">
-                        <img src={maImg1} alt="" />
-                    </div>
-                    <div class="ma-single-right">
-                        <h3>Why DBA’s from European Universities are higher in...</h3>
-                        <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...
-                        </p>
-                        <h4> <a href="#"> Read more </a> </h4>
-                    </div>
-
-                </div>
+                
             </div>
         </div>
+
+        {/* <div class="ma-list">
+            <div class="ma-list-row" style={{columnGap:'1rem'}}>
+                <div class="ma-list-single">
+                    <div class="ma-single-left">
+                        <img src={maImg1} alt="" />
+                    </div>
+                    <div class="ma-single-right">
+                        <h3>Why DBA’s from European Universities are higher in...</h3>
+                        <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...
+                        </p>
+                        <h4> <a href="#"> Read more </a> </h4>
+                    </div>
+
+                </div>
+
+                <div class="ma-list-single">
+                    <div class="ma-single-left">
+                        <img src={maImg1} alt="" />
+                    </div>
+                    <div class="ma-single-right">
+                        <h3>Why DBA’s from European Universities are higher in...</h3>
+                        <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...
+                        </p>
+                        <h4> <a href="#"> Read more </a> </h4>
+                    </div>
+
+                </div>
+
+                <div class="ma-list-single">
+                    <div class="ma-single-left">
+                        <img src={maImg1} alt="" />
+                    </div>
+                    <div class="ma-single-right">
+                        <h3>Why DBA’s from European Universities are higher in...</h3>
+                        <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...
+                        </p>
+                        <h4> <a href="#"> Read more </a> </h4>
+                    </div>
+
+                </div>
+
+                <div class="ma-list-single">
+                    <div class="ma-single-left">
+                        <img src={maImg1} alt="" />
+                    </div>
+                    <div class="ma-single-right">
+                        <h3>Why DBA’s from European Universities are higher in...</h3>
+                        <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...
+                        </p>
+                        <h4> <a href="#"> Read more </a> </h4>
+                    </div>
+
+                </div>
+            </div>
+        </div> */}
 
         <div class="ma-btn contactUs" onclick="window.location.href='/westfordeducation/article-one.html';">View More</div>
     </section>

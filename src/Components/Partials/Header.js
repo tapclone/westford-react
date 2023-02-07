@@ -41,7 +41,7 @@ function Header() {
             </div>
 
 
-            <div class="navbar" style={{height:navState&&'10rem'}}>
+            <div class="navbar" style={{height:navState&&'15rem'}}>
 
                 <ul class="nav-list">
                     <li class="nav-item"> <a onClick={()=>navigate('/')}>Home</a> </li>

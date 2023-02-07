@@ -1307,8 +1307,8 @@ body{
   }
 
   .cc-logo {
-    width: 254px;
-    height: 109px;
+    /* width: 254px;
+    height: 109px; */
 
 
     background: #FFFFFF;
@@ -1320,8 +1320,8 @@ body{
   }
 
   .cc-logo-empty {
-    width: 87px;
-    height: 109px;
+    /* width: 87px;
+    height: 109px; */
 
 
     background: #FFFFFF;
