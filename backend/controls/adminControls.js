@@ -9,7 +9,8 @@ const { uploadS3 } = require("../middelware/S3");
 
 const Login = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
-  if (username == "ebd@gmail.com" && password == "password") {
+  console.log(req.body, "dkjc");
+  if (username == "weastford@gmail.com" && password == "password") {
     const token = generateToken(password);
     res.status(200).json(token);
   } else {
@@ -17,17 +18,28 @@ const Login = asyncHandler(async (req, res) => {
   }
 });
 
-const AddBlog = asyncHandler(async (req, res) => {
+const ADDINSTITUTE = asyncHandler(async (req, res) => {
   const blogData = req.body;
   const addBlog = await db
     .get()
-    .collection(collection.BLOG_COLLECTION)
+    .collection(collection.INSTITUTE_COLLECTION)
     .insertOne(blogData);
-  console.log(addBlog);
   if (addBlog) {
     res.status(200).json("Success");
   } else {
     res.status(500).json("Something Went Wrong");
+  }
+});
+const viewAllInstitute = asyncHandler(async (req, res) => {
+  const viewAllBlog = await db
+    .get()
+    .collection(collection.INSTITUTE_COLLECTION)
+    .find() 
+    .toArray();
+  if (viewAllBlog) {
+    res.status(200).send(viewAllBlog);
+  } else {
+    res.status(500).json("Something Went wrong");
   }
 });
 
@@ -45,18 +57,7 @@ const DeleteBlog = asyncHandler(async (req, res) => {
   }
 });
 
-const viewAllBlog = asyncHandler(async (req, res) => {
-  const viewAllBlog = await db
-    .get()
-    .collection(collection.BLOG_COLLECTION)
-    .find()
-    .toArray();
-  if (viewAllBlog) {
-    res.status(200).send(viewAllBlog);
-  } else {
-    res.status(500).json("Something Went wrong");
-  }
-});
+
 
 const AddProject = asyncHandler(async (req, res) => {
   const Project = req.body;
@@ -101,40 +102,45 @@ const ViewAllProject = asyncHandler(async (req, res) => {
   }
 });
 const UploadImage = asyncHandler(async (req, res) => {
-  let images = [];
-  console.log(req.files);
-  if (req.files.file && req.files.file.length > 0) {
-    for (let i = 0; i < req.files.file.length; i++) {
-      uploadS3(req.files.file[i].data)
-        .then((result) => {
-          const obj = {
-            url: result.Location,
-            key: result.Key,
-          };
-          images.push(obj);
-          if (images.length == req.files.file.length) {
-            res.status(200).json(images);
-          }
-        })
-        .catch((error) => {
-          res.status(400).json("Something went wrong");
-        });
-    }
+  console.log(req.file.path);
+  const path = req.file.path;
+  if (path) {
+    res.status(200).json(path);
   } else {
-    uploadS3(req.files.file.data)
-      .then((result) => {
-        const obj = {
-          url: result.Location,
-          key: result.Key,
-        };
-        console.log(obj);
-        res.status(200).json(obj);
-      })
-
-      .catch((error) => {
-        res.status(400).json("Something went wrong");
-      });
+    res.status(400).json("Something Went Wrong");
   }
+  // if (req.files.file && req.files.file.length > 0) {
+  //   for (let i = 0; i < req.files.file.length; i++) {
+  //     uploadS3(req.files.file[i].data)
+  //       .then((result) => {
+  //         const obj = {
+  //           url: result.Location,
+  //           key: result.Key,
+  //         };
+  //         images.push(obj);
+  //         if (images.length == req.files.file.length) {
+  //           res.status(200).json(images);
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         res.status(400).json("Something went wrong");
+  //       });
+  //   }
+  // } else {
+  //   uploadS3(req.files.file.data)
+  //     .then((result) => {
+  //       const obj = {
+  //         url: result.Location,
+  //         key: result.Key,
+  //       };
+  //       console.log(obj);
+  //       res.status(200).json(obj);
+  //     })
+
+  //     .catch((error) => {
+  //       res.status(400).json("Something went wrong");
+  //     });
+  // }
 });
 const ViewSingleProject = asyncHandler(async (req, res) => {
   const id = req.params.id;
@@ -163,9 +169,9 @@ const ViewSingleBlog = asyncHandler(async (req, res) => {
 });
 module.exports = {
   Login,
-  AddBlog,
+  ADDINSTITUTE,
   DeleteBlog,
-  viewAllBlog,
+  viewAllInstitute,
   AddProject,
   DeleteProject,
   ViewAllProject,

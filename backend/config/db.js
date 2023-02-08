@@ -13,7 +13,7 @@ module.exports.connect = function (done) {
     if (err) return done(err);
 
     //mongoDB name
-    const dbname = process.env.DATABASE || "EBD";
+    const dbname = process.env.DATABASE || "weastford";
     state.db = data.db(dbname);
 
     //Add return statement to call done callback after connection is established 

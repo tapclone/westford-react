@@ -3,6 +3,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const db = require("./config/db");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+var bodyParser = require('body-parser')
 const path = require("path");
 
 const cors = require("cors");
@@ -11,12 +12,15 @@ const fileUpload = require("express-fileupload");
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const app = express();
 app.use(express.json());
+
 app.use(cookieParser());
 app.use(cors());
-app.use(fileUpload());
+// app.use(fileUpload());
 app.use(express.static("files"));
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 app.use(session({ secret: "key", cookie: { maxAge: 6000000 } }));
+
 app.use("/api/admin", adminRoutes);
 const PORT = process.env.PORT || 9000;
 db.connect((err) => {
@@ -24,9 +28,10 @@ db.connect((err) => {
     console.log("connection error" + err);
   } else {
     console.log("database connected");
-  }
+  } 
 });
 __dirname = path.resolve();
+app.use('/images',express.static(path.join(__dirname,"images")))
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/build")));
   app.get("*", (req, res) => {

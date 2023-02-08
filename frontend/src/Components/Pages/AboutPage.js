@@ -9,8 +9,8 @@ function AboutPage() {
         <Header></Header>
         <About></About>
         <Footer></Footer>
-    </div>
-  )
+    </div> 
+  ) 
 }
 
 export default AboutPage

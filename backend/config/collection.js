@@ -1,4 +1,4 @@
 module.exports = {
-  BLOG_COLLECTION: "blog",
+  INSTITUTE_COLLECTION: "institute",
   PROJECT_COLLECTION: "project",
 };
