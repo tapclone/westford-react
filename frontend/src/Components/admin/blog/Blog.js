@@ -1,4 +1,4 @@
-import "./Institution.css";
+import "./Blog.css";
 import { React, useState, useEffect } from "react";
 import { Backdrop, Fade, Modal } from "@mui/material";
 import { Box } from "@mui/material";
@@ -37,7 +37,7 @@ function Project() {
   useEffect(() => {
     (async function () {
       try {
-        const { data } = await axios.get("/api/admin/view-all-institute");
+        const { data } = await axios.get("/api/admin/view-all-blog");
         setProject(data);
       } catch (error) {
         console.log(error);
@@ -52,7 +52,7 @@ function Project() {
     };
     if (heading && description && image) {
       try {
-        const { data } = await axios.post("/api/admin/add-institute", obj);
+        const { data } = await axios.post("/api/admin/add-blog", obj);
 
         setImage("");
         setLoading(false);

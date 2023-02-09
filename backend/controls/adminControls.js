@@ -34,7 +34,7 @@ const viewAllInstitute = asyncHandler(async (req, res) => {
   const viewAllBlog = await db
     .get()
     .collection(collection.INSTITUTE_COLLECTION)
-    .find() 
+    .find()
     .toArray();
   if (viewAllBlog) {
     res.status(200).send(viewAllBlog);
@@ -43,19 +43,172 @@ const viewAllInstitute = asyncHandler(async (req, res) => {
   }
 });
 
-const DeleteBlog = asyncHandler(async (req, res) => {
+const DeleteInstitute = asyncHandler(async (req, res) => {
   const id = req.params.id;
   const deleteBlog = await db
     .get()
-    .collection(collection.BLOG_COLLECTION)
+    .collection(collection.INSTITUTE_COLLECTION)
     .deleteOne({ _id: ObjectId(id) });
-  console.log(deleteBlog, "dm");
   if (deleteBlog) {
     res.status(200).json("Success");
   } else {
     res.status(500).json("Something Went Wrong");
   }
 });
+
+const AddPartners = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const addPartners = await db
+    .get()
+    .collection(collection.PARTNERS_COLLECTION)
+    .insertOne(data);
+  if (addPartners) {
+    res.status(200).json("added");
+  } else {
+    res.status(400).json("Somthing Went Wrong");
+  }
+});
+const viewAllPartners = asyncHandler(async (req, res) => {
+  const viewAllBlog = await db
+    .get()
+    .collection(collection.PARTNERS_COLLECTION)
+    .find()
+    .toArray();
+  if (viewAllBlog) {
+    res.status(200).send(viewAllBlog);
+  } else {
+    res.status(200).json("No records");
+  } 
+});
+
+const DeletePartners = asyncHandler(async (req, res) => {
+  const id = req.params.id;
+  const deleteBlog = await db
+    .get()
+    .collection(collection.PARTNERS_COLLECTION)
+    .deleteOne({ _id: ObjectId(id) });
+  if (deleteBlog) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Something Went Wrong");
+  }
+});
+const AddClinets = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const addPartners = await db
+    .get()
+    .collection(collection.CLIENTS_COLLECTION)
+    .insertOne(data);
+  if (addPartners) {
+    res.status(200).json("added");
+  } else {
+    res.status(400).json("Somthing Went Wrong");
+  }
+});
+const ViewAllClients = asyncHandler(async (req, res) => {
+  const ViewAllClients = await db
+    .get()
+    .collection(collection.CLIENTS_COLLECTION)
+    .find()
+    .toArray();
+  if (ViewAllClients){
+    res.status(200).send(ViewAllClients);
+  } else {
+    res.status(200).json("No records");
+  } 
+});
+
+const DeleteClients= asyncHandler(async (req, res) => {
+  const id = req.params.id;
+  const deleteClients = await db
+    .get()
+    .collection(collection.CLIENTS_COLLECTION)
+    .deleteOne({ _id: ObjectId(id) });
+  if (deleteClients) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Something Went Wrong");
+  }
+});
+
+const AddMedia = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const addPartners = await db
+    .get()
+    .collection(collection.MEDIA_COLLECTION)
+    .insertOne(data);
+  if (addPartners) {
+    res.status(200).json("added");
+  } else {
+    res.status(400).json("Somthing Went Wrong");
+  }
+});
+const ViewAllMedia = asyncHandler(async (req, res) => {
+  const ViewAllClients = await db
+    .get()
+    .collection(collection.MEDIA_COLLECTION)
+    .find()
+    .toArray();
+  if (ViewAllClients){
+    res.status(200).send(ViewAllClients);
+  } else {
+    res.status(200).json("No records");
+  } 
+});
+
+const DeleteMedia= asyncHandler(async (req, res) => {
+  const id = req.params.id;
+  const deleteClients = await db
+    .get()
+    .collection(collection.MEDIA_COLLECTION)
+    .deleteOne({ _id: ObjectId(id) });
+  if (deleteClients) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Something Went Wrong");
+  }
+});
+
+
+
+const AddBlog = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const addPartners = await db
+    .get()
+    .collection(collection.BLOG_COLLECTION)
+    .insertOne(data);
+  if (addPartners) {
+    res.status(200).json("added");
+  } else {
+    res.status(400).json("Somthing Went Wrong");
+  }
+});
+const ViewAllBlog = asyncHandler(async (req, res) => {
+  const ViewAllClients = await db
+    .get()
+    .collection(collection.BLOG_COLLECTION)
+    .find()
+    .toArray();
+  if (ViewAllClients){
+    res.status(200).send(ViewAllClients);
+  } else {
+    res.status(200).json("No records");
+  } 
+});
+
+const DeleteBlog= asyncHandler(async (req, res) => {
+  const id = req.params.id;
+  const deleteClients = await db
+    .get()
+    .collection(collection.BLOG_COLLECTION)
+    .deleteOne({ _id: ObjectId(id) });
+  if (deleteClients) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Something Went Wrong");
+  }
+});
+
 
 
 
@@ -167,11 +320,24 @@ const ViewSingleBlog = asyncHandler(async (req, res) => {
     res.status(400).json("Something Went Wrong");
   }
 });
+
 module.exports = {
   Login,
   ADDINSTITUTE,
-  DeleteBlog,
+  DeleteInstitute,
   viewAllInstitute,
+  AddPartners,
+  DeletePartners,
+  viewAllPartners,
+  AddClinets,
+  ViewAllClients,
+  DeleteClients,
+  AddMedia,
+  ViewAllMedia,
+  DeleteMedia,
+  AddBlog,
+  ViewAllBlog,
+  DeleteBlog,
   AddProject,
   DeleteProject,
   ViewAllProject,

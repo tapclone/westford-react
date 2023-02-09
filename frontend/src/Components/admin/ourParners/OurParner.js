@@ -1,4 +1,4 @@
-import "./Institution.css";
+import "./OurParners.css";
 import { React, useState, useEffect } from "react";
 import { Backdrop, Fade, Modal } from "@mui/material";
 import { Box } from "@mui/material";
@@ -24,7 +24,8 @@ const style = {
 function Project() {
   const [loading, setLoading] = useState(false);
   const [Project, setProject] = useState([]);
-  const [heading, setHeading] = useState();
+  const [countryData, setCountrydata] = useState([]);
+  const [country, setCountry] = useState();
   const [image, setImage] = useState();
   const [description, setDescription] = useState();
   const [open, setOpen] = useState(false);
@@ -34,26 +35,39 @@ function Project() {
   const adminToken = localStorage.getItem("adminToken");
   const Navigate = useNavigate();
 
-  useEffect(() => {
-    (async function () {
+  useEffect(() => { 
+    (async function () { 
       try {
-        const { data } = await axios.get("/api/admin/view-all-institute");
+        const { data } = await axios.get("/api/admin/view-all-partners");
         setProject(data);
       } catch (error) {
         console.log(error);
       }
     })();
   }, [loading]);
-  const AddInstitue = async () => {
+
+//   useEffect(() => {
+//     (async function () {
+//       try {
+//         const { data } = await axios.get(
+//           "https://api.first.org/data/v1/countries"
+//         );
+//         console.log(data, "dkc");
+//         setCountrydata(data);
+//       } catch (error) {
+//         console.log(error);
+//       }
+//     })();
+//   });
+  const AddPartners = async () => {
     const obj = {
-      header: heading,
+      country: country,
       description: description,
       Image: image,
     };
-    if (heading && description && image) {
+    if (country && description && image) {
       try {
-        const { data } = await axios.post("/api/admin/add-institute", obj);
-
+        const { data } = await axios.post("/api/admin/add-partners", obj);
         setImage("");
         setLoading(false);
         setLoading(true);
@@ -70,7 +84,7 @@ function Project() {
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover this data file!",
-      icon: "warning",
+      icon: "warning", 
       buttons: true,
       dangerMode: true,
     }).then(async (willDelete) => {
@@ -82,7 +96,7 @@ function Project() {
             },
           };
           await axios
-            .delete(`/api/admin/delete-blog/${id}`, config)
+            .delete(`/api/admin/delete-partners/${id}`, config)
             .then((res) => {
               setLoading(false);
               setLoading(true);
@@ -107,7 +121,7 @@ function Project() {
   //     console.log(error);
   //   }
   // };
-  const imageUploaing = async (e) => {
+  const imageUploaing = async (e) => { 
     const length = e.target.files.length;
     let formData = new FormData();
     const file = e.target.files[0];
@@ -146,13 +160,13 @@ function Project() {
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
               <form>
                 <div class="row">
-                  <h4>Heading</h4>
+                  <h4>Country</h4>
                   <div class="input-group input-group-icon">
                     <input
                       type="text"
-                      placeholder="Heading"
+                      placeholder="Country"
                       onChange={(e) => {
-                        setHeading(e.target.value);
+                        setCountry(e.target.value);
                       }}
                       required
                     />
@@ -198,7 +212,7 @@ function Project() {
                 {error && <div style={{ color: "red" }}>{error}</div>}
                 <div style={{ textAlign: "center" }}>
                   <a
-                    onClick={AddInstitue}
+                    onClick={AddPartners}
                     style={{
                       cursor: "pointer",
                       backgroundColor: "#4CAF50",
@@ -240,7 +254,7 @@ function Project() {
           }}
           onClick={handleOpen}
         >
-          ADD INSTITUTION
+          ADD PARTNERS
         </button>
         <div class="header_fixed">
           <table>
@@ -248,7 +262,7 @@ function Project() {
               <tr>
                 <th>S No.</th>
                 <th>Image</th>
-                <th>Heading</th>
+                <th>Country</th>
                 <th>Description</th>
                 <th>Action</th>
               </tr>
@@ -261,7 +275,7 @@ function Project() {
                     <td style={{ textAlign: "center" }}>
                       <img src={items?.Image} />
                     </td>
-                    <td style={{ textAlign: "center" }}>{items.header}</td>
+                    <td style={{ textAlign: "center" }}>{items.country}</td>
                     <td style={{ textAlign: "center" }}>{items.description}</td>
                     <td style={{ textAlign: "center" }}>
                       <button

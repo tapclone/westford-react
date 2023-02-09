@@ -73,11 +73,44 @@ function AdminMain() {
               <a
                 class="s-sidebar__nav-link"
                 onClick={() => {
-                  navigate("/view-all-blog");
+                  navigate("/our-partners");
                 }}
               >
                 <BookmarksIcon className="navIcon"></BookmarksIcon>
-                <em>BLOG</em>
+                <em>Partners</em>
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/media-page");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Media</em>
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/corporate-clients");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Corporate-clients</em>
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/blog-page");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Blog</em>
               </a>
             </li>
           </div>
@@ -88,6 +121,7 @@ function AdminMain() {
                 <em>Logout</em>
               </a>
             </li>
+            
           </div>
         </ul>
       </nav>
