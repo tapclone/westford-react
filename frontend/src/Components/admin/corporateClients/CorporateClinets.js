@@ -64,8 +64,11 @@ function Project() {
       try {
         const { data } = await axios.post("/api/admin/add-clients", obj);
         setImage("");
-        setLoading(false);
-        setLoading(true);
+        if (loading) {
+          setLoading(false);
+        } else {
+          setLoading(true);
+        }
         handleClose();
       } catch (error) {
         setError("Something Went Wrong");
@@ -93,8 +96,11 @@ function Project() {
           await axios
             .delete(`/api/admin/delete-clients/${id}`, config)
             .then((res) => {
-              setLoading(false);
-              setLoading(true);
+              if (loading) {
+                setLoading(false);
+              } else {
+                setLoading(true);
+              }
             })
             .catch((err) => {
               console.log(err);

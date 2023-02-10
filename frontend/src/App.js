@@ -15,6 +15,9 @@ import OurInstitution from './Components/Pages/admin/OurInstitution'
 import CorporateClinets from './Components/Pages/admin/CorporateClinets'
 import MediaClients from './Components/Pages/admin/Media'
 import BlogPage from './Components/Pages/admin/Blog'
+import  Leadership from './Components/Pages/admin/Leadership'
+import  AwardAdminPage from './Components/Pages/admin/Awads'
+import  Milestone from './Components/Pages/admin/Milestones'
 
 function App() {
   return (
@@ -34,8 +37,12 @@ function App() {
         <Route exact path='/our-partners' element={<OurPartnersPage/>}></Route>
         <Route exact path='/media-page' element={<MediaClients/>}></Route>
         <Route exact path='/blog-page' element={<BlogPage/>}></Route>
+        <Route exact path='/leadership' element={<Leadership/>}></Route>
+        <Route exact path='/AwardAdminPage' element={<AwardAdminPage/>}></Route>
+        <Route exact path='/milestones' element={<Milestone/>}></Route>
+
         <Route exact path='' element={<ContactUsPage></ContactUsPage>}></Route>
-      </Routes> 
+      </Routes>  
       </BrowserRouter>
       
 

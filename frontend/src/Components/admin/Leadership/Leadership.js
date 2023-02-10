@@ -1,4 +1,4 @@
-import "./Institution.css";
+import "./Leadership.css";
 import { React, useState, useEffect } from "react";
 import { Backdrop, Fade, Modal } from "@mui/material";
 import { Box } from "@mui/material";
@@ -24,9 +24,9 @@ const style = {
 function Project() {
   const [loading, setLoading] = useState(false);
   const [Project, setProject] = useState([]);
-  const [heading, setHeading] = useState();
+  const [name, setName] = useState();
   const [image, setImage] = useState();
-  const [description, setDescription] = useState();
+  const [position, setPosition] = useState();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,7 +37,7 @@ function Project() {
   useEffect(() => {
     (async function () {
       try {
-        const { data } = await axios.get("/api/admin/view-all-institute");
+        const { data } = await axios.get("/api/admin/view-all-leadership");
         setProject(data);
       } catch (error) {
         console.log(error);
@@ -46,20 +46,19 @@ function Project() {
   }, [loading]);
   const AddInstitue = async () => {
     const obj = {
-      header: heading,
-      description: description,
+      name: name,
+      position: position,
       Image: image,
     };
-    if (heading && description && image) {
+    if (name && position && image) {
       try {
-        const { data } = await axios.post("/api/admin/add-institute", obj);
-
+        const { data } = await axios.post("/api/admin/add-leadership", obj);
         setImage("");
         if (loading) {
-          setLoading(false);
-        } else {
-          setLoading(true);
-        }
+            setLoading(false);
+          } else {
+            setLoading(true);
+          }
         handleClose();
       } catch (error) {
         setError("Something Went Wrong");
@@ -85,13 +84,13 @@ function Project() {
             },
           };
           await axios
-            .delete(`/api/admin/delete-blog/${id}`, config)
+            .delete(`/api/admin/delete-leadership/${id}`, config)
             .then((res) => {
-              if (loading) {
-                setLoading(false);
-              } else {
-                setLoading(true);
-              }
+                if (loading) {
+                    setLoading(false);
+                  } else {
+                    setLoading(true);
+                  }
             })
             .catch((err) => {
               console.log(err);
@@ -152,13 +151,13 @@ function Project() {
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
               <form>
                 <div class="row">
-                  <h4>Heading</h4>
+                  <h4>Enter Name</h4>
                   <div class="input-group input-group-icon">
                     <input
                       type="text"
-                      placeholder="Heading"
+                      placeholder="Name"
                       onChange={(e) => {
-                        setHeading(e.target.value);
+                        setName(e.target.value);
                       }}
                       required
                     />
@@ -166,17 +165,20 @@ function Project() {
                       <i class="fa fa-user"></i>
                     </div>
                   </div>
-                  <div class="input-group ">
-                    <textarea
-                      type="message"
+                  <div class="input-group input-group-icon">
+                    <input
+                      type="text"
+                      placeholder="Role"
                       onChange={(e) => {
-                        setDescription(e.target.value);
+                        setPosition(e.target.value);
                       }}
-                      rows={4}
-                      placeholder="Project Description"
+                      required
                     />
+                    <div class="input-icon">
+                      <i class="fa fa-user"></i>
+                    </div>
                   </div>
-                  <h4>ADD IMAGES</h4>
+                  <h4>ADD IMAGE</h4>
                   <div class="input-group input-group-icon">
                     <input
                       type="file"
@@ -197,7 +199,7 @@ function Project() {
                   {image && (
                     <img
                       src={image}
-                      style={{ width: "5rem", height: "2rem" }}
+                      style={{ width: "3rem", height: "6rem" }}
                     ></img>
                   )}
                 </div>
@@ -246,7 +248,7 @@ function Project() {
           }}
           onClick={handleOpen}
         >
-          ADD INSTITUTION
+          ADD LEADERSHIP
         </button>
         <div class="header_fixed">
           <table>
@@ -254,8 +256,8 @@ function Project() {
               <tr>
                 <th>S No.</th>
                 <th>Image</th>
-                <th>Heading</th>
-                <th>Description</th>
+                <th>Name</th>
+                <th>Role</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -265,10 +267,10 @@ function Project() {
                   <tr key={index}>
                     <td style={{ textAlign: "center" }}>{index + 1}</td>
                     <td style={{ textAlign: "center" }}>
-                      <img src={items?.Image} />
+                      <img src={items?.Image} style={{width:"5rem",height:"5rem"}}/>
                     </td>
-                    <td style={{ textAlign: "center" }}>{items.header}</td>
-                    <td style={{ textAlign: "center" }}>{items.description}</td>
+                    <td style={{ textAlign: "center" }}>{items.name}</td>
+                    <td style={{ textAlign: "center" }}>{items.position}</td>
                     <td style={{ textAlign: "center" }}>
                       <button
                         onClick={(e) => {

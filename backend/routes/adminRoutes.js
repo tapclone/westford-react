@@ -20,11 +20,16 @@ const {
   AddBlog,
   ViewAllBlog,
   DeleteBlog,
-  AddProject,
-  DeleteProject,
-  ViewAllProject,
+  AddLeadership,
+  ViewAllLeadership,
+  DeleteLeadership,
+  AddAwards,
+  ViewAllAwards,
+  DeleteAwards,
+  AddMilestones,
+  ViewAllMilestones,
+  DeleteMilestones,
   UploadImage,
-  ViewSingleProject,
   ViewSingleBlog,
 } = require("../controls/adminControls");
 
@@ -44,11 +49,15 @@ router.route("/view-all-media").get(ViewAllMedia);
 router.route("/add-blog").post(AddBlog);
 router.route("/view-all-blog").get(ViewAllBlog);
 router.route("/delete-blog/:id").delete(DeleteBlog);
-
-router.route("/add-project").post(AddProject);
-router.route("/deleting-project/:id").delete(DeleteProject);
-router.route("/view-all-project").get(ViewAllProject);
-router.route("/view-single-project/:id").get(ViewSingleProject);
+router.route("/add-leadership").post(AddLeadership);
+router.route("/view-all-leadership").get(ViewAllLeadership);
+router.route("/delete-leadership/:id").delete(DeleteLeadership);
+router.route("/view-all-awards").get(ViewAllAwards);
+router.route("/add-awards").post(AddAwards);
+router.route("/delete-awards/:id").delete(DeleteAwards);
+router.route("/add-milestones").post(AddMilestones)
+router.route("/view-all-milestones").get(ViewAllMilestones)
+router.route("/delete-milestones/:id").delete(DeleteMilestones)
 router.route("/view-single-blog/:id").get(ViewSingleBlog);
 router.route("/image-uploading").post(upload.single("image"), UploadImage);
 

@@ -47,15 +47,19 @@ function Project() {
   const AddInstitue = async () => {
     const obj = {
       header: heading,
-      description: description, 
+      date:date,
+      description:description, 
       link: link,
     };
     if (heading && description && link) {
       try {
         const { data } = await axios.post("/api/admin/add-media", obj);
         setImage("");
-        setLoading(false);
-        setLoading(true);
+        if (loading) {
+          setLoading(false);
+        } else {
+          setLoading(true);
+        }
         handleClose();
       } catch (error) {
         setError("Something Went Wrong");
@@ -83,8 +87,11 @@ function Project() {
           await axios
             .delete(`/api/admin/delete-media/${id}`, config)
             .then((res) => {
-              setLoading(false);
-              setLoading(true);
+              if (loading) {
+                setLoading(false);
+              } else {
+                setLoading(true);
+              }
             })
             .catch((err) => {});
         } catch (err) {}

@@ -66,7 +66,7 @@ function AdminMain() {
                 }}
               >
                 <CollectionsIcon className="navIcon"></CollectionsIcon>
-                <em>OUR INSTITUTION</em>
+                <em>Our Institution</em>
               </a>
             </li>
             <li>
@@ -113,6 +113,39 @@ function AdminMain() {
                 <em>Blog</em>
               </a>
             </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/leadership");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Leadership</em>
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/AwardAdminPage");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Awards</em>
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/milestones");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Milestones</em>
+              </a>
+            </li>
           </div>
           <div>
             <li>
@@ -121,7 +154,6 @@ function AdminMain() {
                 <em>Logout</em>
               </a>
             </li>
-            
           </div>
         </ul>
       </nav>
