@@ -664,17 +664,23 @@ body{
 .leaders-img-text {
     height: 440px;
     width: 301px;
+    background-color: #ecf1f4;
     position: relative;
 
+    box-shadow: 5px 5px 10px #aaaaaa;
 }
 
+.leaders-img-text img{
+    width: 301px;
+    height: 404px;
+}
 
 .leaders-indiv-bottom {
     position: absolute;
     bottom: 0;
     width: 301px;
     height: 130px;
-    background-color: #F8F8F8;
+    background-color: #ffffff;
 }
 
 .leaders-indiv-bottom h3{

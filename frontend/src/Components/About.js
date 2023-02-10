@@ -13,7 +13,7 @@ import zigzag from '../../src/images/about-us/zig-zag.png'
 
 function About() {
     return (
-        <div style={{width:'100%',overflowX:'hidden'}}>
+        <div style={{ width: '100%', overflowX: 'hidden' }}>
             <div class="hero" style={{ backgroundImage: `url(${banner}),url(${bannerOverLay})`, backgroundPosition: "center center", backgroundSize: 'cover', backgroundRepeat: "no-repeat", backgroundBlendMode: 'multiply' }}>
                 {/* <div style={{width:'100%',height:'100%',backgroundColor:'blue',position:'absolute',top:'0',left:'0'}}></div> */}
 
@@ -24,116 +24,34 @@ function About() {
                 {/* <div class="abt-hero-overlay" style={{background:`url(${bannerOverLay})`,backgroundPosition:"center center",backgroundSize:'cover'}}></div> */}
 
             </div>
-            <div class="abt-westford aos" data-aos="zoom-in" data-aos-duration="1000" style={{ height: 'fit-content', marginBottom: '2rem' }}>
-                <div class="our-institution-section1" style={{ width: "100%", columnGap: '3rem', paddingTop: '5rem' }}>
-
-                    <div class="our-institution-img">
-                        <div class="grey-bg" style={{ width: '90%' }}>
-                            <div class="grey-bg-outline" style={{ width: '100%' }}>
-                            </div>
-                            <img class="heroSecImg our-institution-lady-img"
-                                src={heroImg} alt="" />
-                            <img class="zig-zag1" src={zigzag} alt="" />
-                            <img class="zig-zag2" src={zigzag} alt="" />
-
+            <div className='startingContent' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '5rem' }}>
+                <div className='startingContentContainer' style={{ width: '90%', display: 'flex' }}>
+                    <div className='startingContentImg' style={{ width: '40%', aspectRatio: "1/1", position: 'relative',minWidth:'25rem' }}>
+                        <div className='backgroundLayer' style={{ width: '90%', aspectRatio: '1/1', background: "#F0F0F0", borderRadius: '10%', position: 'absolute' }}>
+                            <img src={zigzag} className='zigZag1' alt="" />
+                            <img src={zigzag} className='zigZag2' alt="" />
                         </div>
-                    </div>
-
-                    {/* <div class="our-institution-txt" style={{width:'58%'}}>
-                <h2>Our Institutions</h2>
-                <img class="zig-zag3" src={zigzag} alt="" />
-                <p>Westford operates prominent 10 independent brands – 8 in higher education, 1 brand of film studies,
-                    and 1 brand in Sports Management.</p>
-
-                <div class="our-institution-points">
-
-                    <div class="pointer-row">
-                        <img src="/westfordeducation/images/about-us/arrow-pointer-to-right.png" alt="" />
-                        <p>The seven higher education entities comprise Acacia University, Arizona, US, CIQ, UK,
-                            Westford University College,
-                            Exeed College, Exeed ECX, Eaton Business School, Athena Global Education,
-                            DeMont Institute of Management & Technology and Westford Institute of Film Technology with
-                            courses
-                            ranging from the undergraduate level to the doctorate level.</p>
-                        <br /><br /><br /><br /><br /><br /><br />
-                    </div>
-
-                    <div class="pointer-row">
-                        <img src="/westfordeducation/images/about-us/arrow-pointer-to-right.png" alt="" />
-                        <p>Taito Education, a division of Exeed College provides Teacher education degree programs and
-                            teacher
-                            training qualifications from the university and awarding bodies based in the UK.</p>
-                        <br /><br /><br /><br />
-                    </div>
-
-                    <div class="pointer-row">
-                        <img src="/westfordeducation/images/about-us/arrow-pointer-to-right.png" alt="" />
-                        <p>Westford Sports organizes and conducts sports activities in connection with school
-                            managements and facilities</p>
-                    </div>
-                </div>
-
-            </div> */}
-
-
-
-
-
-
-                    <div className='heroSecText' style={{ width: "53%", height: '100%', padding: '0 1rem' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: "center" }}>
-                            <h2 style={{ fontSize: "2.5rem" }}>Our Institutions</h2>
-                            <img className='zigzag3' style={{ height: '20px' }} src={zigzag} alt="" />
+                        <div className='borderLayer' style={{ width: '90%', aspectRatio: '1/1', border: '3px solid #285F71', borderRadius: "10%", position: 'absolute' }}>
+                           <img className='heroImgStartingSec'  src={heroImg} alt="" />
                         </div>
-                        <p >Westford Education Group (WEG) operating as Westford Ventures Holding Ltd., A ADGM registered company
-                            with multiple brands of higher education programs through its campuses and satellite learning
-                            centres all across the globe. The group is established with an objective to fulfil the aspirations
-                            of learners with diverse backgrounds from across the globe to attain internationally-accredited
-                            qualifications in the form of on-site and online learning interventions. <br /> <br />
-                            Working toward a world where everyone has access to higher education, WEG now stands out winning the
-                            confidence of its learners and the community, a result of its steadfast commitment to students
-                            welfare and their success stories. <br /> <br />
-                            At Westford, we have come up with an integrated strategy and operational model for the global
-                            education. The group’s overall mission is “enabling the student of today to become a successful
-                            individual of tomorrow".</p>
+                        
+
+
+                    </div>
+                    <div className='startingContentText' style={{ width: '60%', display: 'flex', alignItems: 'start', justifyContent: 'end' }}>
+                        <div style={{ width: '93%' }}>
+                            <h2 style={{ marginTop: "0", fontSize: "clamp(1.5rem,3vw,3rem)", color: ' #303030', fontWeight: "600", marginBottom: '10px' }}>About Westford</h2>
+                            <p style={{ textAlign: 'justify', fontSize: '1rem', lineHeight: '23px', marginBottom: "0" }}>Westford Education Group (WEG) operating as Westford Ventures Holding Ltd., A ADGM registered company with multiple brands of higher education programs through its campuses and satellite learning centres all across the globe. The group is established with an objective to fulfil the aspirations of learners with diverse backgrounds from across the globe to attain internationally-accredited qualifications in the form of on-site and online learning interventions.</p>
+                            <p style={{ textAlign: 'justify', lineHeight: '23px', fontSize: '1rem', marginBottom: '0' }}>Working toward a world where everyone has access to higher education, WEG now stands out winning the confidence of its learners and the community, a result of its steadfast commitment to students’ welfare and their success stories. </p>
+                            <p style={{ textAlign: 'justify', lineHeight: '23px', fontSize: '1rem', marginBottom: "0" }}> At Westford, we have come up with an integrated strategy and operational model for the global education. The group’s overall mission is “enabling the student of today to become a successful individual of tomorrow”.</p>
+                        </div>
+
                     </div>
 
                 </div>
-                {/* <div class="abt-wf-section1">
-            <div class="abt-wf-img">
-                <div class="grey-bg">
-                    <div class="grey-bg-outline" style={{top:'0',left:"0"}}>
-                    </div>
-                    <img class="abt-wf-lady-img " src={heroImg} alt="" />
-                    <img class="zig-zag1" src="/westfordeducation/images/about-us/zig-zag.png" alt="" />
-                    <img class="zig-zag2" src="/westfordeducation/images/about-us/zig-zag.png" alt="" />
-
-
-                              
-                </div>
 
             </div>
 
-            <div class="abt-wf-txt ">
-                <h2>About Westford</h2>
-                <img class="zig-zag3" src="/westfordeducation/images/about-us/zig-zag.png" alt="" />
-                <p style={{width:'100%'}}>Westford Education Group (WEG) operating as Westford Ventures Holding Ltd., A ADGM registered company
-                    with multiple brands of higher education programs through its campuses and satellite learning
-                    centres all across the globe. The group is established with an objective to fulfil the aspirations
-                    of learners with diverse backgrounds from across the globe to attain internationally-accredited
-                    qualifications in the form of on-site and online learning interventions. <br/> <br/>
-                    Working toward a world where everyone has access to higher education, WEG now stands out winning the
-                    confidence of its learners and the community, a result of its steadfast commitment to students
-                    welfare and their success stories. <br/> <br/>
-                    At Westford, we have come up with an integrated strategy and operational model for the global
-                    education. The group’s overall mission is “enabling the student of today to become a successful
-                    individual of tomorrow".</p>
-
-            </div>
-
-        </div> */}
-
-            </div>
 
             {/* <div class="about-milestone">
 
@@ -327,25 +245,22 @@ function About() {
         </div>
 
     </div> */}
-            <section className='visionMission' style={{ aspectRatio: '1/0.6', display: 'flex', columnGap: '2rem', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ width: '40%', height: 'fit-content', background: '#ecf1f4', padding: '1rem' }}>
-                    <div style={{ height: 'fit-content' }}>
-                        <h1 style={{ fontSize: 'clamp(2rem,3vw,3rem)', margin: '0' }}>Our Vision & Mission </h1>
-                        <ul className='missionPoints'>
-                            <li>To be an unwavering flag-bearer in providing accredited qualifications delivered in a flexible,
+            <section className='visionMission' style={{ display: 'flex', columnGap: '1rem', justifyContent: 'center',marginTop:'5rem',marginBottom:'3rem'}}>
+                <div style={{ width: '45%', height: 'inherit', background: '#ecf1f4', padding: '2%' }}>
+                <h1 style={{ fontSize: "clamp(1.5rem,3vw,3rem)",color: ' #303030', fontWeight: "600", margin: '0' }}>Our Vision & Mission </h1>
+                        <ul className='missionPoints' style={{margin:'0'}}>
+                            <li style={{lineHeight: '1.6'}}>To be an unwavering flag-bearer in providing accredited qualifications delivered in a flexible,
                                 accessible, and affordable manner to the largest international network of learners.</li>
-                            <li>To ensure access to quality higher education for learners across the globe.</li>
-                            <li>To foster the development of talent while simultaneously empowering the modern workforce through
+                            <li style={{lineHeight: '1.6'}}>To ensure access to quality higher education for learners across the globe.</li>
+                            <li style={{lineHeight: '1.6'}}>To foster the development of talent while simultaneously empowering the modern workforce through
                                 continued education </li>
-                            <li>To pave the way for a better world by transforming the lives of individuals.</li>
+                            <li style={{lineHeight: '1.6'}}>To pave the way for a better world by transforming the lives of individuals.</li>
                         </ul>
-                    </div>
 
                 </div>
-                <div style={{ width: '40%', height: 'fit-content', background: 'linear-gradient(180deg, #285F71 0%, #4292AC 100%)', padding: '2%' }}>
-                    <div style={{ height: 'fit-content' }}>
-                        <h1 style={{ fontSize: 'clamp(2rem,3vw,3rem)', margin: '0', color: 'white' }}>Ethos</h1>
-                        <p style={{ color: 'white', lineHeight: '1.5', textAlign: 'justify' }}>The focal point of all our endeavours is the ‘student experience’. Today, our world-class education
+                <div style={{ width: '45%', height: 'inherit', background: 'linear-gradient(180deg, #285F71 0%, #4292AC 100%)', padding: '2%' }}>
+                        <h1 style={{ fontSize: "clamp(1.5rem,3vw,3rem)", margin: '0', color: ' #ffff', fontWeight: "600" }}>Ethos</h1>
+                        <p style={{ color: 'white', lineHeight: '1.6',textAlign: 'justify' }}>The focal point of all our endeavours is the ‘student experience’. Today, our world-class education
                             has reached over 20,000 students. Our students form a vibrant, diverse and inclusive community of
                             learners, contributing invaluable knowledge, innovative ideas, and distinctly fresh perspectives
                             which propel their professional and personal journeys forward. Our faculty team comprises eminent
@@ -353,7 +268,6 @@ function About() {
                             training experience. This medley of expertise in the industry and academia help them bring
                             real-world experiences to the class, thereby anchoring our courses in a practical and
                             work-world-based approach.</p>
-                    </div>
 
                 </div>
             </section>
@@ -361,9 +275,9 @@ function About() {
 
 
             <div class="our-leaders" style={{ height: 'fit-content' }}>
-                <div class="leadership-headings">
-                    <h3>Our Leadership</h3>
-                    <p style={{ width: '100%' }}>Our team of eminent professionals from the academia and industry, possessing decades of experience and
+                <div class="leadership-headings" style={{width:'60%'}}>
+                    <h3 style={{fontSize: "clamp(1.5rem,3vw,3rem)",color:'#303030',marginBottom:'0'}}>Our Leadership</h3>
+                    <p style={{ width: '100%',marginBottom:'3.5rem' }}>Our team of eminent professionals from the academia and industry, possessing decades of experience and
                         knowledge
                         contributes their expertise to build a high performing business which embodies innovation,
                         entrepreneurship, acumen, academic rigor and quality.</p>

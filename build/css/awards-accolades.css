@@ -151,7 +151,7 @@ body{
     position: relative;
     height: 595px;
     width: auto;
-    background: url(/westfordeducation/images/about-us/about-hero-image.png);
+    background: url(/westfordeducation/images/awards/hero-bg.png);
     margin-top: -2px;
     object-fit: cover;
     
@@ -183,9 +183,7 @@ body{
     color: #FFFFFF;
 }
 
-/* Hero Section Ends here */
-
-/* About Westford starts here */
+/* Hero Section Starts here */
 
 
 .abt-westford {
@@ -304,323 +302,133 @@ body{
 
 }
 
-/* About Westford ends here */
+/* after hero section ends here */
 
 
-/* Milestone starts here */
-
-.about-milestone {
+.all-trophies {
     width: 100%;
-    height: 820.29px;
+    height: 1024.96px;
+
+
     background: #F8F8F8;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    text-align: center;
 }
 
-.about-milestone h2 {
+.all-trophy-heading {
+    width: 85%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 62px;
+    margin-bottom: 62px;
+}
+
+.all-trophy-heading p{
+    max-width: 1014.4px;
+    height: auto;
+
     font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 600;
-    font-size: 42px;
-    line-height: 52px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    /* or 178% */
+
+    text-align: center;
+
     color: #303030;
+}
+
+.trophy-display {
+    height: 733px;
+    width: 1200px;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
 }
 
-.main-milestone {
-    height: 310px;
-    width: 936.5px;
+.trophy-display-row {
+    width: 100%;
+    height: 350px;
    
     display: flex;
     flex-direction: row;
-    box-shadow: 0px 49px 40px rgba(226, 226, 226, 0.47);
+    justify-content: space-between;
+}
+
+.single-trophy {
+    width: 266px;
+    height: 350px;
+    border-radius: 10px 10px 0px 0px;
     
-  
+    position: relative;
 }
 
-.main-milestone-left {
-    width: 28%;
-    height: 310px;
-    background: #DB3656;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.single-trophy-txt {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 151px;
+    text-align: center;
+    
+    
+
+    background: #FFFFFF;
+    padding: 30px;
 }
 
-.main-milestone-left h3 {
+.single-trophy-txt h3 {
+    margin: 0;
+
     font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 700;
-    font-size: 42px;
-    color: #FFFFFF;   
-
-}
-
-.main-milestone-right {
-    width: 72%;
-    height: 310px;
-    float: right;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.right-all-contents {
-    height: 150px;
-    width: 554px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.right-all-row1 {
-    display: flex;
-    flex-direction: row;
-}
-
-.right-all-row1 img{
-    height: 84px;
-    width: 75px;
-    margin-right: 10px;
-}
-
-.right-all-row1 p{
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 52px;
-    
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 32px;
     color: #303030;
 
 }
 
-.right-all-row2 p{
+.single-trophy-txt p {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 22px;    
+    line-height: 24px;
     color: #303030;
+    margin: 0;
+
 
 }
-
-.old-milestone {
-    height: 250px;
-    width: 800px;
-   
-    display: flex;
-    flex-direction: row;
-    
-    margin-top: 30px;    
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 0.01%, #F8F8F8 100%);
-  
-}
-
-.old-milestone-left {
-    width: 28%;
-    height: 250px;
-    background: #DB3656;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.old-milestone-left h3 {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 38px;
-    color: #FFFFFF;   
-
-}
-
-.old-milestone-right {
-    width: 72%;
-    height: 250px;
-    float: right;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.right-all-contents-old {
-    height: 120px;
-    width: 554px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 40px;
-}
-
-.right-all-row1-old {
-    display: flex;
-    flex-direction: row;
-}
-
-.right-all-row1-old img{
-    height: 70px;
-    width: 59px;
-    margin-right: 10px;
-}
-
-.right-all-row1-old p{
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 52px;
-    
-    color: #303030;
-
-}
-
-.right-all-row2-old p{
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;    
-    color: #303030;
-
-}
-
-/* Milestone endss here */
+/* all trophy ends here */
 
 
 
-/* vision mission ethos starts here */
+/* articles and blogs starts here */
 
-.vision-ethos {
-    height: 705px;
-    width: 100%;
-   
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.vm-both {
-    height: 70%;
-    width: 80%;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.vision-mision-left {
-    width: 590.65px;
-    height: 489.58px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;   
-
-    background-color: #ecf1f4;
-    
-}
-
-.vision-mision-left h3 {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 42px;
-    line-height: 52px;
-    margin-left: 20px;
-   
-    
-    color: #303030;
-}
-
-.pointer-row {
-    display: flex;
-    flex-direction: row;
+.articles-blogs {
     height: auto;
-    width: auto;
-    margin-left: 20px;
-}
-
-
-.pointer-row img {
-    width: 17px;
-    height: 10px;
-    margin-right: 10px;
-    margin-top: 5px;
-
-}
-
-.pointer-row p{
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
-    width: 478.85px;
-    margin-top: 0;
-    margin-left: 20px;
-
-    color: #303030;
-}
-
-.ethos-right {
-    width: 590.65px;
-    height: 489.58px;
-   
-    background: linear-gradient(180deg, #285F71 0%, #4292AC 100%);
-    box-shadow: 18px 25px 55px #C4D2D7;
-}
-
-.ethos-right h3 {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 42px;
-    line-height: 52px;
-    color: #FFFFFF;
-    margin-left: 40px;
-}
-
-.ethos-right p {
-    width: 498.84px;
-    height: 312px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
-    color: #FFFFFF;
-    margin-left: 40px;
-}
-
-
-
-/* vision mission ethos ends here */
-
-
-/* our leadership starts here */
-
-.our-leaders {
     width: 100%;
-    height: 1475.5px;
-    background: #F8F8F8;
-
+   
+    padding-top: 68px;
     display: flex;
     flex-direction: column;
-    text-align: center;
     align-items: center;
 }
 
-.leadership-headings h3 {
+.article-blog-headings {
+    text-align: center;
+} 
+
+.article-blog-headings h2 {
+
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
@@ -629,81 +437,124 @@ body{
     color: #303030;
 }
 
-.leadership-headings p {
-    width: 827.63px;
+.article-blog-headings p {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 26px;
     text-align: center;
-
     color: #303030;
 }
 
-.leaders-pic {
-    height: 1050px;
-    width: 998px;
-   
+.slide-container{
+    width: 1340px;
+    height: auto;   
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
+    flex-direction: column;     
+  }
 
-.leaders-row {
-    height: 500px;
-    width: 993px;
-   
+  .card-wrapper {
+    width: auto;
+    height: auto;
+  }
+
+  .slide-content{
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    border-radius: 25px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-}
-
-.leaders-img-text {
-    height: 440px;
-    width: 301px;
-    position: relative;
-
-}
+    margin-bottom: 68px;
+  }
 
 
-.leaders-indiv-bottom {
+  .card img {
+    width: 378px;
+    height: 250px;
+   
+  }
+
+  .swipe-overlay {
     position: absolute;
-    bottom: 0;
-    width: 301px;
-    height: 130px;
-    background-color: #F8F8F8;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .slider-top-btn {
+    position: absolute;
+    z-index: 2;
+    top: 17px;
+    left: 16px;
+    width: 112px;
+    height: 28px;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 26px;
+    text-transform: uppercase;
+    color: #303030;
+
+  }
+
+.slider-text {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 16px;
+    word-wrap: break-word;
 }
 
-.leaders-indiv-bottom h3{
+.slider-text .p1 {
+    width: 326.24px;
+    bottom: 0;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
-    line-height: 26px;
+    font-size: 20px;    
+    color: #F8F8F8;
     
-    color: #303030;
 }
 
-.leaders-indiv-bottom p{
+.slider-text a {
+    text-decoration: none;
+}
+
+
+.slider-text .p2 {
+    top: 0;
     font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
-    color: #303030;
-
+    font-weight: 500;
+    font-size: 14px;
+   
+    color: #F8F8F8;
 }
 
-.abt-hid {
-    box-shadow: none;
-    background: #F8F8F8;
-}
+  
 
-/* our leadership ends here */
+  .swiper-pagination-bullet{
+    background-color: #6E93f7;
+    opacity: 1;
+    
+  }
 
+  .swiper-pagination-bullet-active{
+    background-color: #4070F4;
+  }
+
+  
+
+  /* Article blogs Ends here */
 
 
 

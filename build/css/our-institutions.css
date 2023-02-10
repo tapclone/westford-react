@@ -151,9 +151,8 @@ body{
     position: relative;
     height: 595px;
     width: auto;
-    background: url(/westfordeducation/images/about-us/about-hero-image.png);
+    background: url(/westfordeducation/images/our-institutions/hero-bg.png);
     margin-top: -2px;
-    object-fit: cover;
     
 }
 
@@ -183,12 +182,10 @@ body{
     color: #FFFFFF;
 }
 
-/* Hero Section Ends here */
-
-/* About Westford starts here */
+/* Hero Section Starts here */
 
 
-.abt-westford {
+.our-institution {
     height: 654px;
     width: 100%;
     
@@ -197,16 +194,16 @@ body{
     justify-content: center;
 }
 
-.abt-wf-section1 {
+.our-institution-section1 {
     height: 80%;
-    width: 85%;
+    width: 90%;
     
     display: flex;
     align-items: center;
 
 }
 
-.abt-wf-img {
+.our-institution-img {
     width: 40%;
     height: 95%;  
     display: flex;
@@ -222,14 +219,15 @@ body{
     position: relative;
 }
 
-.abt-wf-lady-img {
+.our-institution-lady-img {
     position: absolute;
     
     bottom: 34px;
-   right: 0;
+    left: 60px;
+    z-index: 2;
     
-    width: 320px;
-    height: auto;
+    width: auto;
+    height: 420px;
     transform: matrix(1, 0, 0, 1, 0, 0);
 
 }
@@ -237,7 +235,7 @@ body{
 .grey-bg-outline {
     position: absolute;
     width: 400.52px;
-    height: 415.49px;
+    height: 415px;
     bottom: 34px;
     left: 32px;
     z-index: 1;
@@ -267,7 +265,7 @@ body{
     
 }
 
-.abt-wf-txt {
+.our-institution-txt {
     width: 60%;
     height: 90%;
     
@@ -276,7 +274,7 @@ body{
 
 }
 
-.abt-wf-txt h2{   
+.our-institution-txt h2{   
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
@@ -284,343 +282,88 @@ body{
     color: #303030;
     position: absolute;
     margin-top: 0;
-    margin-left: 15px;
+    margin-left: 30px;
     
     
 }
 
-.abt-wf-txt p {
+.our-institution-txt p {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 26px;
-    width: 717.99px;
+    width: auto;
     position: absolute;
     margin-top: 80px;
-    margin-left: 15px;
+    margin-left: 30px;
     text-align: justify;
     
 
 }
 
-/* About Westford ends here */
-
-
-/* Milestone starts here */
-
-.about-milestone {
-    width: 100%;
-    height: 820.29px;
-    background: #F8F8F8;
+.our-institution-points {
+    width: auto;
+    height: 300px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     
-}
+    margin-top: 160px;
 
-.about-milestone h2 {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 42px;
-    line-height: 52px;
-    color: #303030;
-
-}
-
-.main-milestone {
-    height: 310px;
-    width: 936.5px;
-   
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0px 49px 40px rgba(226, 226, 226, 0.47);
     
-  
-}
 
-.main-milestone-left {
-    width: 28%;
-    height: 310px;
-    background: #DB3656;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.main-milestone-left h3 {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 42px;
-    color: #FFFFFF;   
-
-}
-
-.main-milestone-right {
-    width: 72%;
-    height: 310px;
-    float: right;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.right-all-contents {
-    height: 150px;
-    width: 554px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.right-all-row1 {
-    display: flex;
-    flex-direction: row;
-}
-
-.right-all-row1 img{
-    height: 84px;
-    width: 75px;
-    margin-right: 10px;
-}
-
-.right-all-row1 p{
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 52px;
-    
-    color: #303030;
-
-}
-
-.right-all-row2 p{
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;    
-    color: #303030;
-
-}
-
-.old-milestone {
-    height: 250px;
-    width: 800px;
-   
-    display: flex;
-    flex-direction: row;
-    
-    margin-top: 30px;    
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 0.01%, #F8F8F8 100%);
-  
-}
-
-.old-milestone-left {
-    width: 28%;
-    height: 250px;
-    background: #DB3656;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.old-milestone-left h3 {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 38px;
-    color: #FFFFFF;   
-
-}
-
-.old-milestone-right {
-    width: 72%;
-    height: 250px;
-    float: right;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.right-all-contents-old {
-    height: 120px;
-    width: 554px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 40px;
-}
-
-.right-all-row1-old {
-    display: flex;
-    flex-direction: row;
-}
-
-.right-all-row1-old img{
-    height: 70px;
-    width: 59px;
-    margin-right: 10px;
-}
-
-.right-all-row1-old p{
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 52px;
-    
-    color: #303030;
-
-}
-
-.right-all-row2-old p{
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;    
-    color: #303030;
-
-}
-
-/* Milestone endss here */
-
-
-
-/* vision mission ethos starts here */
-
-.vision-ethos {
-    height: 705px;
-    width: 100%;
-   
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.vm-both {
-    height: 70%;
-    width: 80%;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.vision-mision-left {
-    width: 590.65px;
-    height: 489.58px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;   
-
-    background-color: #ecf1f4;
-    
-}
-
-.vision-mision-left h3 {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 42px;
-    line-height: 52px;
-    margin-left: 20px;
-   
-    
-    color: #303030;
 }
 
 .pointer-row {
     display: flex;
     flex-direction: row;
-    height: auto;
-    width: auto;
-    margin-left: 20px;
+    align-items: flex-start;
+   
+    margin-left: 30px;
+    
+    
 }
 
 
 .pointer-row img {
     width: 17px;
     height: 10px;
-    margin-right: 10px;
+    margin-right: 15px;
     margin-top: 5px;
 
 }
 
 .pointer-row p{
+    width: auto;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
-    width: 478.85px;
+    font-size: 15px;
+    
+    color: #303030;
     margin-top: 0;
     margin-left: 20px;
 
-    color: #303030;
+    
 }
 
-.ethos-right {
-    width: 590.65px;
-    height: 489.58px;
-   
-    background: linear-gradient(180deg, #285F71 0%, #4292AC 100%);
-    box-shadow: 18px 25px 55px #C4D2D7;
-}
-
-.ethos-right h3 {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 42px;
-    line-height: 52px;
-    color: #FFFFFF;
-    margin-left: 40px;
-}
-
-.ethos-right p {
-    width: 498.84px;
-    height: 312px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
-    color: #FFFFFF;
-    margin-left: 40px;
-}
+/* after hero section ends here */
 
 
 
-/* vision mission ethos ends here */
+/* Independent Brand starts here */
 
-
-/* our leadership starts here */
-
-.our-leaders {
+.independent-brands {
+    height: 1350px;
     width: 100%;
-    height: 1475.5px;
-    background: #F8F8F8;
-
+    background-color: #F8F8F8;
     display: flex;
     flex-direction: column;
-    text-align: center;
     align-items: center;
 }
 
-.leadership-headings h3 {
+.independent-brnd-heading {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
@@ -629,81 +372,229 @@ body{
     color: #303030;
 }
 
-.leadership-headings p {
-    width: 827.63px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
-    text-align: center;
-
-    color: #303030;
-}
-
-.leaders-pic {
-    height: 1050px;
-    width: 998px;
-   
+.brnd-blocks {
+    width: 1200px;
+    height: 990px;
+    
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
 }
 
-.leaders-row {
-    height: 500px;
-    width: 993px;
-   
+.brnd-blocks-row {
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
 }
 
-.leaders-img-text {
-    height: 440px;
-    width: 301px;
-    position: relative;
+.brnd-block {
 
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    box-shadow: 29px 28px 53px #E7E7E7;
+    border-radius: 10px;
+    padding: 30px;
 }
 
-
-.leaders-indiv-bottom {
-    position: absolute;
-    bottom: 0;
-    width: 301px;
-    height: 130px;
-    background-color: #F8F8F8;
-}
-
-.leaders-indiv-bottom h3{
+.brnd-block h3{
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
-    line-height: 26px;
-    
+    line-height: 34px;
+
     color: #303030;
 }
 
-.leaders-indiv-bottom p{
+.brnd-block p{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px; 
+    
+    color: #767676;
+    
+}
+
+.brnd-block a{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 34px;
+    /* identical to box height, or 189% */
+    
+    text-decoration-line: underline;
+    
+    color: #DB3656;
+}
+
+.independent-brands-btn {
+    width: 145.27px;
+    height: 48px;
+    
+
+    background-color: #DB3656;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 4px;
+    color: #FFFFFF;
+    margin-top: 60px;
+    cursor: pointer;
+}
+
+
+
+/* Independent Brand ends here */
+
+
+/* articles and blogs starts here */
+
+
+.articles-blogs {
+    height: auto;
+    width: 100%;
+   
+    padding-top: 68px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.article-blog-headings {
+    text-align: center;
+} 
+
+.article-blog-headings h2 {
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 52px;
+    color: #303030;
+}
+
+.article-blog-headings p {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 26px;
+    text-align: center;
+    color: #303030;
+}
+
+.slide-container{
+    width: 1340px;
+    height: auto;   
+    display: flex;
+    flex-direction: column;     
+  }
+
+  .card-wrapper {
+    width: auto;
+    height: auto;
+  }
+
+  .slide-content{
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 68px;
+  }
+
+
+  .card img {
+    width: 378px;
+    height: 250px;
+   
+  }
+
+  .swipe-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .slider-top-btn {
+    position: absolute;
+    z-index: 2;
+    top: 17px;
+    left: 16px;
+    width: 112px;
+    height: 28px;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 26px;
+    text-transform: uppercase;
     color: #303030;
 
+  }
+
+.slider-text {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 16px;
+    word-wrap: break-word;
 }
 
-.abt-hid {
-    box-shadow: none;
-    background: #F8F8F8;
+.slider-text .p1 {
+    width: 326.24px;
+    bottom: 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;    
+    color: #F8F8F8;
+    
 }
 
-/* our leadership ends here */
+.slider-text a {
+    text-decoration: none;
+}
 
+
+.slider-text .p2 {
+    top: 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+   
+    color: #F8F8F8;
+}
+
+  
+
+  .swiper-pagination-bullet{
+    background-color: #6E93f7;
+    opacity: 1;
+    
+  }
+
+  .swiper-pagination-bullet-active{
+    background-color: #4070F4;
+  }
+
+  
+
+  /* Article blogs Ends here */
 
 
 

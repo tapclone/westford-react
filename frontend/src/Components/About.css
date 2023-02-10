@@ -71,19 +71,19 @@
     }
 }
 .missionPoints li{
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
-@media (max-width:830px) {
+@media (max-width:880px) {
     .visionMission{
         flex-direction: column;
-        height: fit-content;
         row-gap: 1rem;
+        align-items: center;
     }
     .visionMission :nth-child(1){
-        width: 98% !important;
+        width: 90% !important;
     }
     .visionMission :nth-child(2){
-        width: 98% !important;
+        width: 90% !important;
     }
 }
 /* .leaders-pic{
@@ -129,15 +129,7 @@
         width: 90% !important;
     }
 }
-.articleCard{
-    width: 23rem;
-    height: 15rem;
-    border-radius: 5%;
-    background-position: center center;
-    background-size: cover;
-    position: relative;
 
-}
 .articlesSection{
     display: flex;
     flex-wrap: wrap;
@@ -188,4 +180,81 @@
 }
 .newsCard:hover .newsCardImg{
     transform: scale(1.1);
+}
+.articleCard{
+    width: 23rem;
+    height: 15rem;
+    border-radius: 5%;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+
+}
+.zigZag2{
+    position: absolute;
+    top: 96%;
+    left: 111%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+}
+.zigZag1{
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+}
+.backgroundLayer{
+    top: 10%;
+    left: 0;
+   
+}
+.borderLayer{
+    top: 0;
+    right: 0;
+}
+.heroImgStartingSec{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+}
+@media (max-width:1100px) {
+    .startingContentContainer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .startingContentText{
+        width: 100% !important;
+        margin-top: 3rem;
+    }
+    .startingContentImg{
+        width: 50% !important;
+    }
+    .startingContentText div{
+        width: 100% !important;
+    }
+
+}
+@media (max-width:500px) {
+    .startingContentImg{
+        width: 90% !important;
+        min-width: 18rem !important;
+    }
+}
+.leaders-img-text{
+    height: 520px;
+}
+.leaders-img-text img{
+    width: 100%;
+}
+.leaders-indiv-bottom{
+    width: 100%;
+}
+@media (max-width:770px) {
+    .leadership-headings{
+        width: 90% !important;
+    }
 }

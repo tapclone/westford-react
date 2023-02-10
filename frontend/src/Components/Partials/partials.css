@@ -91,6 +91,16 @@ cursor: pointer;
         flex-direction: column;
     }
 }
+.footer{
+    position: relative;
+}
+.pop-footer{
+    margin: 0;
+    width: 85%;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 
+}
 
 
