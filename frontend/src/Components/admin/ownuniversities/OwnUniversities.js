@@ -1,4 +1,4 @@
-import "./Media.css";
+import "./OwnUniversities.css";
 import { React, useState, useEffect } from "react";
 import { Backdrop, Fade, Modal } from "@mui/material";
 import { Box } from "@mui/material";
@@ -26,8 +26,6 @@ function Project() {
   const [Project, setProject] = useState([]);
   const [heading, setHeading] = useState();
   const [image, setImage] = useState();
-  const [date, setData] = useState();
-  const [link, setLink] = useState();
   const [description, setDescription] = useState();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -39,21 +37,27 @@ function Project() {
   useEffect(() => {
     (async function () {
       try {
-        const { data } = await axios.get("/api/admin/view-all-media");
+        const { data } = await axios.get(
+          "/api/admin/view-all-own-universities"
+        );
         setProject(data);
-      } catch (error) {}
+      } catch (error) {
+       
+      }
     })();
   }, [loading]);
   const AddInstitue = async () => {
     const obj = {
-      header: heading, 
-      date:date,
-      description:description, 
-      link: link,
+  
+      Image: image,
     };
-    if (heading && description && link) {
+    if ( image) {
       try {
-        const { data } = await axios.post("/api/admin/add-media", obj);
+        const { data } = await axios.post(
+          "/api/admin/add-own-universities",
+          obj
+        );
+
         setImage("");
         if (loading) {
           setLoading(false);
@@ -85,16 +89,20 @@ function Project() {
             },
           };
           await axios
-            .delete(`/api/admin/delete-media/${id}`, config)
+            .delete(`/api/admin/delete-own-universities/${id}`, config)
             .then((res) => {
               if (loading) {
                 setLoading(false);
               } else {
                 setLoading(true);
               }
-            })
-            .catch((err) => {});
-        } catch (err) {}
+            })  
+            .catch((err) => {
+              console.log(err);
+            });
+        } catch (err) {
+          console.log(err);
+        }
       } else {
         swal("Your Data Is Safe");
       }
@@ -126,7 +134,9 @@ function Project() {
         }
       );
       setImage(data);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
@@ -146,47 +156,14 @@ function Project() {
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
               <form>
                 <div class="row">
-                  <h4>Heading</h4>
+                  <h4>ADD IMAGES</h4>
                   <div class="input-group input-group-icon">
                     <input
-                      type="text"
-                      placeholder="Heading"
+                      type="file"
                       onChange={(e) => {
-                        setHeading(e.target.value);
+                        imageUploaing(e);
                       }}
-                      required
-                    />
-                    <div class="input-icon">
-                      <i class="fa fa-user"></i>
-                    </div>
-                  </div>
-                  <div class="input-group ">
-                    <textarea
-                      type="message"
-                      onChange={(e) => {
-                        setDescription(e.target.value);
-                      }}
-                      rows={4}
-                      placeholder="Project Description"
-                    />
-                  </div>
-                  <div class="input-group input-group-icon">
-                    <input
-                      type="text"
-                      onChange={(e) => {
-                        setData(e.target.value);
-                      }}
-                      placeholder="Date"
-                    />
-                  </div>
-                  <div class="input-group input-group-icon">
-                    <input
-                      type="text"
-                      placeholder="Media Link"
-                      onChange={(e) => {
-                        setLink(e.target.value);
-                      }}
-                      required
+                      placeholder="Enter Feature Name"
                     />
                     <div class="input-icon">
                       <i class="fa fa-key"></i>
@@ -249,25 +226,27 @@ function Project() {
           }}
           onClick={handleOpen}
         >
-          ADD MEDIA
+          ADD OWN UNIVERSITIES
         </button>
         <div class="header_fixed">
           <table>
             <thead>
               <tr>
                 <th>S No.</th>
-                <th>Heading</th>
-                <th>Description</th>
+                <th>Image</th>
+          
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody> 
+            <tbody>
               {Project.map((items, index) => {
-                return ( 
-                  <tr key={index}> 
+                return (
+                  <tr key={index}>
                     <td style={{ textAlign: "center" }}>{index + 1}</td>
-                    <td style={{ textAlign: "center" }}>{items.header}</td>
-                    <td style={{ textAlign: "center" }}>{items.description}</td>
+                    <td style={{ textAlign: "center" }}>
+                      <img src={items?.Image} />
+                    </td>
+
                     <td style={{ textAlign: "center" }}>
                       <button
                         onClick={(e) => {
@@ -276,7 +255,7 @@ function Project() {
                       >
                         Delete
                       </button>
-                    </td> 
+                    </td>
                   </tr>
                 );
               })}

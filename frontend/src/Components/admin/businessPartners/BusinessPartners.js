@@ -1,4 +1,4 @@
-import "./Media.css";
+import "./BusinessPartners.css";
 import { React, useState, useEffect } from "react";
 import { Backdrop, Fade, Modal } from "@mui/material";
 import { Box } from "@mui/material";
@@ -24,10 +24,8 @@ const style = {
 function Project() {
   const [loading, setLoading] = useState(false);
   const [Project, setProject] = useState([]);
-  const [heading, setHeading] = useState();
+  const [country, setCountry] = useState();
   const [image, setImage] = useState();
-  const [date, setData] = useState();
-  const [link, setLink] = useState();
   const [description, setDescription] = useState();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -39,21 +37,35 @@ function Project() {
   useEffect(() => {
     (async function () {
       try {
-        const { data } = await axios.get("/api/admin/view-all-media");
+        const { data } = await axios.get("/api/admin/view-all-business-Partners");
         setProject(data);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     })();
   }, [loading]);
-  const AddInstitue = async () => {
+
+  //   useEffect(() => {
+  //     (async function () {
+  //       try {
+  //         const { data } = await axios.get(
+  //           "https://api.first.org/data/v1/countries"
+  //         );
+  //         console.log(data, "dkc");
+  //         setCountrydata(data);
+  //       } catch (error) {
+  //         console.log(error);
+  //       }
+  //     })();
+  //   });
+  const AddPartners = async () => {
     const obj = {
-      header: heading, 
-      date:date,
-      description:description, 
-      link: link,
+      description: description,
+      Image: image,
     };
-    if (heading && description && link) {
+    if ( description && image) {
       try {
-        const { data } = await axios.post("/api/admin/add-media", obj);
+        const { data } = await axios.post("/api/admin/add-business-partners", obj);
         setImage("");
         if (loading) {
           setLoading(false);
@@ -85,7 +97,7 @@ function Project() {
             },
           };
           await axios
-            .delete(`/api/admin/delete-media/${id}`, config)
+            .delete(`/api/admin/delete-business-partners/${id}`, config)
             .then((res) => {
               if (loading) {
                 setLoading(false);
@@ -93,8 +105,12 @@ function Project() {
                 setLoading(true);
               }
             })
-            .catch((err) => {});
-        } catch (err) {}
+            .catch((err) => {
+              console.log(err);
+            });
+        } catch (err) {
+          console.log(err);
+        }
       } else {
         swal("Your Data Is Safe");
       }
@@ -126,7 +142,9 @@ function Project() {
         }
       );
       setImage(data);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
@@ -146,20 +164,7 @@ function Project() {
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
               <form>
                 <div class="row">
-                  <h4>Heading</h4>
-                  <div class="input-group input-group-icon">
-                    <input
-                      type="text"
-                      placeholder="Heading"
-                      onChange={(e) => {
-                        setHeading(e.target.value);
-                      }}
-                      required
-                    />
-                    <div class="input-icon">
-                      <i class="fa fa-user"></i>
-                    </div>
-                  </div>
+            
                   <div class="input-group ">
                     <textarea
                       type="message"
@@ -170,23 +175,14 @@ function Project() {
                       placeholder="Project Description"
                     />
                   </div>
+                  <h4>ADD IMAGES</h4>
                   <div class="input-group input-group-icon">
                     <input
-                      type="text"
+                      type="file"
                       onChange={(e) => {
-                        setData(e.target.value);
+                        imageUploaing(e);
                       }}
-                      placeholder="Date"
-                    />
-                  </div>
-                  <div class="input-group input-group-icon">
-                    <input
-                      type="text"
-                      placeholder="Media Link"
-                      onChange={(e) => {
-                        setLink(e.target.value);
-                      }}
-                      required
+                      placeholder="Enter Feature Name"
                     />
                     <div class="input-icon">
                       <i class="fa fa-key"></i>
@@ -207,7 +203,7 @@ function Project() {
                 {error && <div style={{ color: "red" }}>{error}</div>}
                 <div style={{ textAlign: "center" }}>
                   <a
-                    onClick={AddInstitue}
+                    onClick={AddPartners}
                     style={{
                       cursor: "pointer",
                       backgroundColor: "#4CAF50",
@@ -249,24 +245,27 @@ function Project() {
           }}
           onClick={handleOpen}
         >
-          ADD MEDIA
+          ADD PARTNERS
         </button>
         <div class="header_fixed">
           <table>
             <thead>
               <tr>
                 <th>S No.</th>
-                <th>Heading</th>
+                <th>Image</th>
                 <th>Description</th>
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody> 
+            <tbody>
               {Project.map((items, index) => {
-                return ( 
-                  <tr key={index}> 
+                return (
+                  <tr key={index}>
                     <td style={{ textAlign: "center" }}>{index + 1}</td>
-                    <td style={{ textAlign: "center" }}>{items.header}</td>
+                    <td style={{ textAlign: "center" }}>
+                      <img src={items?.Image} />
+                    </td>
+                
                     <td style={{ textAlign: "center" }}>{items.description}</td>
                     <td style={{ textAlign: "center" }}>
                       <button
@@ -276,7 +275,7 @@ function Project() {
                       >
                         Delete
                       </button>
-                    </td> 
+                    </td>
                   </tr>
                 );
               })}

@@ -322,6 +322,82 @@ const DeleteMilestones = asyncHandler(async (req, res) => {
   }
 });
 
+
+
+const AddOwnUniversties = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const addPartners = await db
+    .get()
+    .collection(collection.OWN_COLLECTION)
+    .insertOne(data);
+  if (addPartners) {
+    res.status(200).json("added");
+  } else {
+    res.status(400).json("Somthing Went Wrong");
+  }
+});
+const ViewAllOwnUnviersties = asyncHandler(async (req, res) => {
+  const ViewAllClients = await db
+    .get()
+    .collection(collection.OWN_COLLECTION)
+    .find()
+    .toArray();
+  if (ViewAllClients) {
+    res.status(200).send(ViewAllClients);
+  } else {
+    res.status(200).json("No records");
+  }
+});
+
+const DeleteOwnUniversities = asyncHandler(async (req, res) => {
+  const id = req.params.id;
+  const deleteClients = await db
+    .get()
+    .collection(collection.OWN_COLLECTION)
+    .deleteOne({ _id: ObjectId(id) });
+  if (deleteClients) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Something Went Wrong");
+  }
+});
+const AddBusineesPartners = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const addPartners = await db
+    .get()
+    .collection(collection.BUSINESS_PARTNERS_COLLECTION)
+    .insertOne(data);
+  if (addPartners) {
+    res.status(200).json("added");
+  } else {
+    res.status(400).json("Somthing Went Wrong");
+  }
+});
+const ViewAllBusinessPartners = asyncHandler(async (req, res) => {
+  const ViewAllClients = await db
+    .get()
+    .collection(collection.BUSINESS_PARTNERS_COLLECTION)
+    .find()
+    .toArray();
+  if (ViewAllClients) {
+    res.status(200).send(ViewAllClients);
+  } else {
+    res.status(200).json("No records");
+  }
+});
+
+const DeleteBusinessPartners = asyncHandler(async (req, res) => {
+  const id = req.params.id;
+  const deleteClients = await db
+    .get()
+    .collection(collection.BUSINESS_PARTNERS_COLLECTION)
+    .deleteOne({ _id: ObjectId(id) });
+  if (deleteClients) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Something Went Wrong");
+  }
+});
 const UploadImage = asyncHandler(async (req, res) => {
   console.log(req.file.path);
   const path = req.file.path;
@@ -402,6 +478,12 @@ module.exports = {
   DeleteAwards,
   AddMilestones,
   ViewAllMilestones,
+  AddOwnUniversties,
+  ViewAllOwnUnviersties,
+  DeleteOwnUniversities,
+  AddBusineesPartners,
+  ViewAllBusinessPartners,
+  DeleteBusinessPartners,
   DeleteMilestones,
   UploadImage,
   ViewSingleBlog,
