@@ -29,6 +29,12 @@ const {
   AddMilestones,
   ViewAllMilestones,
   DeleteMilestones,
+  AddOwnUniversties,
+  ViewAllOwnUnviersties,
+  DeleteOwnUniversities,
+  AddBusineesPartners,
+  ViewAllBusinessPartners,
+  DeleteBusinessPartners,
   UploadImage,
   ViewSingleBlog,
 } = require("../controls/adminControls");
@@ -55,9 +61,15 @@ router.route("/delete-leadership/:id").delete(DeleteLeadership);
 router.route("/view-all-awards").get(ViewAllAwards);
 router.route("/add-awards").post(AddAwards);
 router.route("/delete-awards/:id").delete(DeleteAwards);
-router.route("/add-milestones").post(AddMilestones)
-router.route("/view-all-milestones").get(ViewAllMilestones)
-router.route("/delete-milestones/:id").delete(DeleteMilestones)
+router.route("/add-milestones").post(AddMilestones);
+router.route("/view-all-milestones").get(ViewAllMilestones);
+router.route("/delete-milestones/:id").delete(DeleteMilestones);
+router.route("/add-own-universities").post(AddOwnUniversties);
+router.route("/view-all-own-universities").get(ViewAllOwnUnviersties);
+router.route("/delete-own-universities/:id").delete(DeleteOwnUniversities);
+router.route("/add-business-partners").post(AddBusineesPartners);
+router.route("/view-all-business-Partners").get(ViewAllBusinessPartners);
+router.route("/delete-business-partners").delete(DeleteBusinessPartners);
 router.route("/view-single-blog/:id").get(ViewSingleBlog);
 router.route("/image-uploading").post(upload.single("image"), UploadImage);
 

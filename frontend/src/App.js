@@ -18,6 +18,8 @@ import BlogPage from './Components/Pages/admin/Blog'
 import  Leadership from './Components/Pages/admin/Leadership'
 import  AwardAdminPage from './Components/Pages/admin/Awads'
 import  Milestone from './Components/Pages/admin/Milestones'
+import OWNUniversities from './Components/Pages/admin/OwnUniversities'
+import BusinessPartners from './Components/Pages/admin/BusinessPartners'
 
 function App() {
   return (
@@ -40,6 +42,8 @@ function App() {
         <Route exact path='/leadership' element={<Leadership/>}></Route>
         <Route exact path='/AwardAdminPage' element={<AwardAdminPage/>}></Route>
         <Route exact path='/milestones' element={<Milestone/>}></Route>
+        <Route exact path='/own-universities' element={<OWNUniversities/>}></Route>
+        <Route exact path='/business-partners' element={<BusinessPartners/>}></Route>
 
         <Route exact path='' element={<ContactUsPage></ContactUsPage>}></Route>
       </Routes>  

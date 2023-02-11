@@ -66,7 +66,7 @@ function AdminMain() {
                 }}
               >
                 <CollectionsIcon className="navIcon"></CollectionsIcon>
-                <em>Our Institution</em>
+                <em>Institution</em>
               </a>
             </li>
             <li>
@@ -99,7 +99,7 @@ function AdminMain() {
                 }}
               >
                 <BookmarksIcon className="navIcon"></BookmarksIcon>
-                <em>Corporate-clients</em>
+                <em>Clients</em>
               </a>
             </li>
             <li>
@@ -146,6 +146,29 @@ function AdminMain() {
                 <em>Milestones</em>
               </a>
             </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/own-universities");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Own-Universities</em>
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/business-partners");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Business-Partners</em>
+              </a>
+            </li>
+            
           </div>
           <div>
             <li>

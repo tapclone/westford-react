@@ -7,5 +7,7 @@ module.exports = {
   AWARDS_COLLECTION: "Awards",
   MILESTONES_COLLECTION: "Milestones",
   BLOG_COLLECTION: "Blog",
+  OWN_COLLECTION: "OwnUniversities",
+  BUSINESS_PARTNERS_COLLECTION: "BusinessPartners",
   PROJECT_COLLECTION: "project",
 };

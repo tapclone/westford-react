@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import banner from '../../src/images/awards/hero-bg.png'
 import bannerOverLay from '../../src/images/westford assets/overlay.svg'
 import award from '../../src/images/awards/award1.png'
 import heroImg from '../../src/images/awards/trophy.png'
 import zigzag from '../../src/images/about-us/zig-zag.png'
+import axios from 'axios'
 function Awards() {
+    const [awards,setAwards]=useState([])
+    useEffect(() => {
+        (async function () {
+          try {
+            const { data } = await axios.get("/api/admin/view-all-awards");
+            setAwards(data)
+          } catch (error) {
+            console.log(error);
+          }
+        })();
+      }, []);
   return (
     <div style={{width:'100%',overflowX:'hidden'}}>
         <div class="hero" style={{backgroundImage:`url(${banner}),url(${bannerOverLay})`,backgroundPosition:"center center",backgroundSize:'cover',backgroundRepeat:"no-repeat",backgroundBlendMode:'multiply'}} >
