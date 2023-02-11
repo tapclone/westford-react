@@ -1,4 +1,4 @@
-import "./Institution.css";
+import "./Blog.css";
 import { React, useState, useEffect } from "react";
 import { Backdrop, Fade, Modal } from "@mui/material";
 import { Box } from "@mui/material";
@@ -27,6 +27,7 @@ function Project() {
   const [heading, setHeading] = useState();
   const [image, setImage] = useState();
   const [description, setDescription] = useState();
+  const [date, setDate] = useState();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,7 +38,7 @@ function Project() {
   useEffect(() => {
     (async function () {
       try {
-        const { data } = await axios.get("/api/admin/view-all-institute");
+        const { data } = await axios.get("/api/admin/view-all-blog");
         setProject(data);
       } catch (error) {
         console.log(error);
@@ -47,12 +48,13 @@ function Project() {
   const AddInstitue = async () => {
     const obj = {
       header: heading,
+      date: date,
       description: description,
       Image: image,
     };
-    if (heading && description && image) {
+    if (heading && description && image && date) {
       try {
-        const { data } = await axios.post("/api/admin/add-institute", obj);
+        const { data } = await axios.post("/api/admin/add-blog", obj);
 
         setImage("");
         if (loading) {
@@ -167,6 +169,15 @@ function Project() {
                     </div>
                   </div>
                   <div class="input-group ">
+                    <input
+                      type="text"
+                      onChange={(e) => {
+                        setDate(e.target.value);
+                      }}
+                      placeholder="Enter Date"
+                    />
+                  </div>
+                  <div class="input-group ">
                     <textarea
                       type="message"
                       onChange={(e) => {
@@ -176,6 +187,7 @@ function Project() {
                       placeholder="Project Description"
                     />
                   </div>
+
                   <h4>ADD IMAGES</h4>
                   <div class="input-group input-group-icon">
                     <input

@@ -66,18 +66,84 @@ function AdminMain() {
                 }}
               >
                 <CollectionsIcon className="navIcon"></CollectionsIcon>
-                <em>OUR INSTITUTION</em>
+                <em>Our Institution</em>
               </a>
             </li>
             <li>
               <a
                 class="s-sidebar__nav-link"
                 onClick={() => {
-                  navigate("/view-all-blog");
+                  navigate("/our-partners");
                 }}
               >
                 <BookmarksIcon className="navIcon"></BookmarksIcon>
-                <em>BLOG</em>
+                <em>Partners</em>
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/media-page");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Media</em>
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/corporate-clients");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Corporate-clients</em>
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/blog-page");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Blog</em>
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/leadership");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Leadership</em>
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/AwardAdminPage");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Awards</em>
+              </a>
+            </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/milestones");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Milestones</em>
               </a>
             </li>
           </div>

@@ -1,4 +1,4 @@
-import "./Institution.css";
+import "./Media.css";
 import { React, useState, useEffect } from "react";
 import { Backdrop, Fade, Modal } from "@mui/material";
 import { Box } from "@mui/material";
@@ -26,6 +26,8 @@ function Project() {
   const [Project, setProject] = useState([]);
   const [heading, setHeading] = useState();
   const [image, setImage] = useState();
+  const [date, setData] = useState();
+  const [link, setLink] = useState();
   const [description, setDescription] = useState();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -37,23 +39,21 @@ function Project() {
   useEffect(() => {
     (async function () {
       try {
-        const { data } = await axios.get("/api/admin/view-all-institute");
+        const { data } = await axios.get("/api/admin/view-all-media");
         setProject(data);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     })();
   }, [loading]);
   const AddInstitue = async () => {
     const obj = {
       header: heading,
-      description: description,
-      Image: image,
+      date:date,
+      description:description, 
+      link: link,
     };
-    if (heading && description && image) {
+    if (heading && description && link) {
       try {
-        const { data } = await axios.post("/api/admin/add-institute", obj);
-
+        const { data } = await axios.post("/api/admin/add-media", obj);
         setImage("");
         if (loading) {
           setLoading(false);
@@ -85,7 +85,7 @@ function Project() {
             },
           };
           await axios
-            .delete(`/api/admin/delete-blog/${id}`, config)
+            .delete(`/api/admin/delete-media/${id}`, config)
             .then((res) => {
               if (loading) {
                 setLoading(false);
@@ -93,12 +93,8 @@ function Project() {
                 setLoading(true);
               }
             })
-            .catch((err) => {
-              console.log(err);
-            });
-        } catch (err) {
-          console.log(err);
-        }
+            .catch((err) => {});
+        } catch (err) {}
       } else {
         swal("Your Data Is Safe");
       }
@@ -130,9 +126,7 @@ function Project() {
         }
       );
       setImage(data);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   return (
     <>
@@ -176,14 +170,23 @@ function Project() {
                       placeholder="Project Description"
                     />
                   </div>
-                  <h4>ADD IMAGES</h4>
                   <div class="input-group input-group-icon">
                     <input
-                      type="file"
+                      type="text"
                       onChange={(e) => {
-                        imageUploaing(e);
+                        setData(e.target.value);
                       }}
-                      placeholder="Enter Feature Name"
+                      placeholder="Date"
+                    />
+                  </div>
+                  <div class="input-group input-group-icon">
+                    <input
+                      type="text"
+                      placeholder="Media Link"
+                      onChange={(e) => {
+                        setLink(e.target.value);
+                      }}
+                      required
                     />
                     <div class="input-icon">
                       <i class="fa fa-key"></i>
@@ -246,27 +249,23 @@ function Project() {
           }}
           onClick={handleOpen}
         >
-          ADD INSTITUTION
+          ADD MEDIA
         </button>
         <div class="header_fixed">
           <table>
             <thead>
               <tr>
                 <th>S No.</th>
-                <th>Image</th>
                 <th>Heading</th>
                 <th>Description</th>
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody> 
               {Project.map((items, index) => {
-                return (
-                  <tr key={index}>
+                return ( 
+                  <tr key={index}> 
                     <td style={{ textAlign: "center" }}>{index + 1}</td>
-                    <td style={{ textAlign: "center" }}>
-                      <img src={items?.Image} />
-                    </td>
                     <td style={{ textAlign: "center" }}>{items.header}</td>
                     <td style={{ textAlign: "center" }}>{items.description}</td>
                     <td style={{ textAlign: "center" }}>
@@ -277,7 +276,7 @@ function Project() {
                       >
                         Delete
                       </button>
-                    </td>
+                    </td> 
                   </tr>
                 );
               })}

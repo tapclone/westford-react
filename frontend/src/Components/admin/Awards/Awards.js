@@ -1,4 +1,4 @@
-import "./Institution.css";
+import "./Awards.css";
 import { React, useState, useEffect } from "react";
 import { Backdrop, Fade, Modal } from "@mui/material";
 import { Box } from "@mui/material";
@@ -37,7 +37,7 @@ function Project() {
   useEffect(() => {
     (async function () {
       try {
-        const { data } = await axios.get("/api/admin/view-all-institute");
+        const { data } = await axios.get("/api/admin/view-all-awards");
         setProject(data);
       } catch (error) {
         console.log(error);
@@ -52,9 +52,10 @@ function Project() {
     };
     if (heading && description && image) {
       try {
-        const { data } = await axios.post("/api/admin/add-institute", obj);
+        const { data } = await axios.post("/api/admin/add-awards", obj);
 
         setImage("");
+
         if (loading) {
           setLoading(false);
         } else {
@@ -85,13 +86,13 @@ function Project() {
             },
           };
           await axios
-            .delete(`/api/admin/delete-blog/${id}`, config)
+            .delete(`/api/admin/delete-awards/${id}`, config)
             .then((res) => {
-              if (loading) {
-                setLoading(false);
-              } else {
-                setLoading(true);
-              }
+                if (loading) {
+                    setLoading(false);
+                  } else {
+                    setLoading(true);
+                  }
             })
             .catch((err) => {
               console.log(err);
@@ -246,7 +247,7 @@ function Project() {
           }}
           onClick={handleOpen}
         >
-          ADD INSTITUTION
+          ADD AWARDS
         </button>
         <div class="header_fixed">
           <table>

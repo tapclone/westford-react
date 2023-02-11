@@ -1,4 +1,4 @@
-import "./Institution.css";
+import "./Corporate.css";
 import { React, useState, useEffect } from "react";
 import { Backdrop, Fade, Modal } from "@mui/material";
 import { Box } from "@mui/material";
@@ -24,9 +24,7 @@ const style = {
 function Project() {
   const [loading, setLoading] = useState(false);
   const [Project, setProject] = useState([]);
-  const [heading, setHeading] = useState();
   const [image, setImage] = useState();
-  const [description, setDescription] = useState();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,23 +35,34 @@ function Project() {
   useEffect(() => {
     (async function () {
       try {
-        const { data } = await axios.get("/api/admin/view-all-institute");
+        const { data } = await axios.get("/api/admin/view-all-clients");
         setProject(data);
       } catch (error) {
         console.log(error);
       }
     })();
   }, [loading]);
-  const AddInstitue = async () => {
+
+  //   useEffect(() => {
+  //     (async function () {
+  //       try {
+  //         const { data } = await axios.get(
+  //           "https://api.first.org/data/v1/countries"
+  //         );
+  //         console.log(data, "dkc");
+  //         setCountrydata(data);
+  //       } catch (error) {
+  //         console.log(error);
+  //       }
+  //     })();
+  //   });
+  const AddClinets = async () => {
     const obj = {
-      header: heading,
-      description: description,
       Image: image,
     };
-    if (heading && description && image) {
+    if (image) {
       try {
-        const { data } = await axios.post("/api/admin/add-institute", obj);
-
+        const { data } = await axios.post("/api/admin/add-clients", obj);
         setImage("");
         if (loading) {
           setLoading(false);
@@ -85,7 +94,7 @@ function Project() {
             },
           };
           await axios
-            .delete(`/api/admin/delete-blog/${id}`, config)
+            .delete(`/api/admin/delete-clients/${id}`, config)
             .then((res) => {
               if (loading) {
                 setLoading(false);
@@ -152,30 +161,6 @@ function Project() {
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
               <form>
                 <div class="row">
-                  <h4>Heading</h4>
-                  <div class="input-group input-group-icon">
-                    <input
-                      type="text"
-                      placeholder="Heading"
-                      onChange={(e) => {
-                        setHeading(e.target.value);
-                      }}
-                      required
-                    />
-                    <div class="input-icon">
-                      <i class="fa fa-user"></i>
-                    </div>
-                  </div>
-                  <div class="input-group ">
-                    <textarea
-                      type="message"
-                      onChange={(e) => {
-                        setDescription(e.target.value);
-                      }}
-                      rows={4}
-                      placeholder="Project Description"
-                    />
-                  </div>
                   <h4>ADD IMAGES</h4>
                   <div class="input-group input-group-icon">
                     <input
@@ -204,7 +189,7 @@ function Project() {
                 {error && <div style={{ color: "red" }}>{error}</div>}
                 <div style={{ textAlign: "center" }}>
                   <a
-                    onClick={AddInstitue}
+                    onClick={AddClinets}
                     style={{
                       cursor: "pointer",
                       backgroundColor: "#4CAF50",
@@ -246,7 +231,7 @@ function Project() {
           }}
           onClick={handleOpen}
         >
-          ADD INSTITUTION
+          ADD CLIENTS
         </button>
         <div class="header_fixed">
           <table>
@@ -254,8 +239,6 @@ function Project() {
               <tr>
                 <th>S No.</th>
                 <th>Image</th>
-                <th>Heading</th>
-                <th>Description</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -265,10 +248,9 @@ function Project() {
                   <tr key={index}>
                     <td style={{ textAlign: "center" }}>{index + 1}</td>
                     <td style={{ textAlign: "center" }}>
-                      <img src={items?.Image} />
+                      <img src={items?.Image}  style={{width:"9rem",height:"3rem"}}/>
                     </td>
-                    <td style={{ textAlign: "center" }}>{items.header}</td>
-                    <td style={{ textAlign: "center" }}>{items.description}</td>
+                   
                     <td style={{ textAlign: "center" }}>
                       <button
                         onClick={(e) => {

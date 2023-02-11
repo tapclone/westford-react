@@ -1,4 +1,4 @@
-import "./Institution.css";
+import "./Milestone.css";
 import { React, useState, useEffect } from "react";
 import { Backdrop, Fade, Modal } from "@mui/material";
 import { Box } from "@mui/material";
@@ -15,7 +15,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  height: 550,
+  height: 600,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -24,11 +24,11 @@ const style = {
 function Project() {
   const [loading, setLoading] = useState(false);
   const [Project, setProject] = useState([]);
-  const [heading, setHeading] = useState();
+  const [year,setYear]=useState()
   const [image, setImage] = useState();
   const [description, setDescription] = useState();
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => setOpen(true); 
   const handleClose = () => setOpen(false);
   const [error, setError] = useState();
   const adminToken = localStorage.getItem("adminToken");
@@ -37,7 +37,7 @@ function Project() {
   useEffect(() => {
     (async function () {
       try {
-        const { data } = await axios.get("/api/admin/view-all-institute");
+        const { data } = await axios.get("/api/admin/view-all-milestones");
         setProject(data);
       } catch (error) {
         console.log(error);
@@ -46,15 +46,16 @@ function Project() {
   }, [loading]);
   const AddInstitue = async () => {
     const obj = {
-      header: heading,
       description: description,
+      year:year,
       Image: image,
     };
-    if (heading && description && image) {
+    if ( description && image &&year) {
       try {
-        const { data } = await axios.post("/api/admin/add-institute", obj);
+        const { data } = await axios.post("/api/admin/add-milestones", obj);
 
         setImage("");
+
         if (loading) {
           setLoading(false);
         } else {
@@ -85,13 +86,13 @@ function Project() {
             },
           };
           await axios
-            .delete(`/api/admin/delete-blog/${id}`, config)
+            .delete(`/api/admin/delete-milestones/${id}`, config)
             .then((res) => {
-              if (loading) {
-                setLoading(false);
-              } else {
-                setLoading(true);
-              }
+                if (loading) {
+                    setLoading(false);
+                  } else {
+                    setLoading(true);
+                  }
             })
             .catch((err) => {
               console.log(err);
@@ -152,13 +153,13 @@ function Project() {
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
               <form>
                 <div class="row">
-                  <h4>Heading</h4>
+
                   <div class="input-group input-group-icon">
                     <input
                       type="text"
-                      placeholder="Heading"
+                      placeholder="Year"
                       onChange={(e) => {
-                        setHeading(e.target.value);
+                        setYear(e.target.value);
                       }}
                       required
                     />
@@ -173,7 +174,7 @@ function Project() {
                         setDescription(e.target.value);
                       }}
                       rows={4}
-                      placeholder="Project Description"
+                      placeholder="Description"
                     />
                   </div>
                   <h4>ADD IMAGES</h4>
@@ -246,7 +247,7 @@ function Project() {
           }}
           onClick={handleOpen}
         >
-          ADD INSTITUTION
+          ADD MILESTONES
         </button>
         <div class="header_fixed">
           <table>
@@ -254,7 +255,7 @@ function Project() {
               <tr>
                 <th>S No.</th>
                 <th>Image</th>
-                <th>Heading</th>
+                <th>Year</th>
                 <th>Description</th>
                 <th>Action</th>
               </tr>
@@ -267,7 +268,7 @@ function Project() {
                     <td style={{ textAlign: "center" }}>
                       <img src={items?.Image} />
                     </td>
-                    <td style={{ textAlign: "center" }}>{items.header}</td>
+                    <td style={{ textAlign: "center" }}>{items.year}</td>
                     <td style={{ textAlign: "center" }}>{items.description}</td>
                     <td style={{ textAlign: "center" }}>
                       <button
