@@ -5,101 +5,48 @@ import DEAC from '../../src/images/our-partners/DEAC-logo.png'
 import heroImg from '../../src/images/our-partners/hand-shake.png'
 import zigzag from '../../src/images/about-us/zig-zag.png'
 function OurPartner() {
-  return (
-    <div style={{width:'100%',overflowX:'hidden'}}>
-      <div class="hero" style={{backgroundImage:`url(${banner}),url(${bannerOverLay})`,backgroundPosition:"center center",backgroundSize:'cover',backgroundRepeat:"no-repeat",backgroundBlendMode:'multiply'}}>
+    return (
+        <div style={{ width: '100%', overflowX: 'hidden' }}>
+            <div class="hero" style={{ backgroundImage: `url(${banner}),url(${bannerOverLay})`, backgroundPosition: "center center", backgroundSize: 'cover', backgroundRepeat: "no-repeat", backgroundBlendMode: 'multiply' }}>
 
-<div class="hero-heading">
-    <p class="aos" data-aos="zoom-out-up" data-aos-duration="2000">Making students <br /> worldwide.</p>
-</div>
-
-
-</div>
-
-
-
-    <div class="our-institution aos" data-aos="zoom-in"  data-aos-duration="1500" style={{height:'fit-content',padding:'5rem 0'}}>
-        <div class="our-institution-section1" style={{width:"100%",columnGap:'3rem'}}>
-            <div class="our-institution-img">
-                <div class="grey-bg" style={{width:'90%'}}>
-                    <div class="grey-bg-outline" style={{width:'100%'}}>
-                    </div>
-                    <img class="heroSecImg our-partnersImg "
-                        src={heroImg} alt="" />
-                    <img class="zig-zag1" src={zigzag} alt="" />
-                    <img class="zig-zag2" src={zigzag} alt="" />
-
+                <div class="hero-heading">
+                    <p class="aos" data-aos="zoom-out-up" data-aos-duration="2000">Making students <br /> worldwide.</p>
                 </div>
+
+
             </div>
 
-            {/* <div class="our-institution-txt" style={{width:'58%'}}>
-                <h2>Our Institutions</h2>
-                <img class="zig-zag3" src={zigzag} alt="" />
-                <p>Westford operates prominent 10 independent brands – 8 in higher education, 1 brand of film studies,
-                    and 1 brand in Sports Management.</p>
 
-                <div class="our-institution-points">
 
-                    <div class="pointer-row">
-                        <img src="/westfordeducation/images/about-us/arrow-pointer-to-right.png" alt="" />
-                        <p>The seven higher education entities comprise Acacia University, Arizona, US, CIQ, UK,
-                            Westford University College,
-                            Exeed College, Exeed ECX, Eaton Business School, Athena Global Education,
-                            DeMont Institute of Management & Technology and Westford Institute of Film Technology with
-                            courses
-                            ranging from the undergraduate level to the doctorate level.</p>
-                        <br /><br /><br /><br /><br /><br /><br />
+            <div className='startingContent' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '5rem' ,marginBottom:"15%"}}>
+                <div className='startingContentContainer' style={{ width: '90%', display: 'flex' }}>
+                    <div className='startingContentImg' style={{ width: '40%', aspectRatio: "1/1", position: 'relative', minWidth: '25rem' }}>
+                        <div className='backgroundLayer' style={{ width: '90%', aspectRatio: '1/1', background: "#F0F0F0", borderRadius: '10%', position: 'absolute' }}>
+                            <img style={{top:"6%"}} src={zigzag} className='zigZag1' alt="" />
+                            <img src={zigzag} className='zigZag2' alt="" />
+                        </div>
+                        <div className='borderLayer' style={{ width: '90%', aspectRatio: '1/1', border: '3px solid #285F71', borderRadius: "10%", position: 'absolute' }}>
+                            <img className='heroImgStartingSec' style={{top:'53%',left:'50%',width:'101%'}} src={heroImg} alt="" />
+                        </div>
+
+
+
+                    </div>
+                    <div className='startingContentText' style={{ width: '60%', display: 'flex', alignItems: 'start', justifyContent: 'end' }}>
+                        <div style={{ width: '93%' }}>
+                            <h2 style={{ marginTop: "0", fontSize: "clamp(1.5rem,3vw,3rem)", color: ' #303030', fontWeight: "600", marginBottom: '10px' }}>Our Partners</h2>
+                            <p style={{ textAlign: 'justify', fontSize: '0.9rem', lineHeight: '23px', marginBottom: "0" }}>Westford Education Group (WEG) is a leading provider of accredited international education and corporate training to aspiring learners across the globe.</p>
+                            <p style={{ textAlign: 'justify', lineHeight: '23px', fontSize: '0.9rem', marginBottom: '0' }}>Westford provides academic degrees and diplomas, professional certificate and diploma courses in partnership with fully accredited and reputed international awarding organizations and universities. Our taught programs range from Undergraduate level to Post Graduate level including Master’s Degrees and Post Graduate Diplomas including Master of Business Administration (MBA) and Extended Diploma; Graduate Programs including BA Honours in Business, Higher National Diplomas; Professional Certificate courses in industry and domain specific subject areas. Through our media school WIFT, we offer a broad portfolio of PG/UG programs in Film Making, Media and Broadcasting , Animation, Multimedia and Gaming.</p>
+                           
+                        </div>
+
                     </div>
 
-                    <div class="pointer-row">
-                        <img src="/westfordeducation/images/about-us/arrow-pointer-to-right.png" alt="" />
-                        <p>Taito Education, a division of Exeed College provides Teacher education degree programs and
-                            teacher
-                            training qualifications from the university and awarding bodies based in the UK.</p>
-                        <br /><br /><br /><br />
-                    </div>
-
-                    <div class="pointer-row">
-                        <img src="/westfordeducation/images/about-us/arrow-pointer-to-right.png" alt="" />
-                        <p>Westford Sports organizes and conducts sports activities in connection with school
-                            managements and facilities</p>
-                    </div>
                 </div>
 
-            </div> */}
-
-
-
-
-
-
-            <div className='heroSecText' style={{width:"53%",height:'100%',padding:'0 1rem'}}>
-                <div style={{display:'flex',justifyContent:'space-between',alignItems:"center"}}>
-                <h2 style={{fontSize:"2.5rem"}}>Our Partners</h2>
-                <img className='zigzag3' style={{height:'20px'}} src={zigzag} alt="" />
-                </div>
-                <p>Westford Education Group (WEG) is a leading provider of accredited international education and
-                    corporate training to aspiring learners across the globe. <br /> <br />
-                    Westford provides academic degrees and diplomas, professional certificate and diploma courses in
-                    partnership
-                    with fully accredited and reputed international awarding organizations and universities. Our taught
-                    programs
-                    range from Undergraduate level to Post Graduate level including Master’s Degrees and Post Graduate
-                    Diplomas
-                    including Master of Business Administration (MBA) and Extended Diploma; Graduate Programs including
-                    BA Honours
-                    in Business, Higher National Diplomas; Professional Certificate courses in industry and domain
-                    specific subject
-                    areas. Through our media school WIFT, we offer a broad portfolio of PG/UG programs in Film Making,
-                    Media and
-                    Broadcasting , Animation, Multimedia and Gaming.</p>
             </div>
 
-        </div>
-
-    </div>
-
-    {/* <div class="partners-logo-display">
+            {/* <div class="partners-logo-display">
 
         <div class="logo-display-sec1">
             <div class="logo-display-txt">
@@ -252,9 +199,9 @@ function OurPartner() {
     </div> */}
 
 
-        
-    </div>
-  )
+
+        </div>
+    )
 }
 
 export default OurPartner

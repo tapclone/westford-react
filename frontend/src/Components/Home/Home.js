@@ -394,9 +394,7 @@ function Home() {
 
             </section>
 
-
-
-            <section class="our-partners" style={{ height: 'fit-content', marginBottom: '2rem' }}>
+            <section class="our-partners" style={{ height: 'fit-content', marginBottom: '2rem',paddingBottom:'1rem' }}>
                 <div class="our-partners-title">
                     <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 4rem)' }}>OUR PARTNERS</h2>
                     <h3 style={{ fontSize: 'clamp(1.3rem, 3vw, 3.5rem)', lineHeight: 'normal' }}>Partnering for business transformation</h3>
@@ -626,7 +624,7 @@ function Home() {
             <section class="articles-blogs">
                 <div class="article-blog-headings">
                     <h2>Our Articles and Blogs</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the <br />
+                    <p style={{paddingBottom:'1rem'}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the <br />
                         industry's standard dummy text ever since the 1500s.</p>
                 </div>
                 <ArticleSection></ArticleSection>
@@ -681,7 +679,7 @@ function Home() {
 
             </section>
 
-            <section class="corporate-clients" style={{ height: 'fit-content',paddingBottom:"1rem" }}>
+            <section class="corporate-clients" style={{ height: 'fit-content',paddingBottom:"10%" }}>
                 <div class="corporate-client-txt">
                     <h2>Corporate Clients</h2>
                     <p>We have served clients ranging from large corporates to SME companies, <br />

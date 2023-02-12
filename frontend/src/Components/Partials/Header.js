@@ -18,6 +18,7 @@ function Header() {
     }
 
     return (
+        
         <div class="header">
             <div class="topbar">
                 <p class="comp-name">WESTFORD EDUCATION GROUP</p>
