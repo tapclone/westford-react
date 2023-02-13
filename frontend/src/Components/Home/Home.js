@@ -631,45 +631,24 @@ function Home() {
         <h4>EUROPE <br /> MIDDLE EAST <br /> & AFRICA</h4>
         <p>40%</p>
     </div> */}
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section
-        class="our-partners"
-        style={{
-          height: "fit-content",
-          marginBottom: "2rem",
-          paddingBottom: "1rem",
-        }}
-      >
-        <div class="our-partners-title">
-          <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 4rem)" }}>OUR PARTNERS</h2>
-          <h3
-            style={{
-              fontSize: "clamp(1.3rem, 3vw, 3.5rem)",
-              lineHeight: "normal",
-            }}
-          >
-            Partnering for business transformation
-          </h3>
-        </div>
-        <div
-          className="our-partner-logoDiv"
-          style={{
-            width: "85%",
-            aspectRatio: "1/0.5",
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "space-between",
-            rowGap: "1rem",
-          }}
-        >
+                               </div>
+                    </div>
+                </div>
+
+
+            </section>
+
+            <section class="our-partners" style={{ height: 'fit-content', marginBottom: '2rem',paddingBottom:'1rem' }}>
+                <div class="our-partners-title">
+                    <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 4rem)' }}>OUR PARTNERS</h2>
+                    <h3 style={{ fontSize: 'clamp(1.3rem, 3vw, 3.5rem)', lineHeight: 'normal' }}>Partnering for business transformation</h3>
+                </div>
+                <div className='our-partner-logoDiv' style={{ width: "85%", aspectRatio: "1/0.5", display: 'flex', flexWrap: 'wrap', alignItems: "center", justifyContent: "space-between", rowGap: "1rem" }}>
+
           {businessPartners.map((items) => {
             return (
-              <div class="our-partner-logo">
+              <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
                 <div class="top-logo">
                   <img src={items.Image} alt="" />
                 </div>
@@ -689,6 +668,7 @@ function Home() {
           </div>
         )}
       </section>
+      
 
       <section
         class="corp-training"
@@ -762,10 +742,8 @@ function Home() {
         <ArticleSection></ArticleSection>
 
         <div
-          onClick={() => {
-            navigate("/mediaCentre");
-          }}
           class="article-blog-btn contactUs"
+          onclick="window.location.href='/westfordeducation/media-centre.html';"
         >
           View More
         </div>
@@ -785,6 +763,7 @@ function Home() {
           </h2>
           <p>See some of the reviews here</p>
         </div>
+
 
         <div className="reviewAll">
           {media.map((items) => {

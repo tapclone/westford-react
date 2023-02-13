@@ -1,0 +1,83 @@
+.contactSectionMainSub1 p{
+    font-size: 0.9rem;
+    line-height: 26px;
+}
+.contactForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+    padding-bottom: 1rem;
+}
+.contactForm input{
+    background: transparent;
+    outline: none;
+    border: none;
+    width: 90%;
+    border-bottom: 1px solid black;
+}
+.contactSectionMainSub2 .submitContactForm{
+    width: 100%;
+    background-color: #DB3656;
+    color: white;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.contactSectionMainSub2 .submitContactForm:hover{
+    background-color: #e9607b;
+}
+.contactSectionMainSub2{
+    padding-bottom: 1rem;
+    margin-top: -20%;
+    z-index: 5;
+}
+.addresses p{
+    font-size: 0.9rem;
+    line-height: 26px;
+}
+.addresses{
+    row-gap: 2rem;
+}
+@media (max-width:900px) {
+    .contactSectionMain{
+        flex-direction: column-reverse;
+        row-gap: 2rem;
+    }
+    .contactSectionMainSub1{
+        width: 100% !important;
+    }
+    .contactSectionMainSub2{
+        width: 50% !important;
+        min-width:19rem;
+    }
+    .contactSec2Main{
+        flex-direction: column-reverse;
+        row-gap: 2rem;
+
+    }
+    .addresses{
+        width: 100% !important;
+    }
+    .map{
+        width: 100% !important;
+        aspect-ratio: 1/0.6 !important;
+    }
+    .contactSec2{
+        justify-content: center !important;
+    }
+
+}
+.addresses div{
+    min-width: 15rem;
+}
+@media (max-width:537px) {
+    .addresses{
+        justify-content: center !important;
+    }
+    .addresses div{
+        width: 100% !important;
+    }
+
+}
