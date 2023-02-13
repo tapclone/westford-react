@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick'
 import img from '../../src/images/home/art-sect-img1.png'
 
 function ArticleSection() {
     const [blog, setBlog] = useState([]);
+    const navigate=useNavigate()
     useEffect(() => {
         (async function () {
           try {
@@ -52,7 +54,7 @@ function ArticleSection() {
                     {blog.map((items)=>{
                         const image=items.Image
                         return(
-                            <div>
+                            <div onClick={()=>{navigate(`/single-blog/${items._id}`)}} style={{cursor:"pointer"}}>
                                 <img src={image} style={{backgroundBlendMode: "multiply",position:"absolute",zIndex:"-1"}}></img>
                             <div className='articleCard' >
                                 <span style={{ background: 'white', padding: '7px', borderRadius: '5px' }}>MARKETING</span>

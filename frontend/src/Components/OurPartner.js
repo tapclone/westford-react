@@ -422,14 +422,10 @@ function OurPartner() {
             return (
               <div className={`fiterCard ${items.country}`}>
                 <img src={items.Image} alt="" />
-                <p style={{ marginBottom: "0" }}>
-                  {items.description}
-                </p>
+                <p style={{ marginBottom: "0" }}>{items.description}</p>
               </div>
             );
           })}
-
-
         </div>
       </section>
     </div>

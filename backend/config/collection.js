@@ -10,4 +10,6 @@ module.exports = {
   OWN_COLLECTION: "OwnUniversities",
   BUSINESS_PARTNERS_COLLECTION: "BusinessPartners",
   PROJECT_COLLECTION: "project",
+  NEWS_EVENTS_COLLECTION: "News",
+
 };

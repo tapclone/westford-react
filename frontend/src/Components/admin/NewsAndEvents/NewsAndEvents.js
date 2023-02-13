@@ -1,4 +1,4 @@
-import "./Blog.css";
+import "./NewsAndEvents.css";
 import { React, useState, useEffect } from "react";
 import { Backdrop, Fade, Modal } from "@mui/material";
 import { Box } from "@mui/material";
@@ -15,7 +15,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  height: 600,
+  height: 550,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -27,7 +27,6 @@ function Project() {
   const [heading, setHeading] = useState();
   const [image, setImage] = useState();
   const [description, setDescription] = useState();
-  const [date, setDate] = useState();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -38,7 +37,7 @@ function Project() {
   useEffect(() => {
     (async function () {
       try {
-        const { data } = await axios.get("/api/admin/view-all-blog");
+        const { data } = await axios.get("/api/admin/view-all-news");
         setProject(data);
       } catch (error) {
         console.log(error);
@@ -48,13 +47,12 @@ function Project() {
   const AddInstitue = async () => {
     const obj = {
       header: heading,
-      date: date,
       description: description,
       Image: image,
     };
-    if (heading && description && image && date) {
+    if (heading && description && image) {
       try {
-        const { data } = await axios.post("/api/admin/add-blog", obj);
+        const { data } = await axios.post("/api/admin/add-news", obj);
 
         setImage("");
         if (loading) {
@@ -87,7 +85,7 @@ function Project() {
             },
           };
           await axios
-            .delete(`/api/admin/delete-blog/${id}`, config)
+            .delete(`/api/admin/delete-news/${id}`, config)
             .then((res) => {
               if (loading) {
                 setLoading(false);
@@ -169,15 +167,6 @@ function Project() {
                     </div>
                   </div>
                   <div class="input-group ">
-                    <input
-                      type="text"
-                      onChange={(e) => {
-                        setDate(e.target.value);
-                      }}
-                      placeholder="Enter Date"
-                    />
-                  </div>
-                  <div class="input-group ">
                     <textarea
                       type="message"
                       onChange={(e) => {
@@ -187,7 +176,6 @@ function Project() {
                       placeholder="Project Description"
                     />
                   </div>
-
                   <h4>ADD IMAGES</h4>
                   <div class="input-group input-group-icon">
                     <input
@@ -258,7 +246,7 @@ function Project() {
           }}
           onClick={handleOpen}
         >
-          ADD BLOG
+          ADD EVENTS AND NEWS
         </button>
         <div class="header_fixed">
           <table>
@@ -267,7 +255,6 @@ function Project() {
                 <th>S No.</th>
                 <th>Image</th>
                 <th>Heading</th>
-                <th>Date</th>
                 <th>Description</th>
                 <th>Action</th>
               </tr>
@@ -281,7 +268,6 @@ function Project() {
                       <img src={items?.Image} />
                     </td>
                     <td style={{ textAlign: "center" }}>{items.header}</td>
-                    <td style={{ textAlign: "center" }}>{items.date}</td>
                     <td style={{ textAlign: "center" }}>{items.description}</td>
                     <td style={{ textAlign: "center" }}>
                       <button

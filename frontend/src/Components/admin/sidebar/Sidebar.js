@@ -34,7 +34,7 @@ function AdminMain() {
     });
   };
   return (
-    <div class="s-layout__sidebar">
+    <div class="s-layout__sidebar" style={{overflowX:"scroll"}}>
       <a
         class="s-sidebar__trigger"
         href="#0"
@@ -55,6 +55,9 @@ function AdminMain() {
             height: "100%",
             height: "100%",
             marginTop: "3rem",
+            overflow:"scroll",
+            marginBottom:"3rem"
+
           }}
         >
           <div>
@@ -168,10 +171,21 @@ function AdminMain() {
                 <em>Business-Partners</em>
               </a>
             </li>
+            <li>
+              <a
+                class="s-sidebar__nav-link"
+                onClick={() => {
+                  navigate("/events-news");
+                }}
+              >
+                <BookmarksIcon className="navIcon"></BookmarksIcon>
+                <em>Events-News</em>
+              </a>
+            </li>
             
           </div>
           <div>
-            <li>
+            <li style={{marginBottom:"4rem"}}>
               <a class="s-sidebar__nav-link" onClick={handleLogout}>
                 <LogoutIcon className="navIcon" />
                 <em>Logout</em>

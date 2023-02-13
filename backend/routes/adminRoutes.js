@@ -37,6 +37,9 @@ const {
   DeleteBusinessPartners,
   UploadImage,
   ViewSingleBlog,
+  AddNewsAndEvents,
+  DeleteNewsAndEvents,
+  ViewAllNewsAndEvents,
 } = require("../controls/adminControls");
 
 router.route("/login").post(Login);
@@ -71,6 +74,9 @@ router.route("/add-business-partners").post(AddBusineesPartners);
 router.route("/view-all-business-Partners").get(ViewAllBusinessPartners);
 router.route("/delete-business-partners").delete(DeleteBusinessPartners);
 router.route("/view-single-blog/:id").get(ViewSingleBlog);
+router.route('/add-news').post(AddNewsAndEvents)
+router.route("/view-all-news").get(ViewAllNewsAndEvents)
+router.route("/delete-news/:id").delete(DeleteNewsAndEvents)
 router.route("/image-uploading").post(upload.single("image"), UploadImage);
 
 module.exports = router;
