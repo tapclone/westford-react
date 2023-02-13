@@ -9,8 +9,7 @@ const { uploadS3 } = require("../middelware/S3");
 
 const Login = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body, "dkjc");
-  if (username == "weastford@gmail.com" && password == "password") {
+  if (username == "weastford@gmail.com"&& password =="password") {
     const token = generateToken(password);
     res.status(200).json(token);
   } else {
