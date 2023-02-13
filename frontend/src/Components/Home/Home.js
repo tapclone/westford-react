@@ -20,12 +20,20 @@ import emirates from "../../images/home/corp-clients/emirates-nbd-logo.png";
 import maImg1 from "../../images/media-centre/ma-img1.png";
 import ArticleSection from "../ArticleSection";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [institute, setInstitute] = useState([]);
   const [businessPartners, setBusinesPartners] = useState([]);
   const [ownuniversities, setOwnuniversities] = useState([]);
   const [CorporateClinets, setCorporateClinets] = useState([]);
+  const [limit, setLimit] = useState(12);
+  const [clinetLimit, setClinetLimit] = useState(13);
+  const [lengthPartners, setLengthPartners] = useState();
+  const [lengthClinets, setLengthClientes] = useState();
+  const [blog, setBlog] = useState([]);
+  const [media, setMedia] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async function () {
@@ -41,11 +49,13 @@ function Home() {
         const { data } = await axios.get(
           "/api/admin/view-all-business-Partners"
         );
-
-        setBusinesPartners(data);
+        setLengthPartners(data.length);
+        const datas = data.slice(0, limit);
+        setBusinesPartners(datas);
       } catch (error) {}
     })();
-  }, []);
+  }, [limit]);
+
   useEffect(() => {
     (async function () {
       try {
@@ -60,10 +70,25 @@ function Home() {
     (async function () {
       try {
         const { data } = await axios.get("/api/admin/view-all-clients");
-        setCorporateClinets(data);
-      } catch (error) {
-        console.log(error);
-      }
+        const datas = data.slice(0, clinetLimit);
+        setLengthClientes(data.length);
+        setCorporateClinets(datas);
+      } catch (error) {}
+    })();
+  }, [clinetLimit]);
+  const addLimit = () => {
+    setLimit(limit + 5);
+  };
+  const addLimiForClients = () => {
+    setClinetLimit(clinetLimit + 4);
+  };
+
+  useEffect(() => {
+    (async function () {
+      try {
+        const { data } = await axios.get("/api/admin/view-all-media");
+        setMedia(data);
+      } catch (error) {}
     })();
   }, []);
 
@@ -494,7 +519,7 @@ function Home() {
             <button
               style={{ marginBottom: "1.5rem" }}
               class="whorv-btn contactUs"
-              onclick="window.location.href='westfordeducation/contact-us.html';"
+              onClick={()=>{navigate('/about')}}
             >
               Learn More
             </button>
@@ -656,15 +681,13 @@ function Home() {
             );
           })}
         </div>
-
-        <div class="seemore-btn ">
-          <button
-            class="see-more-btn contactUs"
-            onclick="window.location.href='/westfordeducation/contact-us.html';"
-          >
-            See More
-          </button>
-        </div>
+        {businessPartners.length != lengthPartners && (
+          <div class="seemore-btn ">
+            <button class="see-more-btn contactUs" onClick={addLimit}>
+              See More
+            </button>
+          </div>
+        )}
       </section>
 
       <section
@@ -687,7 +710,7 @@ function Home() {
             of industries and sectors.
           </p>
 
-          <button class="corp-training-btn learnMore">Learn more</button>
+          <button onClick={()=>{navigate('/about')}} class="corp-training-btn learnMore">Learn more</button>
         </div>
       </section>
 
@@ -739,8 +762,10 @@ function Home() {
         <ArticleSection></ArticleSection>
 
         <div
+          onClick={() => {
+            navigate("/mediaCentre");
+          }}
           class="article-blog-btn contactUs"
-          onclick="window.location.href='/westfordeducation/media-centre.html';"
         >
           View More
         </div>
@@ -762,108 +787,28 @@ function Home() {
         </div>
 
         <div className="reviewAll">
-          <div className="reviewCard">
-            <span
-              style={{
-                background: "#285F71",
-                color: "white",
-                padding: "7px",
-                marginTop: "7px",
-              }}
-            >
-              10 Jan, 2022
-            </span>
-            <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
-              Lorem Ipsum has been the industry's standard dummy text ever since
-              the 1500s
-            </h3>
-            <p>Corporate news/ Gulf News</p>
-          </div>
-          <div className="reviewCard">
-            <span
-              style={{
-                background: "#285F71",
-                color: "white",
-                padding: "7px",
-                marginTop: "7px",
-              }}
-            >
-              10 Jan, 2022
-            </span>
-            <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
-              Lorem Ipsum has been the industry's standard dummy text ever since
-              the 1500s
-            </h3>
-            <p>Corporate news/ Gulf News</p>
-          </div>
-          <div className="reviewCard">
-            <span
-              style={{
-                background: "#285F71",
-                color: "white",
-                padding: "7px",
-                marginTop: "7px",
-              }}
-            >
-              10 Jan, 2022
-            </span>
-            <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
-              Lorem Ipsum has been the industry's standard dummy text ever since
-              the 1500s
-            </h3>
-            <p>Corporate news/ Gulf News</p>
-          </div>
-          <div className="reviewCard">
-            <span
-              style={{
-                background: "#285F71",
-                color: "white",
-                padding: "7px",
-                marginTop: "7px",
-              }}
-            >
-              10 Jan, 2022
-            </span>
-            <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
-              Lorem Ipsum has been the industry's standard dummy text ever since
-              the 1500s
-            </h3>
-            <p>Corporate news/ Gulf News</p>
-          </div>
-          <div className="reviewCard">
-            <span
-              style={{
-                background: "#285F71",
-                color: "white",
-                padding: "7px",
-                marginTop: "7px",
-              }}
-            >
-              10 Jan, 2022
-            </span>
-            <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
-              Lorem Ipsum has been the industry's standard dummy text ever since
-              the 1500s
-            </h3>
-            <p>Corporate news/ Gulf News</p>
-          </div>
-          <div className="reviewCard">
-            <span
-              style={{
-                background: "#285F71",
-                color: "white",
-                padding: "7px",
-                marginTop: "7px",
-              }}
-            >
-              10 Jan, 2022
-            </span>
-            <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
-              Lorem Ipsum has been the industry's standard dummy text ever since
-              the 1500s
-            </h3>
-            <p>Corporate news/ Gulf News</p>
-          </div>
+          {media.map((items) => {
+            return (
+              <div className="reviewCard">
+                <a href={items.link} style={{textDecoration:"none",color:"black"}} target="_blank">
+                <span
+                  style={{
+                    background: "#285F71",
+                    color: "white",
+                    padding: "7px",
+                    marginTop: "7px",
+                  }}
+                >
+                 {items.date}
+                </span>
+                <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
+                 {items.description}
+                </h3>
+                <p>{items.header}</p>
+                </a>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -884,7 +829,7 @@ function Home() {
           {CorporateClinets.map((items, index) => {
             const number = (index + 1) / 4;
             let empty = false;
-            if (index == 4 || index == 13||index==25) {
+            if (index == 4 || index == 13 || index == 25) {
               empty = true;
             } else {
               empty = false;
@@ -928,13 +873,11 @@ function Home() {
             );
           })}
         </div>
-
-        <div
-          class="cc-logo-btn contactUs"
-          onclick="window.location.href='/westfordeducation/index.html';"
-        >
-          View More
-        </div>
+        {lengthClinets != CorporateClinets.length && (
+          <div class="cc-logo-btn contactUs" onClick={addLimiForClients}>
+            View More
+          </div>
+        )}
       </section>
     </div>
   );

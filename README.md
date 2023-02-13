@@ -1,5 +1,5 @@
 
-# EBD
+# WESTFORD
 
 EBD is a React application that allows users to create and manage their own projects. It is built with React, React Router, and other dependencies.
 

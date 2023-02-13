@@ -6,16 +6,21 @@ import heroImg from "../../src/images/awards/trophy.png";
 import zigzag from "../../src/images/about-us/zig-zag.png";
 import ArticleSection from "./ArticleSection";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function Awards() {
   const [awards, setAwards] = useState([]);
+  const navigate=useNavigate()
+  const [limit,setLimit]=useState(0)
   useEffect(() => {
     (async function () {
       try {
         const { data } = await axios.get("/api/admin/view-all-awards");
+     
         setAwards(data);
       } catch (error) {}
     })();
   }, []);
+  
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
       <div
@@ -215,7 +220,7 @@ function Awards() {
 
         <div
           class="article-blog-btn contactUs"
-          onclick="window.location.href='/westfordeducation/media-centre.html';"
+          onClick={()=>{navigate('/about')}}
         >
           View More
         </div>

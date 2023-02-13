@@ -258,7 +258,7 @@ function Project() {
           }}
           onClick={handleOpen}
         >
-          ADD INSTITUTION
+          ADD BLOG
         </button>
         <div class="header_fixed">
           <table>

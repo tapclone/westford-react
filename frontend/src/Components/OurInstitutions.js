@@ -7,18 +7,73 @@ import zigzag from "../../src/images/about-us/zig-zag.png";
 import "./About.css";
 import ArticleSection from "./ArticleSection";
 import axios from "axios";
+import Backdrop from "@mui/material/Backdrop";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { useNavigate } from "react-router-dom";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+  textAlign: "justify",
+};
 function OurInstitutions() {
   const [institute, setInstitute] = useState([]);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [modaldescription, setModaldescription] = useState();
+  const [limit, setLimit] = useState(6);
+  const [instituteLength, setInstituteLength] = useState();
+  const navigate = useNavigate();
   useEffect(() => {
     (async function () {
       try {
         const { data } = await axios.get("/api/admin/view-all-institute");
-        setInstitute(data);
+        const datas = data.slice(0, limit);
+        setInstituteLength(data.length);
+        setInstitute(datas);
       } catch (error) {}
     })();
-  }, []);
+  }, [limit]);
+  const addModalDescription = (items) => {
+    handleOpen();
+    setModaldescription(items);
+  };
+  const AddLimit = () => {
+    setLimit(limit + 3);
+  };
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={style}>
+            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+              {modaldescription?.description}
+            </Typography>
+          </Box>
+        </Fade>
+      </Modal>
       <div
         class="hero"
         style={{
@@ -185,19 +240,28 @@ function OurInstitutions() {
 
                   <h3>{items.header}</h3>
 
-                  <p>{(items.description).slice(0,223)}</p>
+                  <p>{items.description.slice(0, 223)}</p>
 
                   <h4>
                     {" "}
-                    <a href="#">Read More</a>
+                    <a
+                      onClick={() => {
+                        addModalDescription(items);
+                      }}
+                    >
+                      Read More
+                    </a>
                   </h4>
                 </div>
               );
             })}
           </div>
         </div>
-
-        <button class="independent-brands-btn contactUs">View More</button>
+        {instituteLength != institute.length && (
+          <button onClick={AddLimit} class="independent-brands-btn contactUs">
+            View More
+          </button>
+        )}
       </div>
       <section
         class="articles-blogs"
@@ -215,7 +279,9 @@ function OurInstitutions() {
 
         <div
           class="article-blog-btn contactUs"
-          onclick="window.location.href='/westfordeducation/media-centre.html';"
+          onClick={() => {
+            navigate("/about");
+          }}
         >
           View More
         </div>

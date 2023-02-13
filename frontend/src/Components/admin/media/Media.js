@@ -150,7 +150,7 @@ function Project() {
                   <div class="input-group input-group-icon">
                     <input
                       type="text"
-                      placeholder="Heading"
+                      placeholder="media"
                       onChange={(e) => {
                         setHeading(e.target.value);
                       }}
