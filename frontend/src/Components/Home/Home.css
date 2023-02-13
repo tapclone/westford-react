@@ -487,10 +487,12 @@
 }
 .cc-logo img{
     width: 90%;
+    height: 4rem;
 }
 .cc-logo-empty{
     width: 9% !important;
-    padding: 4% 0;
+    padding: 5.5% 0;
+    height: 4rem;
 }
 .corp-client-logos{
     width: 85% !important;
