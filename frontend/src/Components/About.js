@@ -9,6 +9,7 @@ import person4 from '../../src/images/about-us/firoz.png'
 import person5 from '../../src/images/about-us/ahluwalia.png'
 import person6 from '../../src/images/about-us/ali.png'
 import zigzag from '../../src/images/about-us/zig-zag.png'
+import zigzagBlue from '../../src/images/about-us/zigzag-blue.png'
 import trophy from '../../src/images/about-us/trophy.png'
 import Slider from 'react-slick'
 import upBtn from '../../src/images/about-us/Group 831.svg'
@@ -87,13 +88,14 @@ function About() {
 
 
                     </div>
-                    <div className='startingContentText' style={{ width: '60%', display: 'flex', alignItems: 'start', justifyContent: 'end' }}>
+                    <div className='startingContentText' style={{ width: '60%', display: 'flex', alignItems: 'start', justifyContent: 'end' ,position:'relative'}}>
                         <div style={{ width: '93%' }}>
                             <h2 style={{ marginTop: "0", fontSize: "clamp(1.5rem,3vw,3rem)", color: ' #303030', fontWeight: "600", marginBottom: '10px' }}>About Westford</h2>
                             <p style={{ textAlign: 'justify', fontSize: '0.9rem', lineHeight: '23px', marginBottom: "0" }}>Westford Education Group (WEG) operating as Westford Ventures Holding Ltd., A ADGM registered company with multiple brands of higher education programs through its campuses and satellite learning centres all across the globe. The group is established with an objective to fulfil the aspirations of learners with diverse backgrounds from across the globe to attain internationally-accredited qualifications in the form of on-site and online learning interventions.</p>
                             <p style={{ textAlign: 'justify', lineHeight: '23px', fontSize: '0.9rem', marginBottom: '0' }}>Working toward a world where everyone has access to higher education, WEG now stands out winning the confidence of its learners and the community, a result of its steadfast commitment to students’ welfare and their success stories. </p>
                             <p style={{ textAlign: 'justify', lineHeight: '23px', fontSize: '0.9rem', marginBottom: "0" }}> At Westford, we have come up with an integrated strategy and operational model for the global education. The group’s overall mission is “enabling the student of today to become a successful individual of tomorrow”.</p>
                         </div>
+                        <img className='zigzagBlue' style={{width:'5rem',top:'0',right:'0',position:'absolute'}} src={zigzagBlue} alt="" />
 
                     </div>
 

@@ -4,6 +4,8 @@ import banner from '../../src/images/our-institutions/hero-bg.png'
 import westford from '../../src/images/home/westford-logo.png'
 import heroImg from '../../src/images/about-us/our-institutions-lady.png'
 import zigzag from '../../src/images/about-us/zig-zag.png'
+import zigzagBlue from '../../src/images/about-us/zigzag-blue.png'
+
 import './About.css'
 import ArticleSection from './ArticleSection'
 function OurInstitutions() {
@@ -32,7 +34,7 @@ function OurInstitutions() {
 
 
                     </div>
-                    <div className='startingContentText' style={{ width: '60%', display: 'flex', alignItems: 'start', justifyContent: 'end' }}>
+                    <div className='startingContentText' style={{ width: '60%', display: 'flex', alignItems: 'start', justifyContent: 'end',position:'relative' }}>
                         <div style={{ width: '93%' }}>
                             <h2 style={{ marginTop: "0", fontSize: "clamp(1.5rem,3vw,3rem)", color: ' #303030', fontWeight: "600", marginBottom: '10px' }}>Our Institutions</h2>
                             <p style={{ textAlign: 'justify', fontSize: '0.9rem', lineHeight: '23px', marginBottom: "0" }}>Westford operates prominent 10 independent brands – 8 in higher education, 1 brand of film studies, and 1 brand in Sports Management.</p>
@@ -43,6 +45,7 @@ function OurInstitutions() {
                                 <li>Westford Sports organizes and conducts sports activities in connection with school managements and facilities.</li>
                             </ul>
                         </div>
+                        <img className='zigzagBlue' style={{width:'5rem',top:'0',right:'0',position:'absolute'}} src={zigzagBlue} alt="" />
 
                     </div>
 

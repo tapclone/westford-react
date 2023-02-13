@@ -4,7 +4,11 @@ import banner from '../../src/images/our-partners/hero-bg.png'
 import DEAC from '../../src/images/our-partners/DEAC-logo.png'
 import heroImg from '../../src/images/our-partners/hand-shake.png'
 import zigzag from '../../src/images/about-us/zig-zag.png'
+import zigzagBlue from '../../src/images/about-us/zigzag-blue.png'
+
+
 import dummyLogo from '../../src/images/our-partners/chea-logo.png'
+
 
 function OurPartner() {
     const [btnColour,setBtnColour]=useState()
@@ -61,13 +65,15 @@ function OurPartner() {
 
 
                     </div>
-                    <div className='startingContentText' style={{ width: '60%', display: 'flex', alignItems: 'start', justifyContent: 'end' }}>
+                    <div className='startingContentText' style={{ width: '60%', display: 'flex', alignItems: 'start', justifyContent: 'end',position:'relative' }}>
                         <div style={{ width: '93%' }}>
                             <h2 style={{ marginTop: "0", fontSize: "clamp(1.5rem,3vw,3rem)", color: ' #303030', fontWeight: "600", marginBottom: '10px' }}>Our Partners</h2>
                             <p style={{ textAlign: 'justify', fontSize: '0.9rem', lineHeight: '23px', marginBottom: "0" }}>Westford Education Group (WEG) is a leading provider of accredited international education and corporate training to aspiring learners across the globe.</p>
                             <p style={{ textAlign: 'justify', lineHeight: '23px', fontSize: '0.9rem', marginBottom: '0' }}>Westford provides academic degrees and diplomas, professional certificate and diploma courses in partnership with fully accredited and reputed international awarding organizations and universities. Our taught programs range from Undergraduate level to Post Graduate level including Master’s Degrees and Post Graduate Diplomas including Master of Business Administration (MBA) and Extended Diploma; Graduate Programs including BA Honours in Business, Higher National Diplomas; Professional Certificate courses in industry and domain specific subject areas. Through our media school WIFT, we offer a broad portfolio of PG/UG programs in Film Making, Media and Broadcasting , Animation, Multimedia and Gaming.</p>
 
                         </div>
+                        <img className='zigzagBlue' style={{width:'5rem',top:'0',right:'0',position:'absolute'}} src={zigzagBlue} alt="" />
+
 
                     </div>
 

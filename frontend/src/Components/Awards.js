@@ -4,6 +4,8 @@ import bannerOverLay from '../../src/images/westford assets/overlay.svg'
 import award from '../../src/images/awards/award1.png'
 import heroImg from '../../src/images/awards/trophy.png'
 import zigzag from '../../src/images/about-us/zig-zag.png'
+import zigzagBlue from '../../src/images/about-us/zigzag-blue.png'
+
 import ArticleSection from './ArticleSection'
 function Awards() {
     return (
@@ -32,12 +34,13 @@ function Awards() {
 
 
                         </div>
-                        <div className='startingContentText' style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'end' }}>
+                        <div className='startingContentText' style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'end',position:'relative' }}>
                             <div style={{ width: '93%' }}>
                                 <h2 style={{ marginTop: "0", fontSize: "clamp(1.5rem,3vw,3rem)", color: ' #303030', fontWeight: "600", marginBottom: '10px' }}>Awards & Accolades</h2>
                                 <p style={{ textAlign: 'justify', fontSize: '0.9rem', lineHeight: '23px', marginBottom: "0" }}>Westford education group entities bagged many awards and recognition in past years as an evidence of our commitment to the quality and community development. These international awards are a reflection of our values and the dedication of our team that always compete to provide the best for our students and their communities.</p>
                                 <p style={{ textAlign: 'justify', lineHeight: '23px', fontSize: '0.9rem', marginBottom: '0' }}>Our wonderful students, faculty and staff have helped us earn awards and accolades. We are proud to be consistently recognized.</p>
                             </div>
+                            <img className='zigzagBlue' style={{width:'5rem',top:'0',right:'0',position:'absolute'}} src={zigzagBlue} alt="" />
 
                         </div>
 

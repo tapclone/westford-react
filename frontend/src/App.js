@@ -20,6 +20,7 @@ import  AwardAdminPage from './Components/Pages/admin/Awads'
 import  Milestone from './Components/Pages/admin/Milestones'
 import OWNUniversities from './Components/Pages/admin/OwnUniversities'
 import BusinessPartners from './Components/Pages/admin/BusinessPartners'
+import SingleArticlePage from './Components/Pages/SingleArticlePage'
 
 function App() {
   return (
@@ -44,8 +45,9 @@ function App() {
         <Route exact path='/milestones' element={<Milestone/>}></Route>
         <Route exact path='/own-universities' element={<OWNUniversities/>}></Route>
         <Route exact path='/business-partners' element={<BusinessPartners/>}></Route>
+        <Route exact path='/singleArticle' element={<SingleArticlePage/>}></Route>
 
-        <Route exact path='' element={<ContactUsPage></ContactUsPage>}></Route>
+        <Route exact path='/contact' element={<ContactUsPage></ContactUsPage>}></Route>
       </Routes>  
       </BrowserRouter>
       

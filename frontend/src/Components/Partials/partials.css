@@ -1,5 +1,6 @@
 .nav-item a{
 cursor: pointer;
+font-size: 0.8rem;
 }
 
 .logo{
@@ -73,7 +74,6 @@ cursor: pointer;
     color: white;
     justify-content: center;
     border-left: 1px solid rgba(255,255,255,0.5);
-    border-right: 1px solid rgba(255,255,255,0.5);
     height: fit-content;
 }
 
@@ -113,14 +113,11 @@ cursor: pointer;
     padding: 0 6%;
 }
 .sec2{
-    width: 25%;
-}
-.sec3{
-    width: 25%;
+    width: 45%;
 }
 .redFooter{
     background-color: #DB3656;
-    width: 80%;
+    width: 86%;
     display: flex;
     color: white;
     padding:1.5%;
@@ -142,6 +139,10 @@ cursor: pointer;
         flex-direction: column;
 
     }
+    .redFooter span{
+        padding: 0.5rem  !important;
+    }
+
     .redFooter div {
         width: 100% !important;
         align-items: start !important;
@@ -163,4 +164,37 @@ cursor: pointer;
     .sec2,.sec3{
         padding-left: 5%;
     }
+}
+.redFooter span{
+    cursor: pointer;
+    transition: 0.3s;
+}
+.redFooter span:hover{
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+
+.nav-list{
+    margin-right: 6rem !important;
+}
+@media (max-width:1061px) {
+    .nav-list{
+        margin-right: 1.2rem !important;
+    }
+}
+@media (max-width:974px) {
+    .nav-item a{
+        font-size: 0.6rem;
+    }
+}
+@media (max-width:810px) {
+    .nav-item a{
+        font-size: 1rem;
+    }
+}
+.footerNavs span{
+    cursor: pointer;
+}
+.footerNavs span:hover{
+    text-decoration: underline;
 }

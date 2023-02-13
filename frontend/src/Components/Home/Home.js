@@ -401,7 +401,7 @@ function Home() {
                 </div>
                 <div className='our-partner-logoDiv' style={{ width: "85%", aspectRatio: "1/0.5", display: 'flex', flexWrap: 'wrap', alignItems: "center", justifyContent: "space-between", rowGap: "1rem" }}>
 
-                    <div class="our-partner-logo">
+                    <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
                         <div class="top-logo">
                             <img src={ucam} alt="" />
                         </div>
@@ -411,7 +411,7 @@ function Home() {
                         </div>
 
                     </div>
-                    <div class="our-partner-logo">
+                    <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
                         <div class="top-logo">
                             <img src={ucam} alt="" />
                         </div>
@@ -421,18 +421,7 @@ function Home() {
                         </div>
 
                     </div>
-                    <div class="our-partner-logo">
-                        <div class="top-logo">
-                            <img src={ucam} alt="" />
-                        </div>
-
-                        <div class="bottom-logo">
-                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
-                        </div>
-
-                    </div>
-
-                    <div class="our-partner-logo">
+                    <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
                         <div class="top-logo">
                             <img src={ucam} alt="" />
                         </div>
@@ -443,7 +432,7 @@ function Home() {
 
                     </div>
 
-                    <div class="our-partner-logo">
+                    <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
                         <div class="top-logo">
                             <img src={ucam} alt="" />
                         </div>
@@ -454,7 +443,7 @@ function Home() {
 
                     </div>
 
-                    <div class="our-partner-logo">
+                    <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
                         <div class="top-logo">
                             <img src={ucam} alt="" />
                         </div>
@@ -465,7 +454,7 @@ function Home() {
 
                     </div>
 
-                    <div class="our-partner-logo">
+                    <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
                         <div class="top-logo">
                             <img src={ucam} alt="" />
                         </div>
@@ -476,7 +465,7 @@ function Home() {
 
                     </div>
 
-                    <div class="our-partner-logo">
+                    <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
                         <div class="top-logo">
                             <img src={ucam} alt="" />
                         </div>
@@ -487,7 +476,7 @@ function Home() {
 
                     </div>
 
-                    <div class="our-partner-logo">
+                    <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
                         <div class="top-logo">
                             <img src={ucam} alt="" />
                         </div>
@@ -498,7 +487,7 @@ function Home() {
 
                     </div>
 
-                    <div class="our-partner-logo">
+                    <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200"> 
                         <div class="top-logo">
                             <img src={ucam} alt="" />
                         </div>
@@ -509,7 +498,7 @@ function Home() {
 
                     </div>
 
-                    <div class="our-partner-logo">
+                    <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
                         <div class="top-logo">
                             <img src={ucam} alt="" />
                         </div>
@@ -520,7 +509,18 @@ function Home() {
 
                     </div>
 
-                    <div class="our-partner-logo">
+                    <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
+                        <div class="top-logo">
+                            <img src={ucam} alt="" />
+                        </div>
+
+                        <div class="bottom-logo">
+                            <p>United Kingdom, <br /> Cardiff Metropolitan <br /> University (CMU)</p>
+                        </div>
+
+                    </div>
+
+                    <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
                         <div class="top-logo">
                             <img src={ucam} alt="" />
                         </div>
@@ -644,32 +644,32 @@ function Home() {
                 </div>
 
                 <div className='reviewAll'>
-                    <div className='reviewCard'>
+                    <div className='reviewCard'  data-aos="fade-down" data-aos-duration='1200'>
                         <span style={{ background: '#285F71', color: 'white', padding: '7px', marginTop: "7px" }}>10 Jan, 2022</span>
                         <h3 style={{ fontSize: '1.2rem', fontWeight: "600" }}>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</h3>
                         <p>Corporate news/ Gulf News</p>
                     </div>
-                    <div className='reviewCard'>
+                    <div className='reviewCard' data-aos="fade-down" data-aos-duration='1200'>
                         <span style={{ background: '#285F71', color: 'white', padding: '7px', marginTop: "7px" }}>10 Jan, 2022</span>
                         <h3 style={{ fontSize: '1.2rem', fontWeight: "600" }}>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</h3>
                         <p>Corporate news/ Gulf News</p>
                     </div>
-                    <div className='reviewCard'>
+                    <div className='reviewCard' data-aos="fade-down" data-aos-duration='1200'>
                         <span style={{ background: '#285F71', color: 'white', padding: '7px', marginTop: "7px" }}>10 Jan, 2022</span>
                         <h3 style={{ fontSize: '1.2rem', fontWeight: "600" }}>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</h3>
                         <p>Corporate news/ Gulf News</p>
                     </div>
-                    <div className='reviewCard'>
+                    <div className='reviewCard' data-aos="fade-down" data-aos-duration='1200'>
                         <span style={{ background: '#285F71', color: 'white', padding: '7px', marginTop: "7px" }}>10 Jan, 2022</span>
                         <h3 style={{ fontSize: '1.2rem', fontWeight: "600" }}>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</h3>
                         <p>Corporate news/ Gulf News</p>
                     </div>
-                    <div className='reviewCard'>
+                    <div className='reviewCard' data-aos="fade-down" data-aos-duration='1200'>
                         <span style={{ background: '#285F71', color: 'white', padding: '7px', marginTop: "7px" }}>10 Jan, 2022</span>
                         <h3 style={{ fontSize: '1.2rem', fontWeight: "600" }}>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</h3>
                         <p>Corporate news/ Gulf News</p>
                     </div>
-                    <div className='reviewCard'>
+                    <div className='reviewCard' data-aos="fade-down" data-aos-duration='1200'>
                         <span style={{ background: '#285F71', color: 'white', padding: '7px', marginTop: "7px" }}>10 Jan, 2022</span>
                         <h3 style={{ fontSize: '1.2rem', fontWeight: "600" }}>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</h3>
                         <p>Corporate news/ Gulf News</p>
