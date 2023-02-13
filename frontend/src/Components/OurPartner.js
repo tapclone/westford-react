@@ -294,13 +294,13 @@ function OurPartner() {
                         <img src={dummyLogo} alt="" />
                         <p style={{ marginBottom: "0" }}>(E)Council For Higher Education Accreditation (CHEA)</p>
                     </div>
-                    <div className='fiterCard Spain'>
+                    <div className='fiterCard Europe'>
                         <img src={dummyLogo} alt="" />
-                        <p style={{ marginBottom: "0" }}>(S)Council For Higher Education Accreditation (CHEA)</p>
+                        <p style={{ marginBottom: "0" }}>(E)Council For Higher Education Accreditation (CHEA)</p>
                     </div>
-                    <div className='fiterCard Spain'>
+                    <div className='fiterCard Europe'>
                         <img src={dummyLogo} alt="" />
-                        <p style={{ marginBottom: "0" }}>(S)Council For Higher Education Accreditation (CHEA)</p>
+                        <p style={{ marginBottom: "0" }}>(E)Council For Higher Education Accreditation (CHEA)</p>
                     </div>
                     <div className='fiterCard Spain'>
                         <img src={dummyLogo} alt="" />
