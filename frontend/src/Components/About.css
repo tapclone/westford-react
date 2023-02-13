@@ -447,3 +447,71 @@
         width: 100% !important;
     }
 }
+.filterBtns span{
+    padding: 15px;
+    width: 25%;
+    transition: 0.3s;
+    cursor: pointer;
+    text-align: center;
+}
+.filterBtns span:hover{
+    background-color: #285F71;
+    color: white;
+}
+.filterCards{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    flex-wrap: wrap;
+    margin-top: 5%;
+    row-gap: 1rem;
+    column-gap: 0.5rem;
+}
+.fiterCard{
+    width: 19%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #DCDCDC;
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 11rem;
+}
+.fiterCard img{
+    width: 70%;
+}
+.fiterCard p{
+    font-size: 0.9rem;
+}
+@media (max-width:1013px) {
+    .fiterCard{
+        width: 24%;
+    }
+}
+@media (max-width:809px) {
+    .fiterCard{
+        width: 32%;
+    }
+}
+@media (max-width:735px) {
+    .filterTopSec{
+        flex-direction: column;
+    }
+    .filterTopSec div{
+        width: 100% !important;
+    }
+}
+@media (max-width:606px) {
+    .fiterCard{
+        width: 45%;
+    }
+}
+@media (max-width:400px) {
+    .fiterCard{
+        width: 100%;
+    }
+    .filterCards{
+        justify-content: center;
+    }
+}
