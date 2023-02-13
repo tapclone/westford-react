@@ -5,7 +5,31 @@ import maImg1 from '../../src/images/media-centre/ma-img1.png'
 import article from '../../src/images/media-centre/main-article-img.png'
 
 import ArticleSection from './ArticleSection'
+import Slider from 'react-slick'
+
 function MediaCentre() {
+    const settingsss = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        arrows: false,
+        // autoplay: true,
+        autoplaySpeed: 1500,
+        responsive: [
+            {
+                breakpoint: 945,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    // autoplay: true,
+                    autoplaySpeed: 1500,
+                }
+            }
+        ]
+    };
     return (
         <div style={{ width: '100%', overflowX: 'hidden' }}>
             <div class="hero" style={{ backgroundImage: `url(${banner}),url(${bannerOverLay})`, backgroundPosition: "center center", backgroundSize: 'cover', backgroundRepeat: "no-repeat", backgroundBlendMode: 'multiply' }}>
@@ -51,7 +75,9 @@ function MediaCentre() {
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
                 </div>
                 <div className='newsAndArticles' style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div className='rowNews' style={{ width: '86%', justifyContent: 'space-between' }}>
+                    <div  style={{ width: '86%'}}>
+                    <Slider {...settingsss}>
+                        <div>
                         <div className='newsCard' style={{ height: 'fit-content', display: 'flex', border: '1px solid #CCCCCC', borderRadius: '20px' }}>
                             <div className='newsCard1' style={{ width: '40%',background:`url(${maImg1})`,backgroundRepeat:"no-repeat", backgroundPosition: "center", backgroundSize: "cover" }}>
                             </div>
@@ -60,8 +86,10 @@ function MediaCentre() {
                                 <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...</p>
                                 <span style={{ color: 'red', textDecoration: 'underline' }}>Read More</span>
                             </div>
+                        </div>
                         </div>
 
+                        <div>
                         <div className='newsCard' style={{ height: 'fit-content', display: 'flex', border: '1px solid #CCCCCC', borderRadius: '20px' }}>
                             <div className='newsCard1' style={{ width: '40%',background:`url(${maImg1})`,backgroundRepeat:"no-repeat", backgroundPosition: "center", backgroundSize: "cover" }}>
                             </div>
@@ -70,8 +98,10 @@ function MediaCentre() {
                                 <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...</p>
                                 <span style={{ color: 'red', textDecoration: 'underline' }}>Read More</span>
                             </div>
+                        </div>
                         </div>
 
+                        <div>
                         <div className='newsCard' style={{ height: 'fit-content', display: 'flex', border: '1px solid #CCCCCC', borderRadius: '20px' }}>
                             <div className='newsCard1' style={{ width: '40%',background:`url(${maImg1})`,backgroundRepeat:"no-repeat", backgroundPosition: "center", backgroundSize: "cover" }}>
                             </div>
@@ -80,8 +110,10 @@ function MediaCentre() {
                                 <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...</p>
                                 <span style={{ color: 'red', textDecoration: 'underline' }}>Read More</span>
                             </div>
+                        </div>
                         </div>
 
+                        <div>
                         <div className='newsCard' style={{ height: 'fit-content', display: 'flex', border: '1px solid #CCCCCC', borderRadius: '20px' }}>
                             <div className='newsCard1' style={{ width: '40%',background:`url(${maImg1})`,backgroundRepeat:"no-repeat", backgroundPosition: "center", backgroundSize: "cover" }}>
                             </div>
@@ -91,14 +123,62 @@ function MediaCentre() {
                                 <span style={{ color: 'red', textDecoration: 'underline' }}>Read More</span>
                             </div>
                         </div>
+                        </div>
+
+                        <div>
+                        <div className='newsCard' style={{ height: 'fit-content', display: 'flex', border: '1px solid #CCCCCC', borderRadius: '20px' }}>
+                            <div className='newsCard1' style={{ width: '40%',background:`url(${maImg1})`,backgroundRepeat:"no-repeat", backgroundPosition: "center", backgroundSize: "cover" }}>
+                            </div>
+                            <div  style={{ width: '60%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: "stretch", padding: '1rem' }}>
+                                <h3 style={{ fontWeight: 'normal' }}>Why DBA’s from European Universities are higher in...</h3>
+                                <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...</p>
+                                <span style={{ color: 'red', textDecoration: 'underline' }}>Read More</span>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div>
+                        <div className='newsCard' style={{ height: 'fit-content', display: 'flex', border: '1px solid #CCCCCC', borderRadius: '20px' }}>
+                            <div className='newsCard1' style={{ width: '40%',background:`url(${maImg1})`,backgroundRepeat:"no-repeat", backgroundPosition: "center", backgroundSize: "cover" }}>
+                            </div>
+                            <div  style={{ width: '60%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: "stretch", padding: '1rem' }}>
+                                <h3 style={{ fontWeight: 'normal' }}>Why DBA’s from European Universities are higher in...</h3>
+                                <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...</p>
+                                <span style={{ color: 'red', textDecoration: 'underline' }}>Read More</span>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div>
+                        <div className='newsCard' style={{ height: 'fit-content', display: 'flex', border: '1px solid #CCCCCC', borderRadius: '20px' }}>
+                            <div className='newsCard1' style={{ width: '40%',background:`url(${maImg1})`,backgroundRepeat:"no-repeat", backgroundPosition: "center", backgroundSize: "cover" }}>
+                            </div>
+                            <div  style={{ width: '60%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: "stretch", padding: '1rem' }}>
+                                <h3 style={{ fontWeight: 'normal' }}>Why DBA’s from European Universities are higher in...</h3>
+                                <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...</p>
+                                <span style={{ color: 'red', textDecoration: 'underline' }}>Read More</span>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div>
+                        <div className='newsCard' style={{ height: 'fit-content', display: 'flex', border: '1px solid #CCCCCC', borderRadius: '20px' }}>
+                            <div className='newsCard1' style={{ width: '40%',background:`url(${maImg1})`,backgroundRepeat:"no-repeat", backgroundPosition: "center", backgroundSize: "cover" }}>
+                            </div>
+                            <div  style={{ width: '60%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: "stretch", padding: '1rem' }}>
+                                <h3 style={{ fontWeight: 'normal' }}>Why DBA’s from European Universities are higher in...</h3>
+                                <p>When a crisis happens and times are tough it can be easy to lose focus on the importance...</p>
+                                <span style={{ color: 'red', textDecoration: 'underline' }}>Read More</span>
+                            </div>
+                        </div>
+                        </div>
+                    </Slider>
+                        
 
                        
 
                         
-                        
-                        
-
-
+                    
                     </div>
                 </div>
 

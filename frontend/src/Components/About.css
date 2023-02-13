@@ -422,7 +422,7 @@
     }
 }
 .newsCard{
-    width: 49%;
+    width: 95%;
     min-width: 25rem;
 }
 @media (max-width:948px) {
@@ -513,5 +513,32 @@
     }
     .filterCards{
         justify-content: center;
+    }
+}
+.articleContents p{
+    text-align: justify;
+    line-height: 26px;
+    font-size: 0.9rem;
+}
+.articleContents .articleCard{
+    width: 100% !important;
+    min-width: 15rem;
+}
+@media (max-width:930px) {
+    .articleContents{
+        flex-direction: column;
+    }
+    .articleContentsSub1,.articleContentsSub2{
+        width: 100% !important;
+    }
+}
+@media (max-width:1100px) {
+    .zigzagBlue{
+        display: none;
+    }
+}
+@media (max-width:945px) {
+    .newsCard{
+        width: 98% !important;
     }
 }

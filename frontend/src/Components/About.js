@@ -1,19 +1,21 @@
+
 import React, { useEffect, useState } from "react";
-import banner from "../../src/images/about-us/about-hero-image.png";
-import bannerOverLay from "../../src/images/westford assets/overlay.svg";
-import heroImg from "../../src/images/about-us/abt-westford-lady.png";
-import person1 from "../../src/images/about-us/firoz.png";
-import person2 from "../../src/images/about-us/samras.png";
-import person3 from "../../src/images/about-us/hanil.png";
-import person4 from "../../src/images/about-us/firoz.png";
-import person5 from "../../src/images/about-us/ahluwalia.png";
-import person6 from "../../src/images/about-us/ali.png";
-import zigzag from "../../src/images/about-us/zig-zag.png";
-import trophy from "../../src/images/about-us/trophy.png";
-import Slider from "react-slick";
-import upBtn from "../../src/images/about-us/Group 831.svg";
-import downBtn from "../../src/images/about-us/Group 832.svg";
-import btnBar from "../../src/images/about-us/Group 833.svg";
+import banner from '../../src/images/about-us/about-hero-image.png'
+import bannerOverLay from '../../src/images/westford assets/overlay.svg'
+import heroImg from '../../src/images/about-us/abt-westford-lady.png'
+import person1 from '../../src/images/about-us/firoz.png'
+import person2 from '../../src/images/about-us/samras.png'
+import person3 from '../../src/images/about-us/hanil.png'
+import person4 from '../../src/images/about-us/firoz.png'
+import person5 from '../../src/images/about-us/ahluwalia.png'
+import person6 from '../../src/images/about-us/ali.png'
+import zigzag from '../../src/images/about-us/zig-zag.png'
+import zigzagBlue from '../../src/images/about-us/zigzag-blue.png'
+import trophy from '../../src/images/about-us/trophy.png'
+import Slider from 'react-slick'
+import upBtn from '../../src/images/about-us/Group 831.svg'
+import downBtn from '../../src/images/about-us/Group 832.svg'
+import btnBar from '../../src/images/about-us/Group 833.svg'
 import axios from "axios";
 
 function About() {
@@ -278,6 +280,7 @@ function About() {
                         {item.year}
                       </h2>
                     </div>
+
                     <div
                       className="milStoneSliderSingleSub2"
                       style={{

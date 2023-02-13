@@ -1,10 +1,13 @@
+
+
 import React, { useEffect, useState } from "react";
-import banner from "../../src/images/awards/hero-bg.png";
-import bannerOverLay from "../../src/images/westford assets/overlay.svg";
-import award from "../../src/images/awards/award1.png";
-import heroImg from "../../src/images/awards/trophy.png";
-import zigzag from "../../src/images/about-us/zig-zag.png";
-import ArticleSection from "./ArticleSection";
+import banner from '../../src/images/awards/hero-bg.png'
+import bannerOverLay from '../../src/images/westford assets/overlay.svg'
+import award from '../../src/images/awards/award1.png'
+import heroImg from '../../src/images/awards/trophy.png'
+import zigzag from '../../src/images/about-us/zig-zag.png'
+import zigzagBlue from '../../src/images/about-us/zigzag-blue.png'
+import ArticleSection from './ArticleSection'
 import axios from "axios";
 function Awards() {
   const [awards, setAwards] = useState([]);
@@ -18,23 +21,14 @@ function Awards() {
   }, []);
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
-      <div
-        class="hero"
-        style={{
-          backgroundImage: `url(${banner}),url(${bannerOverLay})`,
-          backgroundPosition: "center center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundBlendMode: "multiply",
-        }}
-      >
-        <div class="hero-heading">
-          <p class="aos" data-aos="zoom-out-up" data-aos-duration="2000">
-            Making students <br /> worldwide
-          </p>
-        </div>
-        {/* <div class="abt-hero-overlay"></div> */}
-      </div>
+            <div class="hero" style={{ backgroundImage: `url(${banner}),url(${bannerOverLay})`, backgroundPosition: "center center", backgroundSize: 'cover', backgroundRepeat: "no-repeat", backgroundBlendMode: 'multiply' }} >
+
+                <div class="hero-heading">
+                    <p class="aos" data-aos="zoom-out-up" data-aos-duration="2000">Making students <br /> worldwide</p>
+                </div>
+                {/* <div class="abt-hero-overlay"></div> */}
+
+            </div>
 
       <div
         class="abt-westford aos"
@@ -94,6 +88,7 @@ function Awards() {
                   alt=""
                 />
               </div>
+
             </div>
             <div
               className="startingContentText"
@@ -143,6 +138,7 @@ function Awards() {
                   awards and accolades. We are proud to be consistently
                   recognized.
                 </p>
+                  <img className='zigzagBlue' style={{width:'5rem',top:'0',right:'0',position:'absolute'}} src={zigzagBlue} alt="" />
               </div>
             </div>
           </div>

@@ -7,7 +7,12 @@ function Header() {
     const [navState,setNavState]=useState(false)
 
     const navigate=useNavigate()
-
+    window.addEventListener('scroll',()=>{
+        setNavState(false)
+    })
+    window.addEventListener('resize',()=>{
+        setNavState(false)
+    })
     function myFunction() {
         var x = document.getElementById("myLinks");
         if (x.style.display === "block") {

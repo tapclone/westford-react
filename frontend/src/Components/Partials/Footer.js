@@ -5,7 +5,9 @@ import fb from '../../images/home/fb-icon.svg'
 import insta from '../../images/home/insta-icon.svg'
 import twitter from '../../images/home/twitter-icon.svg'
 import linkedin from '../../images/home/linkedin-icon.svg'
+import { useNavigate } from 'react-router-dom'
 function Footer() {
+    const navigate=useNavigate()
     return (
         <div style={{display:'flex',flexDirection:'column',alignItems:"center"}}>
             <div className='redFooter'>
@@ -31,22 +33,12 @@ function Footer() {
             </div>
             <div className='sec2' >
                 <div className='footerNavs'>
-                <span>About Us</span>
-                <span>Our Institutions</span>
-                <span>Partners</span>
-                <span>Awards</span>
-                <span>Media Center</span>
-                <span>Contact Us</span>
-                </div>
-                
-            </div>
-            <div className='sec3'>
-                <div className='footerNavs2'>
-                <span>FAQ Glossary</span>
-                <span>Privacy Policy</span>
-                <span>Terms & Conditions</span>
-                <span>Equal Opportunity</span>
-                <span>Cookies Policy</span>
+                <span onClick={()=>navigate('/about')}>About Us</span>
+                <span onClick={()=>navigate('/ourInstitution')}>Our Institutions</span>
+                <span onClick={()=>navigate('/ourPartners')}>Partners</span>
+                <span onClick={()=>navigate('/awards')}>Awards</span>
+                <span onClick={()=>navigate('/mediaCentre')}>Media Center</span>
+                <span onClick={()=>navigate('/contact')}>Contact Us</span>
                 </div>
                 
             </div>
