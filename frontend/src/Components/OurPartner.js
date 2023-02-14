@@ -393,7 +393,7 @@ function OurPartner() {
                 }}
                 data-filter="fiterCard"
                 className="filterall filter"
-                
+                onClick={filterItems('fiterCard')}
               >
                 All
               </span>
@@ -406,7 +406,7 @@ function OurPartner() {
                     }}
                     data-filter={items}
                     className={`filter${items} filter`}
-                    
+                    onClick={filterItems(items)}
                   >
                     {items}
                   </span>
