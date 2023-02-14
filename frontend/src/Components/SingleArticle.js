@@ -16,8 +16,8 @@ function SingleArticle() {
     if (state) {
       setSingleBlog(state);
     }
-  }, [state]);
-
+  },[state])
+  
   // useEffect(() => {
 
   //   (async function () {
@@ -42,7 +42,7 @@ function SingleArticle() {
     })();
   }, [length]);
   const refreshfunction = (items) => {
-    setSingleBlog(items);
+  setSingleBlog(items)
   };
 
   return (

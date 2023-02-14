@@ -560,6 +560,7 @@
     justify-content: space-between;
     padding: 3% 0;
     padding-left: 5%;
+    min-height: 14rem;
 }
 .articleCardInner p{
     margin: 0 !important;

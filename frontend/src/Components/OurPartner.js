@@ -8,7 +8,7 @@ import dummyLogo from "../../src/images/our-partners/chea-logo.png";
 import axios from "axios";
 
 function OurPartner() {
-  const [btnColour, setBtnColour] = useState();
+  const [btnColour, setBtnColour] = useState('fiterCard');
   const [partner, setPartner] = useState([]);
   const [unique, setUnique] = useState([]);
   useEffect(() => {
@@ -35,6 +35,8 @@ function OurPartner() {
   }, []);
 
   function filterItems(category) {
+        setBtnColour(category);
+
     var items = document.querySelectorAll(".fiterCard");
     items.forEach(function (item) {
       if (category === "all") {
@@ -53,10 +55,8 @@ function OurPartner() {
     var filterButtons = document.querySelectorAll(".filter");
     filterButtons.forEach(function (button) {
       button.addEventListener("click", function () {
-        var category = this.getAttribute("data-filter");
-        console.log(category);
-        filterItems(category);
-        setBtnColour(category);
+        console.log('heyjvcjv');
+        
       });
     });
   }, []);
@@ -393,7 +393,7 @@ function OurPartner() {
                 }}
                 data-filter="fiterCard"
                 className="filterall filter"
-                onClick={filterItems('fiterCard')}
+                onClick={()=>filterItems('fiterCard')}
               >
                 All
               </span>
@@ -405,8 +405,9 @@ function OurPartner() {
                       color: btnColour === items ? "white" : "",
                     }}
                     data-filter={items}
-                    className={`filter${items} filter`}
-                    onClick={filterItems(items)}
+                    className={`filter filter${items}`}
+                    onClick={()=>filterItems(items)}
+                   
                   >
                     {items}
                   </span>
@@ -417,6 +418,7 @@ function OurPartner() {
             </div>
           </div>
         </div>
+
 
         <div className="filterCards">
           {partner.map((items) => {
