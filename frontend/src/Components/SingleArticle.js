@@ -1,8 +1,10 @@
+
 import React, { useEffect, useState } from "react";
 import banner from "../../src/images/westford assets/single-article.png";
 import img from "../../src/images/home/art-sect-img1.png";
 import img2 from "../../src/images/westford assets/Mask group.png";
 import { useNavigate, useParams } from "react-router-dom";
+
 import axios from "axios";
 function SingleArticle() {
   const parms = useParams();
@@ -34,6 +36,7 @@ function SingleArticle() {
     })();
   }, [length]);
   const refreshfunction = (id) => {
+    // navigate(`/single-blog/${id}`)
     window.location.href = `/single-blog/${id}`;
   };
   return (
@@ -93,7 +96,7 @@ function SingleArticle() {
               style={{ width: "100%", aspectRatio: "1/0.5" }}
               src={"/" + blog[length - 2]?.Image}
               alt=""
-            />
+            /> 
           </div>
           <div className="articleContentsSub2" style={{ width: "35%" }}>
             <h2>Related Blogs</h2>
