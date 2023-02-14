@@ -76,6 +76,7 @@ function OurInstitutions() {
           </Box>
         </Fade>
       </Modal>
+      
       <div
         class="hero"
         style={{
@@ -146,7 +147,7 @@ function OurInstitutions() {
                         </div>
 
 
-
+                           
                     </div>
                     <div className='startingContentText' style={{ width: '60%', display: 'flex', alignItems: 'start', justifyContent: 'end',position:'relative' }}>
                         <div style={{ width: '93%' }}>
@@ -160,11 +161,11 @@ function OurInstitutions() {
                             </ul>
                         </div>
                         <img className='zigzagBlue' style={{width:'5rem',top:'0',right:'0',position:'absolute'}} src={zigzagBlue} alt="" />
-
+                      
                     </div>
-
+                                            
                 </div>
-
+                     
             </div>
           </div>
           <div

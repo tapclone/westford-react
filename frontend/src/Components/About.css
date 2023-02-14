@@ -298,7 +298,7 @@
 }
 
 .articleCardChild1{
-    margin-top: 20% !important;
+    margin-top: 15% !important;
     margin-bottom: 5% !important;
 }
 @media (max-width:700px) {
@@ -541,4 +541,13 @@
     .newsCard{
         width: 98% !important;
     }
+}
+.articleCard{
+    position: relative;
+}
+.articleCard img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }

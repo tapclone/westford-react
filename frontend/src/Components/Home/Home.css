@@ -529,8 +529,15 @@
     }
 }
 .afterHeroSlider .slick-arrow{
-    top: 210% !important;
+    top: 185% !important;
 }
 .afterHeroSlider .slick-prev{
     left: 0;
+}
+.institutionSingleSlide{
+    width: 100%;
+    height:4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
