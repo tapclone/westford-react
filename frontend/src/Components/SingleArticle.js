@@ -18,6 +18,10 @@ function SingleArticle() {
     }
   },[state])
   
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  },[singleBlog])
+
   // useEffect(() => {
 
   //   (async function () {
@@ -44,6 +48,7 @@ function SingleArticle() {
   }, [length]);
   const refreshfunction = (items) => {
   setSingleBlog(items)
+
   };
 
   return (
