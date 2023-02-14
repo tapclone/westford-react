@@ -21,7 +21,7 @@ app.use(bodyParser.json())
 app.use(session({ secret: "key", cookie: { maxAge: 6000000 } }));
 
 app.use("/api/admin", adminRoutes);
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 8000;
 db.connect((err) => {
   if (err) {
     console.log("connection error" + err);
@@ -40,3 +40,4 @@ if (NODE_ENV == "production") {
 
 app.listen(PORT, console.log(`server started on PORT ${PORT}`));
  
+

@@ -378,7 +378,7 @@ function Home() {
         >
           <div
             style={{
-              width: "96%",
+              width: "99%",
               height: "100%",
               display: "flex",
               justifyContent: "center",
@@ -390,7 +390,9 @@ function Home() {
               {institute.map((items) => {
                 return (
                   <div>
+                  <div className="institutionSingleSlide">
                     <img src={items.Image} alt="" />
+                  </div>
                   </div>
                 );
               })}
