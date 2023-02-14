@@ -6,15 +6,15 @@ import img from '../../src/images/home/art-sect-img1.png'
 
 function ArticleSection() {
     const [blog, setBlog] = useState([]);
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     useEffect(() => {
         (async function () {
-          try {
-            const { data } = await axios.get("/api/admin/view-all-blog");
-            setBlog(data);
-          } catch (error) {}
+            try {
+                const { data } = await axios.get("/api/admin/view-all-blog");
+                setBlog(data);
+            } catch (error) { }
         })();
-      }, []);
+    }, []);
     const settings3 = {
         dots: true,
         infinite: true,
@@ -48,21 +48,24 @@ function ArticleSection() {
         ]
     };
     return (
-        <div style={{ width: '100%', display: "flex", alignItems: 'center', justifyContent: 'center',marginBottom:'5%'}}>
-            <div style={{width:'86%'}}>
+        <div style={{ width: '100%', display: "flex", alignItems: 'center', justifyContent: 'center', marginBottom: '5%' }}>
+            <div style={{ width: '86%' }}>
                 <Slider {...settings3}>
-                    {blog.map((items)=>{
-                        const image=items.Image
-                        return(
-                            <div onClick={()=>{navigate(`/single-blog/${items._id}`)}} style={{cursor:"pointer"}}>
-                                
-                            <div className='articleCard' >
-                            <img src={image} style={{backgroundBlendMode: "multiply",position:"absolute",zIndex:"-1"}}></img>
-                                <span style={{ background: 'white', padding: '7px', borderRadius: '5px' }}>MARKETING</span>
-                                <p className='articleCardChild1' style={{ color: 'white', padding: '0 2%',fontSize: '1.2rem', fontWeight: '500' }}>{items.header}</p>
-                                <p className='articleCardChild2' style={{ color: 'white', padding: '0 2%' }}>{items.date}</p>
+                    {blog.map((items) => {
+                        const image = items.Image
+                        return (
+                            <div onClick={() => { navigate(`/single-blog/${items._id}`) }} style={{ cursor: "pointer" }}>
+
+                                <div className='articleCard' >
+                                    <img src={image} style={{ backgroundBlendMode: "multiply", position: "absolute", zIndex: "-1" }}></img>
+                                    <div className='articleCardInner'>
+                                        <span style={{ background: 'white', padding: '7px', borderRadius: '5px' }}>MARKETING</span>
+                                        <p className='articleCardChild1' style={{ color: 'white', padding: '0 2%', fontSize: '1.2rem', fontWeight: '500' }}>{items.header}</p>
+                                        <p className='articleCardChild2' style={{ color: 'white', padding: '0 2%' }}>{items.date}</p>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
 
                         )
                     })}
