@@ -12,12 +12,12 @@ function SingleArticle() {
   const [blog, setBlog] = useState([]);
   const navigate = useNavigate();
   const { state } = useLocation();
-  useEffect(()=>{
-    if(state){
+  useEffect(() => {
+    if (state) {
       setSingleBlog(state);
     }
-  },[state])
-  
+  }, [state]);
+
   // useEffect(() => {
 
   //   (async function () {
@@ -37,13 +37,12 @@ function SingleArticle() {
       try {
         const { data } = await axios.get("/api/admin/view-all-blog");
         setLength(data.length);
-
         setBlog(data);
       } catch (error) {}
     })();
   }, [length]);
   const refreshfunction = (items) => {
-  setSingleBlog(items)
+    setSingleBlog(items);
   };
 
   return (
@@ -133,34 +132,33 @@ function SingleArticle() {
                       ></img>
 
                       <div className="articleCardInner">
-                      <span
-                        style={{
-                          background: "white",
-                          padding: "7px",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        MARKETING
-                      </span>
-                      <p
-                        className="articleCardChild1"
-                        style={{
-                          color: "white",
-                          padding: "0 2%",
-                          fontSize: "1.2rem",
-                          fontWeight: "500",
-                        }}
-                      >
-                        {items.header}
-                      </p>
-                      <p
-                        className="articleCardChild2"
-                        style={{ color: "white", padding: "0 2%" }}
-                      >
-                        {items.date}
-                      </p>
+                        <span
+                          style={{
+                            background: "white",
+                            padding: "7px",
+                            borderRadius: "5px",
+                          }}
+                        >
+                          MARKETING
+                        </span>
+                        <p
+                          className="articleCardChild1"
+                          style={{
+                            color: "white",
+                            padding: "0 2%",
+                            fontSize: "1.2rem",
+                            fontWeight: "500",
+                          }}
+                        >
+                          {items.header}
+                        </p>
+                        <p
+                          className="articleCardChild2"
+                          style={{ color: "white", padding: "0 2%" }}
+                        >
+                          {items.date}
+                        </p>
                       </div>
-                      
                     </div>
                   </div>
                 );

@@ -426,7 +426,7 @@ function OurPartner() {
                 <p style={{ marginBottom: "0" }}>{items.description}</p>
               </div>
             );
-          })}
+          })} 
         </div>
       </section>
     </div>
