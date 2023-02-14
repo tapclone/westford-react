@@ -48,7 +48,7 @@ function App() {
         <Route exact path='/business-partners' element={<BusinessPartners/>}></Route>
         <Route exact path='/contact' element={<ContactUsPage></ContactUsPage>}></Route>
         <Route exact path='/events-news' element={<EventsAndNews></EventsAndNews>}></Route>
-        <Route exact path="/single-blog/:id" element={<SingleArticles></SingleArticles>}></Route>
+        <Route exact path='/single-blog' element={<SingleArticles></SingleArticles>}></Route>
 
       </Routes>  
       </BrowserRouter>

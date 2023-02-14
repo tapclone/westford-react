@@ -1,9 +1,8 @@
-
 import React, { useEffect, useState } from "react";
 import banner from "../../src/images/westford assets/single-article.png";
 import img from "../../src/images/home/art-sect-img1.png";
 import img2 from "../../src/images/westford assets/Mask group.png";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import axios from "axios";
 function SingleArticle() {
@@ -12,19 +11,27 @@ function SingleArticle() {
   const [length, setLength] = useState();
   const [blog, setBlog] = useState([]);
   const navigate = useNavigate();
-  useEffect(() => {
-    (async function () {
-      try {
-        const { data } = await axios.get(
-          `/api/admin/view-single-blog/${parms.id}`
-        );
+  const { state } = useLocation();
+  useEffect(()=>{
+    if(state){
+      setSingleBlog(state);
+    }
+  },[state])
+  
+  // useEffect(() => {
 
-        setSingleBlog(data);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  });
+  //   (async function () {
+  //     try {
+  //       const { data } = await axios.get(
+  //         `/api/admin/view-single-blog/${parms.id}`
+  //       );
+
+  //       setSingleBlog(data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   })();
+  // },[]);
   useEffect(() => {
     (async function () {
       try {
@@ -35,9 +42,8 @@ function SingleArticle() {
       } catch (error) {}
     })();
   }, [length]);
-  const refreshfunction = (id) => {
-    // navigate(`/single-blog/${id}`)
-    window.location.href = `/single-blog/${id}`;
+  const refreshfunction = (items) => {
+  setSingleBlog(items)
   };
 
   return (
@@ -97,7 +103,7 @@ function SingleArticle() {
               style={{ width: "100%", aspectRatio: "1/0.5" }}
               src={"/" + blog[length - 2]?.Image}
               alt=""
-            /> 
+            />
           </div>
           <div className="articleContentsSub2" style={{ width: "35%" }}>
             <h2>Related Blogs</h2>
@@ -112,21 +118,20 @@ function SingleArticle() {
                 return (
                   <div
                     onClick={() => {
-                      refreshfunction(items._id);
+                      refreshfunction(items);
                     }}
                     style={{ width: "100%", cursor: "pointer" }}
                   >
-                    
                     <div className="articleCard">
-                    <img
-                      src={"/" + items?.Image}
-                      style={{
-                        backgroundBlendMode: "multiply",
-                        position: "absolute",
-                        zIndex: "-1",
-                      }}
-                    ></img>
-                   
+                      <img
+                        src={"/" + items?.Image}
+                        style={{
+                          backgroundBlendMode: "multiply",
+                          position: "absolute",
+                          zIndex: "-1",
+                        }}
+                      ></img>
+
                       <span
                         style={{
                           background: "white",
