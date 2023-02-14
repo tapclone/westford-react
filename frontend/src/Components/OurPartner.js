@@ -381,6 +381,7 @@ function OurPartner() {
                 width: "48%",
                 background: "white",
                 display: "flex",
+                flexWrap:'wrap',
                 alignItems: "center",
               }}
             >
@@ -410,16 +411,6 @@ function OurPartner() {
               })}
 
  
-              <span
-                style={{
-                  background: btnColour === "Spain" ? "#285F71" : "",
-                  color: btnColour === "Spain" ? "white" : "",
-                }}
-                data-filter="Spain"
-                className="filterspain filter"
-              >
-                Spain
-              </span>
             </div>
           </div>
         </div>

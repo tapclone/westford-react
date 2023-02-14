@@ -36,6 +36,7 @@ function SingleArticle() {
   const refreshfunction = (id) => {
     window.location.href = `/single-blog/${id}`;
   };
+
   return (
     <div>
       <section
@@ -112,6 +113,8 @@ function SingleArticle() {
                     }}
                     style={{ width: "100%", cursor: "pointer" }}
                   >
+                    
+                    <div className="articleCard">
                     <img
                       src={"/" + items?.Image}
                       style={{
@@ -120,7 +123,7 @@ function SingleArticle() {
                         zIndex: "-1",
                       }}
                     ></img>
-                    <div className="articleCard">
+                   
                       <span
                         style={{
                           background: "white",
