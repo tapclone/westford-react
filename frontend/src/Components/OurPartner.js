@@ -48,6 +48,7 @@ function OurPartner() {
       }
     });
   }
+
   useEffect(() => {
     var filterButtons = document.querySelectorAll(".filter");
     filterButtons.forEach(function (button) {
@@ -381,7 +382,7 @@ function OurPartner() {
                 width: "48%",
                 background: "white",
                 display: "flex",
-                flexWrap:'wrap',
+                flexWrap: 'wrap',
                 alignItems: "center",
               }}
             >
@@ -392,6 +393,7 @@ function OurPartner() {
                 }}
                 data-filter="fiterCard"
                 className="filterall filter"
+                
               >
                 All
               </span>
@@ -403,14 +405,15 @@ function OurPartner() {
                       color: btnColour === items ? "white" : "",
                     }}
                     data-filter={items}
-                    className={`filter${items} filter`} 
+                    className={`filter${items} filter`}
+                    
                   >
                     {items}
                   </span>
                 );
               })}
 
- 
+
             </div>
           </div>
         </div>
