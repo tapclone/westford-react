@@ -13,10 +13,20 @@ function OurPartner() {
   const [unique, setUnique] = useState([]);
   useEffect(() => {
     (async function () {
+      const array = [];
       try {
         const { data } = await axios.get("/api/admin/view-all-partners");
-        const uniques = [...new Set(data.map((item) => item.country))];
-        setUnique(uniques);
+        data.map((items) => {
+          array.push(items.country);
+        });
+        const distinct = (value, index, self) => {
+          return self.indexOf(value) === index;
+        };
+        const distinctCountry = array.filter(distinct);
+        console.log(distinctCountry, "dkjkj");
+        setUnique(distinctCountry);
+
+        console.log(unique, "dkj");
         setPartner(data);
       } catch (error) {
         console.log(error);
@@ -43,6 +53,7 @@ function OurPartner() {
     filterButtons.forEach(function (button) {
       button.addEventListener("click", function () {
         var category = this.getAttribute("data-filter");
+        console.log(category);
         filterItems(category);
         setBtnColour(category);
       });
@@ -383,26 +394,22 @@ function OurPartner() {
               >
                 All
               </span>
-              <span
-                style={{
-                  background: btnColour === "America" ? "#285F71" : "",
-                  color: btnColour === "America" ? "white" : "",
-                }}
-                data-filter="America"
-                className="filteramerica filter"
-              >
-                America
-              </span>
-              <span
-                style={{
-                  background: btnColour === "Europe" ? "#285F71" : "",
-                  color: btnColour === "Europe" ? "white" : "",
-                }}
-                data-filter="Europe"
-                className="filtereurope filter"
-              >
-                Europe
-              </span>
+              {unique.map((items) => {
+                return (
+                  <span
+                    style={{
+                      background: btnColour === items ? "#285F71" : "",
+                      color: btnColour === items ? "white" : "",
+                    }}
+                    data-filter={items}
+                    className={`filter${items} filter`} 
+                  >
+                    {items}
+                  </span>
+                );
+              })}
+
+ 
               <span
                 style={{
                   background: btnColour === "Spain" ? "#285F71" : "",
