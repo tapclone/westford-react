@@ -1,13 +1,12 @@
-
 import React, { useEffect, useState } from "react";
-import bannerOverLay from '../../src/images/westford assets/overlay.svg'
-import banner from '../../src/images/our-institutions/hero-bg.png'
-import westford from '../../src/images/home/westford-logo.png'
-import heroImg from '../../src/images/about-us/our-institutions-lady.png'
-import zigzag from '../../src/images/about-us/zig-zag.png'
-import zigzagBlue from '../../src/images/about-us/zigzag-blue.png'
-import './About.css'
-import ArticleSection from './ArticleSection'
+import bannerOverLay from "../../src/images/westford assets/overlay.svg";
+import banner from "../../src/images/our-institutions/hero-bg.png";
+import westford from "../../src/images/home/westford-logo.png";
+import heroImg from "../../src/images/about-us/our-institutions-lady.png";
+import zigzag from "../../src/images/about-us/zig-zag.png";
+import zigzagBlue from "../../src/images/about-us/zigzag-blue.png";
+import "./About.css";
+import ArticleSection from "./ArticleSection";
 import axios from "axios";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
@@ -147,7 +146,7 @@ function OurInstitutions() {
                         </div>
 
 
-                           
+
                     </div>
                     <div className='startingContentText' style={{ width: '60%', display: 'flex', alignItems: 'start', justifyContent: 'end',position:'relative' }}>
                         <div style={{ width: '93%' }}>
@@ -161,11 +160,11 @@ function OurInstitutions() {
                             </ul>
                         </div>
                         <img className='zigzagBlue' style={{width:'5rem',top:'0',right:'0',position:'absolute'}} src={zigzagBlue} alt="" />
-                      
+
                     </div>
-                                            
+
                 </div>
-                     
+
             </div>
           </div>
           <div
