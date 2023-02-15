@@ -1,0 +1,70 @@
+.our-partner-logo,.top-logo,.bottom-logo,.top-logo img{
+    transition: all ease 0.3s;
+}
+
+/* .our-partner-logo:hover{
+    box-shadow: 0px 31px 34px rgb(170 196 205 / 71%);
+} */
+.our-partner-logo:hover .bottom-logo{
+    background-color: #2a6173 !important;
+}
+.our-partner-logo:hover .bottom-logo p{
+    color: white !important;
+}
+.review-individual{
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+.review-individual:hover{
+    box-shadow: 0 0 20px rgba(33,33,33,.2);
+}
+.contactUs{
+    transition: all 0.2s;
+}
+.contactUs:hover{
+    background-color: #d2183d !important;
+}
+.learnMore{
+    cursor: pointer;
+    transition: all ease 0.2s;
+    font-weight: 500;
+}
+.learnMore:hover{
+    background-color: rgba(255,255,255,.5);
+    color: black;
+
+}
+.brnd-block{
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.brnd-block p{
+    text-align: justify;
+}
+.brnd-block:hover{
+    transform: scale(0.96);
+}
+.single-trophy{
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+}
+
+.single-trophy:hover{
+    box-shadow: 0 0 20px rgba(33,33,33,.2);
+    transform: scale(1.03) !important;
+}
+.ma-list-single{
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.ma-list-single:hover{
+    box-shadow: 0 0 20px rgba(33,33,33,.2);
+}
+.ma-single-left{
+    transition: all 0.3s ease;
+}
+.ma-list-single:hover .ma-single-left{
+   transform: scale(1.1);
+}
