@@ -32,9 +32,9 @@ db.connect((err) => {
 __dirname = path.resolve();
 app.use('/images',express.static(path.join(__dirname,"images")))
 if (NODE_ENV == "production") {
-  app.use(express.static(path.join(__dirname, "/frontend/build")));
+  app.use(express.static(path.join(__dirname,"/frontend/build")));
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "frontend","build","index.html"));
   });
 }
 

@@ -1,10 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.81c349ae.css",
-    "main.js": "/static/js/main.e4515bea.js",
+    "main.css": "/static/css/main.284de2b8.css",
+    "main.js": "/static/js/main.9742439b.js",
     "static/js/787.abd3f154.chunk.js": "/static/js/787.abd3f154.chunk.js",
-    "static/media/single-article.png": "/static/media/single-article.32786f0234527fff3bba.png",
-    "static/media/Mask group.png": "/static/media/Mask group.1ed282ac08ca3965040f.png",
     "static/media/our-institutions-lady.png": "/static/media/our-institutions-lady.6693a1acf3c95548b270.png",
     "static/media/abt-westford-lady.png": "/static/media/abt-westford-lady.d0ca6026a80847508b02.png",
     "static/media/home-banner.png": "/static/media/home-banner.3c7265e5679f4ef6322e.png",
@@ -42,12 +40,12 @@
     "static/media/fb-icon.svg": "/static/media/fb-icon.e7555a325b88fffc37a72b03ccfdc7e3.svg",
     "static/media/Group 832.svg": "/static/media/Group 832.97de5d9ed7650892ea3fcd795e29874d.svg",
     "static/media/Group 833.svg": "/static/media/Group 833.d98bf7a29f3bb264e8cb4d4e29b00adc.svg",
-    "main.81c349ae.css.map": "/static/css/main.81c349ae.css.map",
-    "main.e4515bea.js.map": "/static/js/main.e4515bea.js.map",
+    "main.284de2b8.css.map": "/static/css/main.284de2b8.css.map",
+    "main.9742439b.js.map": "/static/js/main.9742439b.js.map",
     "787.abd3f154.chunk.js.map": "/static/js/787.abd3f154.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.81c349ae.css",
-    "static/js/main.e4515bea.js"
+    "static/css/main.284de2b8.css",
+    "static/js/main.9742439b.js"
   ]
 }
