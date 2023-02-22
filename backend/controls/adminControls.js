@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const db = require("../config/db");
 const collection = require("../config/collection");
-const generateToken = require("../utils/jwtToken");
+const {jwt} = require("../utils/jwtToken");
 const { ObjectId } = require("mongodb");
 const { PROJECT_COLLECTION } = require("../config/collection");
 const { BLOG_COLLECTION } = require("../config/collection");
@@ -10,7 +10,7 @@ const { uploadS3 } = require("../middelware/S3");
 const Login = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
   if (username == "weastford@gmail.com"&& password =="password") {
-    const token = generateToken(password);
+    const token = jwt(password);
     res.status(200).json(token);
   } else {
     res.status(401).json("Invalid Details");
