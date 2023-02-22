@@ -31,7 +31,7 @@ const ADDINSTITUTE = asyncHandler(async (req, res) => {
 });
 const viewAllInstitute = asyncHandler(async (req, res) => {
   const viewAllBlog = await db
-    .get()
+    .get() 
     .collection(collection.INSTITUTE_COLLECTION)
     .find()
     .toArray();
