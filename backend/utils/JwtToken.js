@@ -6,4 +6,4 @@ const generateToken = (id) => {
   });
 };
 
-module.exports ={jwt}
+module.exports ={generateToken}
