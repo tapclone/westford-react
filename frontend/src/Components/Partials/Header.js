@@ -67,7 +67,7 @@ function Header() {
       </div>
 
       <div class="logo">
-        <a onClick={navigate("/")}>
+        <a onClick={()=>navigate("/")}>
           <img class="comp-logo" src={logo} alt="Company Logo" />
         </a>
       </div>

@@ -5,6 +5,9 @@ import SingleArticle from '../SingleArticle'
 
 
 function SingleArticlePage() {
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[])
   return (
     <div>
         <Header></Header>
