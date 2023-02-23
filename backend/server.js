@@ -5,8 +5,8 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 var bodyParser = require('body-parser')
 const path = require("path");
-const cors = require("cors");
-const NODE_ENV="production"
+const cors = require("cors"); 
+const NODE_ENV="productio"
 const fileUpload = require("express-fileupload");
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 

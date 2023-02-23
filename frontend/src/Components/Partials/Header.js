@@ -5,17 +5,16 @@ import menuIcon from "../../images/home/menu-icon.svg";
 import "./partials.css";
 function Header() {
   const [navState, setNavState] = useState(false);
-
   const navigate = useNavigate();
 
-  function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
-  }
+  // function myFunction() {
+  //   var x = document.getElementById("myLinks");
+  //   if (x.style.display === "block") {
+  //     x.style.display = "none";
+  //   } else {
+  //     x.style.display = "block";
+  //   }
+  // }
 
   return (
     <div class="header">
@@ -39,13 +38,9 @@ function Header() {
                     <a onClick={()=>navigate('/')}>Media Centre</a>
                 </div>
                 <a href="javascript:void(0);" class="icon" onClick={myFunction} /> */}
-
-        <img
-          onClick={() => setNavState(!navState)}
-          class="menu-icon"
-          src={menuIcon}
-          alt="Navigation menu button"
-        />
+        <a onClick={(e) => setNavState(!navState)}>
+          <img class="menu-icon" src={menuIcon} alt="Navigation menu button" />
+        </a>
       </div>
 
       <div class="navbar" style={{ height: navState && "15rem" }}>
@@ -74,7 +69,7 @@ function Header() {
 
       <div class="logo">
         <a onClick={navigate("/")}>
-          <img class="comp-logo" src={logo} alt="Company Logo"  />
+          <img class="comp-logo" src={logo} alt="Company Logo" />
         </a>
       </div>
     </div>

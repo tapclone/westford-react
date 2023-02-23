@@ -16,7 +16,7 @@ function SingleArticle() {
     if (state) {
       setSingleBlog(state);
     }
-  },[state])
+  },[])
   
   // useEffect(() => {
 
@@ -40,7 +40,7 @@ function SingleArticle() {
         setBlog(data);
       } catch (error) {}
     })();
-  }, [length]);
+  }, []);
   const refreshfunction = (items) => {
   setSingleBlog(items)
   };

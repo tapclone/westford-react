@@ -13,7 +13,6 @@ import { useNavigate } from "react-router-dom";
 function Awards() {
   const [awards, setAwards] = useState([]);
   const navigate=useNavigate()
-  const [limit,setLimit]=useState(0)
   useEffect(() => {
     (async function () {
       try {
@@ -22,7 +21,7 @@ function Awards() {
         setAwards(data);
       } catch (error) {}
     })();
-  }, []);
+  },[]);
   
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>

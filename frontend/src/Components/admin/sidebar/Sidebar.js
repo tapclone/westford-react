@@ -8,7 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import swal from "sweetalert";
 import "./Sidebar.css";
 function AdminMain() {
-  const [navState, setNavState] = useState(false);
+  const [nav, setNav] = useState(false);
   const navigate = useNavigate();
   const adminToken = localStorage.getItem("adminToken");
   useEffect(() => {
@@ -38,14 +38,14 @@ function AdminMain() {
       <a
         class="s-sidebar__trigger"
         href="#0"
-        onClick={() => setNavState(!navState)}
+        onClick={() => setNav(!nav)}
       >
         <MenuIcon sx={{ fontSize: "2rem", color: "white" }}></MenuIcon>
       </a>
       <nav
         style={{ zIndex: "1" }}
         className={`s-sidebar__nav ${
-          navState ? " navBarResponsive" : "notResp"
+          nav ? " navBarResponsive" : "notResp"
         }`}
       >
         <ul

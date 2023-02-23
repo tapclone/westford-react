@@ -23,10 +23,8 @@ function OurPartner() {
           return self.indexOf(value) === index;
         };
         const distinctCountry = array.filter(distinct);
-        console.log(distinctCountry, "dkjkj");
         setUnique(distinctCountry);
 
-        console.log(unique, "dkj");
         setPartner(data);
       } catch (error) {
         console.log(error);
@@ -55,7 +53,7 @@ function OurPartner() {
     var filterButtons = document.querySelectorAll(".filter");
     filterButtons.forEach(function (button) {
       button.addEventListener("click", function () {
-        console.log('heyjvcjv');
+       
         
       });
     });
