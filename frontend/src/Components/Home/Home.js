@@ -745,7 +745,7 @@ function Home() {
 
         <div
           class="article-blog-btn contactUs"
-          onclick="window.location.href='/westfordeducation/media-centre.html';"
+          onClick={()=>{navigate('/mediaCentre')}}
         >
           View More
         </div>

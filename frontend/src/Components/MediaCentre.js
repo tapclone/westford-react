@@ -20,7 +20,7 @@ const style = {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: 600,
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
@@ -99,9 +99,42 @@ function MediaCentre() {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              {modalview?.description}
-            </Typography>
+          <div>
+                    <div
+                      className="newsCard"
+                      style={{
+                        height: "fit-content",
+                        display: "flex",
+                        border: "1px solid #CCCCCC",
+                        borderRadius: "20px",
+                      }}
+                    >
+                      <img
+                        src={"/" + modalview?.Image}
+                        className="newsCard1"
+                        style={{
+                          width: "40%",
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "center",
+                          backgroundSize: "cover",
+                        }}
+                      ></img>
+                      <div
+                        style={{
+                          width: "60%",
+                          height: "100%",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "stretch",
+                          padding: "1rem",
+                        }}
+                      >
+                        <h3 style={{ fontWeight: "normal" }}>{modalview?.header}</h3>
+                        <p>{modalview?.description}</p>
+                
+                      </div>
+                    </div>
+                  </div>
           </Box>
         </Fade>
       </Modal>
@@ -204,12 +237,11 @@ function MediaCentre() {
                   border: "none",
                   cursor: "pointer",
                 }}
-                onClick={() => {
-                  navigate(`/single-blog/${blog[length - 1]?._id}`);
-                }}
+                onClick={()=>{navigate('/single-blog',{state:blog[length - 1]})}}
+            
               >
                 Read More
-              </button>
+              </button> 
             </div>
           </div>
         </div>

@@ -242,17 +242,19 @@ function About() {
           background: "#F8F8F8",
           padding: "5% 0",
           position: "relative",
+          
         }}
       >
         {/* <img src={btnBar} style={{position:'absolute',top:'28',right:'12.7'}} alt="" /> */}
-        <div style={{ width: "65%" }}>
+        <div style={{ width: "65%", }}>
           <Slider {...settings4}>
             {awards.map((item, index) => {
               return (
-                <div>
+                <div >
                   <div
                     style={{
-                      transform: `scale(${index === currentSlide ? 1 : 0.7})`,
+                     
+                      transform: `scale(${index === currentSlide ? 1 : 0.7})`
                     }}
                     className="milStoneSliderSingle"
                   >

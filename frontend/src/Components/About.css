@@ -307,6 +307,7 @@
     display: flex;
     margin-bottom: 3%;
     transition: 0.4s;
+    padding-top: 7rem !important;
 }
 .milStoneSliderSingleSub1{
     padding: 10%;

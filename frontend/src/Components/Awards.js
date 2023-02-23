@@ -215,7 +215,7 @@ function Awards() {
 
         <div
           class="article-blog-btn contactUs"
-          onClick={()=>{navigate('/about')}}
+          onClick={()=>{navigate('/mediaCentre')}}
         >
           View More
         </div>

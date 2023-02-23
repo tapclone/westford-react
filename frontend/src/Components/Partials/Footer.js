@@ -15,8 +15,8 @@ function Footer() {
                 <h2 style={{fontSize:'clamp(1.5rem,4vw,2rem)'}}>“We’ll get there together!”</h2>
                 <p style={{lineHeight:'25px'}}>For corporate educational or training enquiries or partnerships, please connect with us.</p>
                 </div>
-                <div style={{width:'30%',display:'flex',alignItems:'center',justifyContent:'center'}}>
-                    <span>Contact with us</span>
+                <div   onClick={()=>{navigate('/contact')}} style={{width:'30%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                    <span >Contact with us</span>
                 </div>
                 
             </div>
