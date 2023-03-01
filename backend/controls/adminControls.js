@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const db = require("../config/db");
 const collection = require("../config/collection");
-const {generateToken} = require("../utils/JwtToken");
+const { generateToken } = require("../utils/JwtToken");
 const { ObjectId } = require("mongodb");
 const { PROJECT_COLLECTION } = require("../config/collection");
 const { BLOG_COLLECTION } = require("../config/collection");
@@ -9,7 +9,7 @@ const { uploadS3 } = require("../middelware/S3");
 
 const Login = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
-  if (username == "weastford@gmail.com"&& password =="password") {
+  if (username == "weastford@gmail.com" && password == "password") {
     const token = generateToken(password);
     res.status(200).json(token);
   } else {
@@ -31,7 +31,7 @@ const ADDINSTITUTE = asyncHandler(async (req, res) => {
 });
 const viewAllInstitute = asyncHandler(async (req, res) => {
   const viewAllBlog = await db
-    .get() 
+    .get()
     .collection(collection.INSTITUTE_COLLECTION)
     .find()
     .toArray();
@@ -257,15 +257,15 @@ const AddAwards = asyncHandler(async (req, res) => {
   }
 });
 const ViewAllAwards = asyncHandler(async (req, res) => {
-  const ViewAllClients = await db
+  const ViewAllAwards = await db
     .get()
     .collection(collection.AWARDS_COLLECTION)
     .find()
     .toArray();
-  if (ViewAllClients) {
-    res.status(200).send(ViewAllClients);
+  if (ViewAllAwards) {
+    res.status(200).send(ViewAllAwards);
   } else {
-    res.status(200).json("No records");
+    res.status(201).json("No records");
   }
 });
 
@@ -281,7 +281,6 @@ const DeleteAwards = asyncHandler(async (req, res) => {
     res.status(500).json("Something Went Wrong");
   }
 });
-
 
 const AddMilestones = asyncHandler(async (req, res) => {
   const data = req.body;
@@ -320,8 +319,6 @@ const DeleteMilestones = asyncHandler(async (req, res) => {
     res.status(500).json("Something Went Wrong");
   }
 });
-
-
 
 const AddOwnUniversties = asyncHandler(async (req, res) => {
   const data = req.body;
@@ -422,7 +419,7 @@ const ViewAllNewsAndEvents = asyncHandler(async (req, res) => {
   }
 });
 
-const DeleteNewsAndEvents= asyncHandler(async (req, res) => {
+const DeleteNewsAndEvents = asyncHandler(async (req, res) => {
   const id = req.params.id;
   const deleteClients = await db
     .get()
@@ -435,8 +432,8 @@ const DeleteNewsAndEvents= asyncHandler(async (req, res) => {
   }
 });
 const UploadImage = asyncHandler(async (req, res) => {
-  console.log(req.file.path);
-  const path = req.file.path;
+  let image = req.file;
+  const path="/images"+"/"+image.filename
   if (path) {
     res.status(200).json(path);
   } else {
@@ -489,6 +486,196 @@ const ViewSingleBlog = asyncHandler(async (req, res) => {
   }
 });
 
+const EditAwards = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const update = await db
+    .get()
+    .collection(collection.AWARDS_COLLECTION)
+    .updateOne(
+      { _id: ObjectId(data.id) },
+      {
+        $set: {
+          header: data.header,
+          description: data.description,
+          Image: data.Image,
+        },
+      }
+    );
+  if (update) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Somthing Went Wrong");
+  }
+});
+const BlogAwards = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const update = await db
+    .get()
+    .collection(collection.BLOG_COLLECTION)
+    .updateOne(
+      { _id: ObjectId(data.id) },
+      {
+        $set: {
+          header: data.header,
+          description: data.description,
+          date: data.date,
+          Image: data.Image,
+        },
+      }
+    );
+  if (update) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Somthing Went Wrong");
+  }
+});
+
+const EditBusiness = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const update = await db
+    .get()
+    .collection(collection.BUSINESS_PARTNERS_COLLECTION)
+    .updateOne(
+      { _id: ObjectId(data.id) },
+      {
+        $set: {
+          description: data.description,
+          Image: data.Image,
+        },
+      }
+    );
+  if (update) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Somthing Went Wrong");
+  }
+});
+const EditInstitute = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const update = await db
+    .get()
+    .collection(collection.INSTITUTE_COLLECTION)
+    .updateOne(
+      { _id: ObjectId(data.id) },
+      {
+        $set: {
+          header: data.header,
+          description: data.description,
+          Image: data.Image,
+        },
+      }
+    );
+  if (update) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Somthing Went Wrong");
+  }
+});
+const EditLeaderShip = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const update = await db
+    .get()
+    .collection(collection.LEADERSHIP_COLLECTION)
+    .updateOne(
+      { _id: ObjectId(data.id) },
+      {
+        $set: {
+          name: data.name,
+          position: data.position,
+          Image: data.Image,
+        },
+      }
+    );
+  if (update) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Somthing Went Wrong");
+  }
+});
+
+const EditMedia = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const update = await db
+    .get()
+    .collection(collection.MEDIA_COLLECTION)
+    .updateOne(
+      { _id: ObjectId(data.id) },
+      {
+        $set: {
+          header: data.header,
+          link: data.link,
+          description: data.description,
+          date: data.date,
+        },
+      }
+    );
+  if (update) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Somthing Went Wrong");
+  }
+});
+const EditMilestone = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const update = await db
+    .get()
+    .collection(collection.MILESTONES_COLLECTION)
+    .updateOne(
+      { _id: ObjectId(data.id) },
+      {
+        $set: {
+          year: data.year,
+          description: data.description,
+          date: data.date,
+        },
+      }
+    );
+  if (update) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Somthing Went Wrong");
+  }
+});
+const EditNewsAndEvents = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const update = await db
+    .get()
+    .collection(collection.NEWS_EVENTS_COLLECTION)
+    .updateOne(
+      { _id: ObjectId(data.id) },
+      {
+        $set: {
+          description: data.description,
+          header: data.header,
+        },
+      }
+    );
+  if (update) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Somthing Went Wrong");
+  }
+});
+const EditParterns = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const update = await db
+    .get()
+    .collection(collection.PARTNERS_COLLECTION)
+    .updateOne(
+      { _id: ObjectId(data.id) },
+      {
+        $set: {
+          description: data.description,
+          country: data.country,
+        },
+      }
+    );
+  if (update) {
+    res.status(200).json("Success");
+  } else {
+    res.status(500).json("Somthing Went Wrong");
+  }
+});
 module.exports = {
   Login,
   ADDINSTITUTE,
@@ -526,4 +713,13 @@ module.exports = {
   AddNewsAndEvents,
   DeleteNewsAndEvents,
   ViewAllNewsAndEvents,
+  EditAwards,
+  BlogAwards,
+  EditBusiness,
+  EditInstitute,
+  EditLeaderShip,
+  EditMedia,
+  EditMilestone,
+  EditNewsAndEvents,
+  EditParterns,
 };

@@ -31,8 +31,21 @@ function Project() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [error, setError] = useState();
+  const [edit,setEdit]=useState(null)
   const adminToken = localStorage.getItem("adminToken");
   const Navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
+  useEffect(() => {
+    if (!open) {
+      setImage();
+      setValue("description", null);
+    }
+  }, [open]);
 
   useEffect(() => {
     (async function () {
@@ -58,12 +71,23 @@ function Project() {
   //       }
   //     })();
   //   });
-  const AddPartners = async () => {
-    const obj = {
-      description: description,
-      Image: image,
+  const onSubmit = async (data) => {
+    const obj = { 
+      description:data.description,
+      Image: image, 
     };
-    if ( description && image) {
+    if (image) {
+      if(edit){
+        obj["id"]=edit
+        try {
+          const { data } = await axios.post("/api/admin/edit-business-partners", obj);
+          setImage("");
+          setLoading(!loading)
+          handleClose();
+        } catch (error) {
+          setError("Something Went Wrong");
+        }
+      }else{
       try {
         const { data } = await axios.post("/api/admin/add-business-partners", obj);
         setImage("");
@@ -76,6 +100,7 @@ function Project() {
       } catch (error) {
         setError("Something Went Wrong");
       }
+    }
     } else {
       setError("Please Update Field");
     }
@@ -116,15 +141,6 @@ function Project() {
       }
     });
   };
-  // const DeleteProject = async (id) => {
-  //   try {
-  //     const { data } = await axios.delete(`/api/admin/deleting-project/${id}`);
-  //     setLoading(true);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   const imageUploaing = async (e) => {
     const length = e.target.files.length;
     let formData = new FormData();
@@ -146,6 +162,12 @@ function Project() {
       console.log(error);
     }
   };
+  const EditBuisness = (items) => {
+    setValue("description", items.description);
+    setImage(items.Image);
+    handleOpen();
+    setEdit(items._id);
+  };
   return (
     <>
       <Modal
@@ -162,15 +184,14 @@ function Project() {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="row">
             
                   <div class="input-group ">
                     <textarea
                       type="message"
-                      onChange={(e) => {
-                        setDescription(e.target.value);
-                      }}
+                      {...register("description", { required: true })}
+                    
                       rows={4}
                       placeholder="Project Description"
                     />
@@ -202,8 +223,8 @@ function Project() {
                 </div>
                 {error && <div style={{ color: "red" }}>{error}</div>}
                 <div style={{ textAlign: "center" }}>
-                  <a
-                    onClick={AddPartners}
+                  <button
+                   type="submit"
                     style={{
                       cursor: "pointer",
                       backgroundColor: "#4CAF50",
@@ -220,7 +241,7 @@ function Project() {
                     }}
                   >
                     SUBMIT
-                  </a>
+                  </button>
                 </div>
               </form>
             </Typography>
@@ -274,6 +295,14 @@ function Project() {
                         }}
                       >
                         Delete
+                      </button>
+                      <button
+                      style={{marginLeft:"1rem"}}
+                        onClick={(e) => {
+                          EditBuisness(items);
+                        }}
+                      >
+                        Edit
                       </button>
                     </td>
                   </tr>

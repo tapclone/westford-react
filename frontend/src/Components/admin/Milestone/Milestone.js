@@ -24,15 +24,29 @@ const style = {
 function Project() {
   const [loading, setLoading] = useState(false);
   const [Project, setProject] = useState([]);
-  const [year,setYear]=useState()
+  const [year, setYear] = useState();
   const [image, setImage] = useState();
   const [description, setDescription] = useState();
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true); 
+  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [edit, setEdit] = useState();
   const [error, setError] = useState();
   const adminToken = localStorage.getItem("adminToken");
   const Navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
+  useEffect(() => {
+    if (!open) {
+      setImage();
+      setValue("year", null);
+      setValue("description", null);
+    }
+  }, [open]);
 
   useEffect(() => {
     (async function () {
@@ -44,26 +58,32 @@ function Project() {
       }
     })();
   }, [loading]);
-  const AddInstitue = async () => {
+  const onSubmit = async (data) => {
     const obj = {
-      description: description,
-      year:year,
-      Image: image,
+      description: data.description,
+      year: data.year,
+      Image: image, 
     };
-    if ( description && image &&year) {
-      try {
-        const { data } = await axios.post("/api/admin/add-milestones", obj);
-
-        setImage("");
-
-        if (loading) {
-          setLoading(false);
-        } else {
-          setLoading(true);
+    if (image) { 
+      if (edit) {
+        obj["id"] = edit;
+        try {
+          const { data } = await axios.post("/api/admin/edit-milestone", obj);
+          setImage("");
+          setLoading(!loading);
+          handleClose();
+        } catch (error) {
+          setError("Something Went Wrong");
         }
-        handleClose();
-      } catch (error) {
-        setError("Something Went Wrong");
+      } else {
+        try {
+          const { data } = await axios.post("/api/admin/add-milestones", obj);
+          setImage("");
+          setLoading(!loading);
+          handleClose();
+        } catch (error) {
+          setError("Something Went Wrong");
+        }
       }
     } else {
       setError("Please Update Field");
@@ -88,11 +108,11 @@ function Project() {
           await axios
             .delete(`/api/admin/delete-milestones/${id}`, config)
             .then((res) => {
-                if (loading) {
-                    setLoading(false);
-                  } else {
-                    setLoading(true);
-                  }
+              if (loading) {
+                setLoading(false);
+              } else {
+                setLoading(true);
+              }
             })
             .catch((err) => {
               console.log(err);
@@ -105,15 +125,6 @@ function Project() {
       }
     });
   };
-  // const DeleteProject = async (id) => {
-  //   try {
-  //     const { data } = await axios.delete(`/api/admin/deleting-project/${id}`);
-  //     setLoading(true);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   const imageUploaing = async (e) => {
     const length = e.target.files.length;
     let formData = new FormData();
@@ -135,6 +146,13 @@ function Project() {
       console.log(error);
     }
   };
+  const EditMilstone = (items) => {
+    setValue("year", items.year);
+    setValue("description", items.description);
+    setImage(items.Image);
+    handleOpen();
+    setEdit(items._id);
+  };
   return (
     <>
       <Modal
@@ -151,16 +169,13 @@ function Project() {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="row">
-
                   <div class="input-group input-group-icon">
                     <input
                       type="text"
                       placeholder="Year"
-                      onChange={(e) => {
-                        setYear(e.target.value);
-                      }}
+                      {...register("year", { required: true })}
                       required
                     />
                     <div class="input-icon">
@@ -170,9 +185,7 @@ function Project() {
                   <div class="input-group ">
                     <textarea
                       type="message"
-                      onChange={(e) => {
-                        setDescription(e.target.value);
-                      }}
+                      {...register("description", { required: true })}
                       rows={4}
                       placeholder="Description"
                     />
@@ -204,8 +217,8 @@ function Project() {
                 </div>
                 {error && <div style={{ color: "red" }}>{error}</div>}
                 <div style={{ textAlign: "center" }}>
-                  <a
-                    onClick={AddInstitue}
+                  <button
+                    type="submit"
                     style={{
                       cursor: "pointer",
                       backgroundColor: "#4CAF50",
@@ -222,7 +235,7 @@ function Project() {
                     }}
                   >
                     SUBMIT
-                  </a>
+                  </button>
                 </div>
               </form>
             </Typography>
@@ -277,6 +290,14 @@ function Project() {
                         }}
                       >
                         Delete
+                      </button>
+                      <button
+                      style={{marginTop:"1rem"}}
+                        onClick={(e) => {
+                          EditMilstone(items);
+                        }}
+                      >
+                        Edit
                       </button>
                     </td>
                   </tr>

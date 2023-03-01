@@ -41,7 +41,7 @@ function OurInstitutions() {
     (async function () {
       try {
         const { data } = await axios.get("/api/admin/view-all-institute");
-        const datas = data.slice(0, limit);
+        const datas = data.slice(0, limit); 
         setInstituteLength(data.length);
         setInstitute(datas);
       } catch (error) {}

@@ -9,6 +9,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -29,11 +30,28 @@ function Project() {
   const [description, setDescription] = useState();
   const [date, setDate] = useState();
   const [open, setOpen] = useState(false);
+  const [edit, setEdit] = useState(null);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [error, setError] = useState();
   const adminToken = localStorage.getItem("adminToken");
   const Navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
+
+  useEffect(() => {
+    if (!open) {
+      setImage();
+      setDate();
+      setValue("Heading", null);
+      setValue("description", null);
+    }
+  }, [open]);
 
   useEffect(() => {
     (async function () {
@@ -45,26 +63,41 @@ function Project() {
       }
     })();
   }, [loading]);
-  const AddInstitue = async () => {
+  const onSubmit = async (data) => {
     const obj = {
-      header: heading,
+      header: data.Heading,
       date: date,
-      description: description,
+      description: data.description,
       Image: image,
     };
-    if (heading && description && image && date) {
-      try {
-        const { data } = await axios.post("/api/admin/add-blog", obj);
-
-        setImage("");
-        if (loading) {
-          setLoading(false);
-        } else {
-          setLoading(true);
+    if (image && date) {
+      if (edit) {
+        obj["id"] = edit;
+        try {
+          const { data } = await axios.post("/api/admin/edit-blog", obj);
+          setImage("");
+          if (loading) {
+            setLoading(false);
+          } else {
+            setLoading(true);
+          }
+          handleClose();
+        } catch (error) {
+          setError("Something Went Wrong");
         }
-        handleClose();
-      } catch (error) {
-        setError("Something Went Wrong");
+      } else {
+        try {
+          const { data } = await axios.post("/api/admin/add-blog", obj);
+          setImage("");
+          if (loading) {
+            setLoading(false);
+          } else {
+            setLoading(true);
+          }
+          handleClose();
+        } catch (error) {
+          setError("Something Went Wrong");
+        }
       }
     } else {
       setError("Please Update Field");
@@ -136,6 +169,14 @@ function Project() {
       console.log(error);
     }
   };
+  const EditBlogs = (items) => {
+    setValue("Heading", items.header);
+    setValue("description", items.description);
+    setImage(items.Image);
+    setDate(items.date);
+    handleOpen();
+    setEdit(items._id);
+  };
   return (
     <>
       <Modal
@@ -152,17 +193,14 @@ function Project() {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="row">
                   <h4>Heading</h4>
                   <div class="input-group input-group-icon">
                     <input
                       type="text"
                       placeholder="Heading"
-                      onChange={(e) => {
-                        setHeading(e.target.value);
-                      }}
-                      required
+                      {...register("Heading", { required: true })}
                     />
                     <div class="input-icon">
                       <i class="fa fa-user"></i>
@@ -171,6 +209,7 @@ function Project() {
                   <div class="input-group ">
                     <input
                       type="text"
+                      defaultValue={date}
                       onChange={(e) => {
                         setDate(e.target.value);
                       }}
@@ -180,9 +219,7 @@ function Project() {
                   <div class="input-group ">
                     <textarea
                       type="message"
-                      onChange={(e) => {
-                        setDescription(e.target.value);
-                      }}
+                      {...register("description", { required: true })}
                       rows={4}
                       placeholder="Project Description"
                     />
@@ -215,8 +252,8 @@ function Project() {
                 </div>
                 {error && <div style={{ color: "red" }}>{error}</div>}
                 <div style={{ textAlign: "center" }}>
-                  <a
-                    onClick={AddInstitue}
+                  <button
+                    type="submit"
                     style={{
                       cursor: "pointer",
                       backgroundColor: "#4CAF50",
@@ -233,7 +270,7 @@ function Project() {
                     }}
                   >
                     SUBMIT
-                  </a>
+                  </button>
                 </div>
               </form>
             </Typography>
@@ -290,6 +327,15 @@ function Project() {
                         }}
                       >
                         Delete
+                      </button>
+                      <button
+                      style={{marginTop:"1rem"}}
+                      
+                        onClick={(e) => {
+                          EditBlogs(items);
+                        }}
+                      >
+                        Edit
                       </button>
                     </td>
                   </tr>

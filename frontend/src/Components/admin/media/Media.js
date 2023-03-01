@@ -26,7 +26,8 @@ function Project() {
   const [Project, setProject] = useState([]);
   const [heading, setHeading] = useState();
   const [image, setImage] = useState();
-  const [date, setData] = useState();
+  const [date,setData] = useState();
+  const [edit, setEdit] = useState();
   const [link, setLink] = useState();
   const [description, setDescription] = useState();
   const [open, setOpen] = useState(false);
@@ -35,7 +36,19 @@ function Project() {
   const [error, setError] = useState();
   const adminToken = localStorage.getItem("adminToken");
   const Navigate = useNavigate();
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
+  useEffect(() => {
+    if (!open) {
+      setImage();
+      setValue("Name", null);
+      setValue("Role", null);
+    }
+  }, [open]);
   useEffect(() => {
     (async function () {
       try {
@@ -44,25 +57,33 @@ function Project() {
       } catch (error) {}
     })();
   }, [loading]);
-  const AddInstitue = async () => {
+  const onSubmit = async (data) => {
     const obj = {
-      header: heading, 
-      date:date,
-      description:description, 
-      link: link,
-    };
-    if (heading && description && link) {
-      try {
-        const { data } = await axios.post("/api/admin/add-media", obj);
-        setImage("");
-        if (loading) {
-          setLoading(false);
-        } else {
-          setLoading(true);
+      header: data.header,
+      date: date,
+      description: data.description,
+      link: data.link,
+    }; 
+    if (date ) {
+      if (edit) {
+        obj["id"] = edit;  
+        try {
+          const { data } = await axios.post("/api/admin/edit-media", obj);
+          setImage("");
+          setLoading(!loading);
+          handleClose();
+        } catch (error) {
+          setError("Something Went Wrong");
         }
-        handleClose();
-      } catch (error) {
-        setError("Something Went Wrong");
+      } else {
+        try {
+          const { data } = await axios.post("/api/admin/add-media", obj);
+          setImage("");
+          setLoading(!loading);
+          handleClose();
+        } catch (error) {
+          setError("Something Went Wrong");
+        }
       }
     } else {
       setError("Please Update Field");
@@ -128,6 +149,15 @@ function Project() {
       setImage(data);
     } catch (error) {}
   };
+  const EditLeaderShip = (items) => {
+    setValue("header", items.header);
+    setValue("description", items.description);
+    setValue("link", items.link);
+    setData(items.date)
+    setImage(items.Image);
+    handleOpen();
+    setEdit(items._id);
+  };
   return (
     <>
       <Modal
@@ -144,16 +174,14 @@ function Project() {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="row">
                   <h4>Heading</h4>
                   <div class="input-group input-group-icon">
                     <input
                       type="text"
                       placeholder="media"
-                      onChange={(e) => {
-                        setHeading(e.target.value);
-                      }}
+                      {...register("header", { required: true })}
                       required
                     />
                     <div class="input-icon">
@@ -163,9 +191,7 @@ function Project() {
                   <div class="input-group ">
                     <textarea
                       type="message"
-                      onChange={(e) => {
-                        setDescription(e.target.value);
-                      }}
+                      {...register("description", { required: true })}
                       rows={4}
                       placeholder="Project Description"
                     />
@@ -173,6 +199,7 @@ function Project() {
                   <div class="input-group input-group-icon">
                     <input
                       type="text"
+                      defaultValue={date}
                       onChange={(e) => {
                         setData(e.target.value);
                       }}
@@ -183,9 +210,7 @@ function Project() {
                     <input
                       type="text"
                       placeholder="Media Link"
-                      onChange={(e) => {
-                        setLink(e.target.value);
-                      }}
+                      {...register("link", { required: true })}
                       required
                     />
                     <div class="input-icon">
@@ -206,8 +231,8 @@ function Project() {
                 </div>
                 {error && <div style={{ color: "red" }}>{error}</div>}
                 <div style={{ textAlign: "center" }}>
-                  <a
-                    onClick={AddInstitue}
+                  <button
+                    type="submit"
                     style={{
                       cursor: "pointer",
                       backgroundColor: "#4CAF50",
@@ -224,7 +249,7 @@ function Project() {
                     }}
                   >
                     SUBMIT
-                  </a>
+                  </button>
                 </div>
               </form>
             </Typography>
@@ -257,16 +282,18 @@ function Project() {
               <tr>
                 <th>S No.</th>
                 <th>Heading</th>
+                <th>date</th>
                 <th>Description</th>
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody> 
+            <tbody>
               {Project.map((items, index) => {
-                return ( 
-                  <tr key={index}> 
+                return (
+                  <tr key={index}>
                     <td style={{ textAlign: "center" }}>{index + 1}</td>
                     <td style={{ textAlign: "center" }}>{items.header}</td>
+                    <td style={{ textAlign: "center" }}>{items.date}</td>
                     <td style={{ textAlign: "center" }}>{items.description}</td>
                     <td style={{ textAlign: "center" }}>
                       <button
@@ -276,7 +303,15 @@ function Project() {
                       >
                         Delete
                       </button>
-                    </td> 
+                      <button
+                      style={{marginLeft:"1rem"}}
+                        onClick={(e) => {
+                          EditLeaderShip(items);
+                        }}
+                      >
+                        Edit
+                      </button>
+                    </td>
                   </tr>
                 );
               })}

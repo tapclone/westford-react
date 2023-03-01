@@ -31,9 +31,22 @@ function Project() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [error, setError] = useState();
+  const [edit, setEdit] = useState(null);
   const adminToken = localStorage.getItem("adminToken");
   const Navigate = useNavigate();
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
+  useEffect(() => {
+    if (!open) {
+      setImage();
+      setValue("Name", null);
+      setValue("Role", null);
+    }
+  }, [open]);
   useEffect(() => {
     (async function () {
       try {
@@ -44,24 +57,32 @@ function Project() {
       }
     })();
   }, [loading]);
-  const AddInstitue = async () => {
+  const onSubmit = async (data) => {
     const obj = {
-      name: name,
-      position: position,
+      name: data.Name,
+      position: data.Role,
       Image: image,
     };
-    if (name && position && image) {
-      try {
-        const { data } = await axios.post("/api/admin/add-leadership", obj);
-        setImage("");
-        if (loading) {
-            setLoading(false);
-          } else {
-            setLoading(true);
-          }
-        handleClose();
-      } catch (error) {
-        setError("Something Went Wrong");
+    if (image) {
+      if (edit) {
+        obj["id"]=edit 
+        try {
+          const { data } = await axios.post("/api/admin/edit-leadership", obj);
+          setImage("");
+          setLoading(!loading);
+          handleClose();
+        } catch (error) {
+          setError("Something Went Wrong");
+        }
+      } else {
+        try {
+          const { data } = await axios.post("/api/admin/add-leadership", obj);
+          setImage("");
+          setLoading(!loading);
+          handleClose();
+        } catch (error) {
+          setError("Something Went Wrong");
+        }
       }
     } else {
       setError("Please Update Field");
@@ -86,11 +107,11 @@ function Project() {
           await axios
             .delete(`/api/admin/delete-leadership/${id}`, config)
             .then((res) => {
-                if (loading) {
-                    setLoading(false);
-                  } else {
-                    setLoading(true);
-                  }
+              if (loading) {
+                setLoading(false);
+              } else {
+                setLoading(true);
+              }
             })
             .catch((err) => {
               console.log(err);
@@ -103,15 +124,6 @@ function Project() {
       }
     });
   };
-  // const DeleteProject = async (id) => {
-  //   try {
-  //     const { data } = await axios.delete(`/api/admin/deleting-project/${id}`);
-  //     setLoading(true);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   const imageUploaing = async (e) => {
     const length = e.target.files.length;
     let formData = new FormData();
@@ -133,6 +145,13 @@ function Project() {
       console.log(error);
     }
   };
+  const EditLeaderShip = (items) => {
+    setValue("Name", items.name);
+    setValue("Role", items.position);
+    setImage(items.Image);
+    handleOpen();
+    setEdit(items._id);
+  };
   return (
     <>
       <Modal
@@ -149,16 +168,14 @@ function Project() {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="row">
                   <h4>Enter Name</h4>
                   <div class="input-group input-group-icon">
                     <input
                       type="text"
                       placeholder="Name"
-                      onChange={(e) => {
-                        setName(e.target.value);
-                      }}
+                      {...register("Name", { required: true })}
                       required
                     />
                     <div class="input-icon">
@@ -169,9 +186,7 @@ function Project() {
                     <input
                       type="text"
                       placeholder="Role"
-                      onChange={(e) => {
-                        setPosition(e.target.value);
-                      }}
+                      {...register("Role", { required: true })}
                       required
                     />
                     <div class="input-icon">
@@ -205,8 +220,8 @@ function Project() {
                 </div>
                 {error && <div style={{ color: "red" }}>{error}</div>}
                 <div style={{ textAlign: "center" }}>
-                  <a
-                    onClick={AddInstitue}
+                  <button
+                    type="submit"
                     style={{
                       cursor: "pointer",
                       backgroundColor: "#4CAF50",
@@ -223,7 +238,7 @@ function Project() {
                     }}
                   >
                     SUBMIT
-                  </a>
+                  </button>
                 </div>
               </form>
             </Typography>
@@ -267,7 +282,10 @@ function Project() {
                   <tr key={index}>
                     <td style={{ textAlign: "center" }}>{index + 1}</td>
                     <td style={{ textAlign: "center" }}>
-                      <img src={items?.Image} style={{width:"5rem",height:"5rem"}}/>
+                      <img
+                        src={items?.Image}
+                        style={{ width: "5rem", height: "5rem" }}
+                      />
                     </td>
                     <td style={{ textAlign: "center" }}>{items.name}</td>
                     <td style={{ textAlign: "center" }}>{items.position}</td>
@@ -278,6 +296,14 @@ function Project() {
                         }}
                       >
                         Delete
+                      </button>
+                      <button
+                        style={{ marginLeft: "2rem" }}
+                        onClick={(e) => {
+                          EditLeaderShip(items);
+                        }}
+                      >
+                        Edit
                       </button>
                     </td>
                   </tr>

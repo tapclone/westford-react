@@ -27,6 +27,7 @@ function Project() {
   const [countryData, setCountrydata] = useState([]);
   const [country, setCountry] = useState();
   const [image, setImage] = useState();
+  const [edit, setEdit] = useState();
   const [description, setDescription] = useState();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -34,9 +35,22 @@ function Project() {
   const [error, setError] = useState();
   const adminToken = localStorage.getItem("adminToken");
   const Navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
+  useEffect(() => {
+    if (!open) {
+      setImage();
+      setValue("heading", null);
+      setValue("description", null);
+    }
+  }, [open]);
 
-  useEffect(() => { 
-    (async function () { 
+  useEffect(() => {
+    (async function () {
       try {
         const { data } = await axios.get("/api/admin/view-all-partners");
         setProject(data);
@@ -46,37 +60,32 @@ function Project() {
     })();
   }, [loading]);
 
-//   useEffect(() => {
-//     (async function () {
-//       try {
-//         const { data } = await axios.get(
-//           "https://api.first.org/data/v1/countries"
-//         );
-//         console.log(data, "dkc");
-//         setCountrydata(data);
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     })();
-//   });
-  const AddPartners = async () => {
+  const onSubmit = async (data) => {
     const obj = {
-      country: country,
-      description: description,
+      country: data.country,
+      description: data.description,
       Image: image,
     };
-    if (country && description && image) {
-      try {
-        const { data } = await axios.post("/api/admin/add-partners", obj);
-        setImage("");
-        if (loading) {
-          setLoading(false);
-        } else {
-          setLoading(true);
+    if (image) {
+      if (edit) {
+        obj["id"] = edit;
+        try {
+          const { data } = await axios.post("/api/admin/edit-partners", obj);
+          setImage("");
+           setLoading(!loading)
+          handleClose(); 
+        } catch (error) {
+          setError("Something Went Wrong");
         }
-        handleClose();
-      } catch (error) {
-        setError("Something Went Wrong");
+      } else {
+        try {
+          const { data } = await axios.post("/api/admin/add-partners", obj);
+          setImage("");
+           setLoading(!loading)
+          handleClose();
+        } catch (error) {
+          setError("Something Went Wrong");
+        }
       }
     } else {
       setError("Please Update Field");
@@ -87,7 +96,7 @@ function Project() {
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover this data file!",
-      icon: "warning", 
+      icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then(async (willDelete) => {
@@ -127,7 +136,7 @@ function Project() {
   //     console.log(error);
   //   }
   // };
-  const imageUploaing = async (e) => { 
+  const imageUploaing = async (e) => {
     const length = e.target.files.length;
     let formData = new FormData();
     const file = e.target.files[0];
@@ -148,6 +157,13 @@ function Project() {
       console.log(error);
     }
   };
+  const EditPartners = (items) => {
+    setValue("country", items.country);
+    setValue("description", items.description);
+    setImage(items.Image);
+    handleOpen();
+    setEdit(items._id);
+  };
   return (
     <>
       <Modal
@@ -164,16 +180,14 @@ function Project() {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="row">
                   <h4>Country</h4>
                   <div class="input-group input-group-icon">
                     <input
                       type="text"
                       placeholder="Country"
-                      onChange={(e) => {
-                        setCountry(e.target.value);
-                      }}
+                      {...register("country", { required: true })}
                       required
                     />
                     <div class="input-icon">
@@ -183,9 +197,7 @@ function Project() {
                   <div class="input-group ">
                     <textarea
                       type="message"
-                      onChange={(e) => {
-                        setDescription(e.target.value);
-                      }}
+                      {...register("description", { required: true })}
                       rows={4}
                       placeholder="Project Description"
                     />
@@ -217,8 +229,8 @@ function Project() {
                 </div>
                 {error && <div style={{ color: "red" }}>{error}</div>}
                 <div style={{ textAlign: "center" }}>
-                  <a
-                    onClick={AddPartners}
+                  <button
+                    type="submit"
                     style={{
                       cursor: "pointer",
                       backgroundColor: "#4CAF50",
@@ -235,7 +247,7 @@ function Project() {
                     }}
                   >
                     SUBMIT
-                  </a>
+                  </button>
                 </div>
               </form>
             </Typography>
@@ -290,6 +302,14 @@ function Project() {
                         }}
                       >
                         Delete
+                      </button>
+                      <button
+                      style={{marginLeft:"1rem"}}
+                        onClick={(e) => {
+                          EditPartners(items);
+                        }}
+                      >
+                       Edit
                       </button>
                     </td>
                   </tr>

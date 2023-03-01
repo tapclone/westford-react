@@ -30,39 +30,60 @@ function Project() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [edit, setEdit] = useState();
   const [error, setError] = useState();
   const adminToken = localStorage.getItem("adminToken");
   const Navigate = useNavigate();
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
+  useEffect(() => {
+    if (!open) {
+      setImage();
+      setValue("heading", null);
+      setValue("description", null);
+    }
+  }, [open]);
   useEffect(() => {
     (async function () {
       try {
         const { data } = await axios.get("/api/admin/view-all-news");
         setProject(data);
       } catch (error) {
-        console.log(error);
+       
       }
     })();
   }, [loading]);
-  const AddInstitue = async () => {
+  const onSubmit = async (data) => {
     const obj = {
-      header: heading,
-      description: description,
+      header: data.heading,
+      description: data.description,
       Image: image,
     };
-    if (heading && description && image) {
-      try {
-        const { data } = await axios.post("/api/admin/add-news", obj);
-
-        setImage("");
-        if (loading) {
-          setLoading(false);
-        } else {
-          setLoading(true);
+    if (image) {
+      if (edit) {
+        obj["id"]=edit
+        try {
+          const { data } = await axios.post("/api/admin/edit-news", obj);
+          setImage("");
+          setLoading(!loading);
+          handleClose();
+        } catch (error) {
+          setError("Something Went Wrong");
         }
-        handleClose();
-      } catch (error) {
-        setError("Something Went Wrong");
+      } else {
+        try {
+          const { data } = await axios.post("/api/admin/add-news", obj);
+          setImage("");
+          setLoading(!loading);
+          handleClose();
+        } catch (error) {
+          setError("Something Went Wrong");
+        }
       }
     } else {
       setError("Please Update Field");
@@ -134,6 +155,13 @@ function Project() {
       console.log(error);
     }
   };
+  const EditNews = (items) => {
+    setValue("heading", items.header);
+    setValue("description", items.description);
+    setImage(items.Image);
+    handleOpen();
+    setEdit(items._id);
+  };
   return (
     <>
       <Modal
@@ -150,17 +178,14 @@ function Project() {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="row">
                   <h4>Heading</h4>
                   <div class="input-group input-group-icon">
                     <input
                       type="text"
                       placeholder="Heading"
-                      onChange={(e) => {
-                        setHeading(e.target.value);
-                      }}
-                      required
+                      {...register("heading", { required: true })}
                     />
                     <div class="input-icon">
                       <i class="fa fa-user"></i>
@@ -169,9 +194,7 @@ function Project() {
                   <div class="input-group ">
                     <textarea
                       type="message"
-                      onChange={(e) => {
-                        setDescription(e.target.value);
-                      }}
+                      {...register("description", { required: true })}
                       rows={4}
                       placeholder="Project Description"
                     />
@@ -203,8 +226,8 @@ function Project() {
                 </div>
                 {error && <div style={{ color: "red" }}>{error}</div>}
                 <div style={{ textAlign: "center" }}>
-                  <a
-                    onClick={AddInstitue}
+                  <button
+                    type="submit"
                     style={{
                       cursor: "pointer",
                       backgroundColor: "#4CAF50",
@@ -221,7 +244,7 @@ function Project() {
                     }}
                   >
                     SUBMIT
-                  </a>
+                  </button>
                 </div>
               </form>
             </Typography>
@@ -276,6 +299,14 @@ function Project() {
                         }}
                       >
                         Delete
+                      </button>
+                      <button
+                        style={{  marginTop: "1rem" }}
+                        onClick={(e) => {
+                          EditNews(items);
+                        }}
+                      >
+                        Edit
                       </button>
                     </td>
                   </tr>
