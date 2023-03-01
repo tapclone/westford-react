@@ -390,9 +390,9 @@ function Home() {
               {institute.map((items) => {
                 return (
                   <div>
-                  <div className="institutionSingleSlide">
-                    <img src={items.Image} alt="" />
-                  </div>
+                    <div className="institutionSingleSlide">
+                      <img src={items.Image} alt="" />
+                    </div>
                   </div>
                 );
               })}
@@ -405,11 +405,7 @@ function Home() {
       <section class="ataglance">
         <div class="glance-text">
           <h2>At a Glance</h2>
-          <p>
-            Westford Education Group is a leading provider of accredited
-            international education to <br />
-            aspiring learners across the globe
-          </p>
+          <p>Discover more about us through these key facts and figures.</p>
         </div>
         <div class="ataglancebox">
           <div
@@ -521,7 +517,9 @@ function Home() {
             <button
               style={{ marginBottom: "1.5rem" }}
               class="whorv-btn contactUs"
-              onClick={()=>{navigate('/about')}}
+              onClick={() => {
+                navigate("/about");
+              }}
             >
               Learn More
             </button>
@@ -633,24 +631,49 @@ function Home() {
         <h4>EUROPE <br /> MIDDLE EAST <br /> & AFRICA</h4>
         <p>40%</p>
     </div> */}
+            </div>
+          </div>
+        </div>
+      </section>
 
-                               </div>
-                    </div>
-                </div>
-
-
-            </section>
-
-            <section class="our-partners" style={{ height: 'fit-content', marginBottom: '2rem',paddingBottom:'1rem' }}>
-                <div class="our-partners-title">
-                    <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 4rem)' }}>OUR PARTNERS</h2>
-                    <h3 style={{ fontSize: 'clamp(1.3rem, 3vw, 3.5rem)', lineHeight: 'normal' }}>Partnering for business transformation</h3>
-                </div>
-                <div className='our-partner-logoDiv' style={{ width: "85%", aspectRatio: "1/0.5", display: 'flex', flexWrap: 'wrap', alignItems: "center", justifyContent: "space-between", rowGap: "1rem" }}>
-
+      <section
+        class="our-partners"
+        style={{
+          height: "fit-content",
+          marginBottom: "2rem",
+          paddingBottom: "1rem",
+        }}
+      >
+        <div class="our-partners-title">
+          <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 4rem)" }}>OUR PARTNERS</h2>
+          <h3
+            style={{
+              fontSize: "clamp(1.3rem, 3vw, 3.5rem)",
+              lineHeight: "normal",
+            }}
+          >
+            Partnering for business transformation
+          </h3>
+        </div>
+        <div
+          className="our-partner-logoDiv"
+          style={{
+            width: "85%",
+            aspectRatio: "1/0.5",
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "space-between",
+            rowGap: "1rem",
+          }}
+        >
           {businessPartners.map((items) => {
             return (
-              <div class="our-partner-logo" data-aos="flip-left" data-aos-duration="1200">
+              <div
+                class="our-partner-logo"
+                data-aos="flip-left"
+                data-aos-duration="1200"
+              >
                 <div class="top-logo">
                   <img src={items.Image} alt="" />
                 </div>
@@ -670,7 +693,6 @@ function Home() {
           </div>
         )}
       </section>
-      
 
       <section
         class="corp-training"
@@ -692,7 +714,14 @@ function Home() {
             of industries and sectors.
           </p>
 
-          <button onClick={()=>{navigate('/about')}} class="corp-training-btn learnMore">Learn more</button>
+          <button
+            onClick={() => {
+              navigate("/about");
+            }}
+            class="corp-training-btn learnMore"
+          >
+            Learn more
+          </button>
         </div>
       </section>
 
@@ -736,16 +765,17 @@ function Home() {
         <div class="article-blog-headings">
           <h2>Our Articles and Blogs</h2>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the <br />
-            industry's standard dummy text ever since the 1500s.
+            Here's where you'll find the latest trends, best practices, and
+            research in education
           </p>
         </div>
         <ArticleSection></ArticleSection>
 
         <div
           class="article-blog-btn contactUs"
-          onClick={()=>{navigate('/mediaCentre')}}
+          onClick={() => {
+            navigate("/mediaCentre");
+          }}
         >
           View More
         </div>
@@ -761,31 +791,34 @@ function Home() {
       >
         <div class="customer-media-txt">
           <h2 style={{ fontSize: "clamp(1.5rem,4vw,2.5rem)" }}>
-            Customers and media
+            News And Events
           </h2>
           <p>See some of the reviews here</p>
         </div>
-
 
         <div className="reviewAll">
           {media.map((items) => {
             return (
               <div className="reviewCard">
-                <a href={items.link} style={{textDecoration:"none",color:"black"}} target="_blank">
-                <span
-                  style={{
-                    background: "#285F71",
-                    color: "white",
-                    padding: "7px",
-                    marginTop: "7px",
-                  }}
+                <a
+                  href={items.link}
+                  style={{ textDecoration: "none", color: "black" }}
+                  target="_blank"
                 >
-                 {items.date}
-                </span>
-                <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
-                 {items.description}
-                </h3>
-                <p>{items.header}</p>
+                  <span
+                    style={{
+                      background: "#285F71",
+                      color: "white",
+                      padding: "7px",
+                      marginTop: "7px",
+                    }}
+                  >
+                    {items.date}
+                  </span>
+                  <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
+                    {items.description}
+                  </h3>
+                  <p>{items.header}</p>
                 </a>
               </div>
             );
@@ -800,12 +833,11 @@ function Home() {
         <div class="corporate-client-txt">
           <h2>Corporate Clients</h2>
           <p>
-            We have served clients ranging from large corporates to SME
-            companies, <br />
-            government departments and public companies. A few are :{" "}
+          Our client base includes a wide range of corporations, small businesses and government agencies
+
           </p>
         </div>
-
+ 
         <div class="corp-client-logos" style={{ width: "98%" }}>
           {CorporateClinets.map((items, index) => {
             const number = (index + 1) / 4;
