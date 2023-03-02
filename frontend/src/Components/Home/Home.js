@@ -828,7 +828,7 @@ function Home() {
 
       <section
         class="corporate-clients"
-        style={{ height: "fit-content", paddingBottom: "1rem" }}
+        style={{ height: "fit-content", paddingBottom: "5rem" }}
       >
         <div class="corporate-client-txt">
           <h2>Corporate Clients</h2>

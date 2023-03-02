@@ -362,6 +362,7 @@
 .our-university-logo img{
     width: 90% !important;
     min-width: 8rem;
+    object-fit: contain !important;
 }
 .reviewAll{
     width: 85% !important;
@@ -378,6 +379,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    min-height: 15rem;
+    max-width: 32rem;
 }
 .reviewCard h3{
     line-height: 1.5;
@@ -418,6 +421,7 @@
 .aag-box{
     width: 19%;
     min-width: 11rem;
+    max-width: 16rem;
 }
 @media (max-width:1073px) {
     .aag-box{
@@ -451,6 +455,7 @@
 .our-partner-logo{
     width: 20%;
     min-width: 11rem;
+    max-width: 22rem;
 }
 .our-partner-logoDiv{
     column-gap: 0.5rem;
@@ -488,6 +493,7 @@
 .cc-logo img{
     width: 90%;
     height: 4rem;
+    object-fit: contain;
 }
 .cc-logo-empty{
     width: 9% !important;
@@ -540,4 +546,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media (min-width:1800px) {
+    .redFooter{
+        margin-bottom: -5%;
+    }
+    .topbar .top-btn{
+        margin-right: 4em;
+    }
 }

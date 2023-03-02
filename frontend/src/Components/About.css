@@ -288,6 +288,7 @@
     flex-direction: column;
     width: 95%;
     background-repeat: no-repeat !important;
+    max-width: 30rem;
 }
 .articleCard span{
     width: fit-content;
@@ -303,7 +304,6 @@
 }
 .milStoneSliderSingle{
     box-shadow: 0px 49px 40px rgba(226, 226, 226, 0.47);
-    background-color: #FFFF;
     display: flex;
     margin-bottom: 3%;
     transition: 0.4s;
@@ -314,6 +314,7 @@
 }
 .milStoneSliderSingleSub2{
     padding: 5%;
+    background-color: #FFFF;
 }
 @media (max-width:850px) {
     .milStoneSliderSingle{
