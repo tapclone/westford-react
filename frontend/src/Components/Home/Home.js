@@ -40,7 +40,7 @@ function Home() {
       try {
         const { data } = await axios.get("/api/admin/view-all-institute");
         setInstitute(data);
-      } catch (error) {}
+      } catch (error) { }
     })();
   }, []);
   useEffect(() => {
@@ -52,7 +52,7 @@ function Home() {
         setLengthPartners(data.length);
         const datas = data.slice(0, limit);
         setBusinesPartners(datas);
-      } catch (error) {}
+      } catch (error) { }
     })();
   }, [limit]);
 
@@ -63,7 +63,7 @@ function Home() {
           "/api/admin/view-all-own-universities"
         );
         setOwnuniversities(data);
-      } catch (error) {}
+      } catch (error) { }
     })();
   }, []);
   useEffect(() => {
@@ -73,7 +73,7 @@ function Home() {
         const datas = data.slice(0, clinetLimit);
         setLengthClientes(data.length);
         setCorporateClinets(datas);
-      } catch (error) {}
+      } catch (error) { }
     })();
   }, [clinetLimit]);
   const addLimit = () => {
@@ -88,7 +88,7 @@ function Home() {
       try {
         const { data } = await axios.get("/api/admin/view-all-media");
         setMedia(data);
-      } catch (error) {}
+      } catch (error) { }
     })();
   }, []);
 
@@ -222,6 +222,16 @@ function Home() {
       },
     ],
   };
+  const settingsBanner = {
+    dots: false,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000
+  }
   const settings = {
     dots: false,
     infinite: true,
@@ -317,11 +327,35 @@ function Home() {
           height: "40rem",
         }}
       >
-        <div class="hero-heading">
-          <p class="aos" data-aos="zoom-out-up" data-aos-duration="2000">
-            Making students <br /> worldwide future <br />
-            ready
-          </p>
+        <div style={{ width: "100%", height: '100%' }}>
+          <Slider {...settingsBanner}>
+          <div>
+              <div className="bannerCont">
+                <p style={{ fontSize: "2rem", color: "white" }}>
+                  Empowering minds, <br /> changing the world
+                </p>
+              </div>
+
+            </div>
+
+            <div>
+              <div className="bannerCont">
+                <p style={{ fontSize: "2rem", color: "white" }}>
+                  Shaping the future <br /> of work
+                </p>
+              </div>
+
+            </div>
+
+            <div>
+              <div className="bannerCont">
+                <p style={{ fontSize: "2rem", color: "white" }}>
+                  Limitless possibilities <br />through learning
+                </p>
+              </div>
+
+            </div>
+          </Slider>
         </div>
       </div>
 
@@ -833,11 +867,11 @@ function Home() {
         <div class="corporate-client-txt">
           <h2>Corporate Clients</h2>
           <p>
-          Our client base includes a wide range of corporations, small businesses and government agencies
+            Our client base includes a wide range of corporations, small businesses and government agencies
 
           </p>
         </div>
- 
+
         <div class="corp-client-logos" style={{ width: "98%" }}>
           {CorporateClinets.map((items, index) => {
             const number = (index + 1) / 4;

@@ -6,6 +6,7 @@ import heroImg from "../../src/images/our-partners/hand-shake.png";
 import zigzag from "../../src/images/about-us/zig-zag.png";
 import dummyLogo from "../../src/images/our-partners/chea-logo.png";
 import axios from "axios";
+import Slider from "react-slick";
 
 function OurPartner() {
   const [btnColour, setBtnColour] = useState('fiterCard');
@@ -59,6 +60,17 @@ function OurPartner() {
     });
   }, []);
 
+  const settingsBanner = {
+    dots: false,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000
+  }
+  
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
       <div
@@ -71,10 +83,35 @@ function OurPartner() {
           backgroundBlendMode: "multiply",
         }}
       >
-        <div class="hero-heading">
-          <p class="aos" data-aos="zoom-out-up" data-aos-duration="2000">
-            Making students <br /> worldwide.
-          </p>
+        <div style={{ width: "100%", height: '100%' }}>
+          <Slider {...settingsBanner}>
+          <div>
+              <div className="bannerCont">
+                <p style={{ fontSize: "2rem", color: "white" }}>
+                  Empowering minds, <br /> changing the world
+                </p>
+              </div>
+
+            </div>
+
+            <div>
+              <div className="bannerCont">
+                <p style={{ fontSize: "2rem", color: "white" }}>
+                  Shaping the future <br /> of work
+                </p>
+              </div>
+
+            </div>
+
+            <div>
+              <div className="bannerCont">
+                <p style={{ fontSize: "2rem", color: "white" }}>
+                  Limitless possibilities <br />through learning
+                </p>
+              </div>
+
+            </div>
+          </Slider>
         </div>
       </div>
 

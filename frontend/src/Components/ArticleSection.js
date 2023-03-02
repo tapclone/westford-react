@@ -47,6 +47,16 @@ function ArticleSection() {
             }
         ]
     };
+    const settingsBanner = {
+        dots: false,
+        infinite: true,
+        speed: 1000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000
+      }
 
     return (
         <div style={{ width: '100%', display: "flex", alignItems: 'center', justifyContent: 'center',marginBottom:'5%'}}>
