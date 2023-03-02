@@ -422,6 +422,10 @@
     width: 95%;
     min-width: 25rem;
 }
+.newsCard img{
+    object-fit: cover;
+    object-position: center center;
+}
 @media (max-width:948px) {
     .newsCard{
         width: 90%;
