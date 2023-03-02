@@ -15,6 +15,7 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
+import Slider from "react-slick";
 
 const style = {
   position: "absolute",
@@ -54,6 +55,17 @@ function OurInstitutions() {
   const AddLimit = () => {
     setLimit(limit + 3);
   };
+
+  const settingsBanner = {
+    dots: false,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000
+  }
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
       <Modal
@@ -94,10 +106,35 @@ function OurInstitutions() {
           backgroundBlendMode: "multiply",
         }}
       >
-        <div class="hero-heading">
-          <p class="aos" data-aos="zoom-out-up" data-aos-duration="2000">
-            Making students <br /> worldwide
-          </p>
+        <div style={{ width: "100%", height: '100%' }}>
+          <Slider {...settingsBanner}>
+          <div>
+              <div className="bannerCont">
+                <p style={{ fontSize: "2rem", color: "white" }}>
+                  Empowering minds, <br /> changing the world
+                </p>
+              </div>
+
+            </div>
+
+            <div>
+              <div className="bannerCont">
+                <p style={{ fontSize: "2rem", color: "white" }}>
+                  Shaping the future <br /> of work
+                </p>
+              </div>
+
+            </div>
+
+            <div>
+              <div className="bannerCont">
+                <p style={{ fontSize: "2rem", color: "white" }}>
+                  Limitless possibilities <br />through learning
+                </p>
+              </div>
+
+            </div>
+          </Slider>
         </div>
       </div>
 
