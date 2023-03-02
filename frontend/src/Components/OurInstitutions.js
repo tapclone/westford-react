@@ -329,9 +329,7 @@ function OurInstitutions() {
         <div class="article-blog-headings">
           <h2>Our Articles and Blogs</h2>
           <p style={{ paddingBottom: "1rem" }}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the <br />
-            industry's standard dummy text ever since the 1500s.
+          Here's where you'll find the latest trends, best practices, and research in education.
           </p>
         </div>
         <ArticleSection></ArticleSection>

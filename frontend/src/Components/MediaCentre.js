@@ -204,9 +204,7 @@ function MediaCentre() {
             Article and Blogs
           </h2>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s
+          Here's where you'll find the latest trends, best practices, and research in education.
           </p>
         </div>
 
@@ -292,9 +290,8 @@ function MediaCentre() {
         <div class="ma-headings">
           <h2>News and Events</h2>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s,
+          Find the latest news, events, and updates related to the group here.
+
           </p>
         </div>
         <div
@@ -343,7 +340,8 @@ function MediaCentre() {
                         <h3 style={{ fontWeight: "normal" }}>{items.header}</h3>
                         <p>{items.description.slice(0, 60)}</p>
                         <a
-                        onClick={()=>{viewModal(items)}}
+                        target="_blank"
+                    href={items.link}
                           style={{ color: "red", textDecoration: "underline" }}
                         >
                           Read More
