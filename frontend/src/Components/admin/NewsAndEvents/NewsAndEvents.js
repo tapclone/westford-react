@@ -15,7 +15,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  height: 550,
+  height: 650,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -46,6 +46,9 @@ function Project() {
       setImage();
       setValue("heading", null);
       setValue("description", null);
+      setValue("media", null);
+      setValue("date", null);
+      setValue("link", null);
     }
   }, [open]);
   useEffect(() => {
@@ -53,20 +56,21 @@ function Project() {
       try {
         const { data } = await axios.get("/api/admin/view-all-news");
         setProject(data);
-      } catch (error) {
-       
-      }
+      } catch (error) {}
     })();
   }, [loading]);
   const onSubmit = async (data) => {
     const obj = {
       header: data.heading,
+      media: data.media,
+      link: data.link,
+      date: data.date,
       description: data.description,
       Image: image,
     };
     if (image) {
       if (edit) {
-        obj["id"]=edit
+        obj["id"] = edit;
         try {
           const { data } = await axios.post("/api/admin/edit-news", obj);
           setImage("");
@@ -157,6 +161,9 @@ function Project() {
   };
   const EditNews = (items) => {
     setValue("heading", items.header);
+    setValue("link", items.link);
+    setValue("date", items.date);
+    setValue("media", items.media);
     setValue("description", items.description);
     setImage(items.Image);
     handleOpen();
@@ -180,12 +187,44 @@ function Project() {
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="row">
-                  <h4>Heading</h4>
                   <div class="input-group input-group-icon">
                     <input
                       type="text"
                       placeholder="Heading"
                       {...register("heading", { required: true })}
+                    />
+                    <div class="input-icon">
+                      <i class="fa fa-user"></i>
+                    </div>
+                  </div>
+
+                  <div class="input-group input-group-icon">
+                    <input
+                      type="text"
+                      placeholder="Media"
+                      {...register("media", { required: true })}
+                    />
+                    <div class="input-icon">
+                      <i class="fa fa-user"></i>
+                    </div>
+                  </div>
+
+                  <div class="input-group input-group-icon">
+                    <input
+                      type="text"
+                      placeholder="Link"
+                      {...register("link", { required: true })}
+                    />
+                    <div class="input-icon">
+                      <i class="fa fa-user"></i>
+                    </div>
+                  </div>
+
+                  <div class="input-group input-group-icon">
+                    <input
+                      type="text"
+                      placeholder="date"
+                      {...register("date", { required: true })}
                     />
                     <div class="input-icon">
                       <i class="fa fa-user"></i>
@@ -301,7 +340,7 @@ function Project() {
                         Delete
                       </button>
                       <button
-                        style={{  marginTop: "1rem" }}
+                        style={{ marginTop: "1rem" }}
                         onClick={(e) => {
                           EditNews(items);
                         }}

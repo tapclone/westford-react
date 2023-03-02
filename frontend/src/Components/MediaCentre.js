@@ -284,7 +284,7 @@ function MediaCentre() {
                       }}
                     >
                       <img
-                        src={"/" + items.Image}
+                        src={items.Image}
                         className="newsCard1"
                         style={{
                           width: "40%",
