@@ -595,6 +595,7 @@ const EditLeaderShip = asyncHandler(async (req, res) => {
 
 const EditMedia = asyncHandler(async (req, res) => {
   const data = req.body;
+  console.log(data);
   const update = await db
     .get()
     .collection(collection.MEDIA_COLLECTION)
@@ -606,7 +607,9 @@ const EditMedia = asyncHandler(async (req, res) => {
           link: data.link,
           description: data.description,
           date: data.date,
-        },
+          media:data.media,
+          Image:data.Image,
+        }
       }
     );
   if (update) {
@@ -645,8 +648,12 @@ const EditNewsAndEvents = asyncHandler(async (req, res) => {
       { _id: ObjectId(data.id) },
       {
         $set: {
-          description: data.description,
           header: data.header,
+          link: data.link,
+          description: data.description,
+          date: data.date,
+          media:data.media,
+          Image:data.Image,
         },
       }
     );
