@@ -62,7 +62,7 @@ function AdminLogin() {
             placeholder="Enter Email"
             required
           />
-          <label>Username</label>
+          <label>Email</label>
           <br />
           <input
             type="password"
