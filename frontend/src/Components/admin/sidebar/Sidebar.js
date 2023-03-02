@@ -83,7 +83,7 @@ function AdminMain() {
                 <em>Partners</em>
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 class="s-sidebar__nav-link"
                 onClick={() => {
@@ -93,7 +93,7 @@ function AdminMain() {
                 <BookmarksIcon className="navIcon"></BookmarksIcon>
                 <em>Media</em>
               </a>
-            </li>
+            </li> */}
             <li>
               <a
                 class="s-sidebar__nav-link"

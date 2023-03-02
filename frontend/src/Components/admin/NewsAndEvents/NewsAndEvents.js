@@ -316,6 +316,8 @@ function Project() {
               <tr>
                 <th>S No.</th>
                 <th>Image</th>
+                <th>media</th>
+                <th>Date</th>
                 <th>Heading</th>
                 <th>Description</th>
                 <th>Action</th>
@@ -329,6 +331,8 @@ function Project() {
                     <td style={{ textAlign: "center" }}>
                       <img src={items?.Image} />
                     </td>
+                    <td style={{ textAlign: "center" }}>{items.media}</td>
+                    <td style={{ textAlign: "center" }}>{items.date}</td>
                     <td style={{ textAlign: "center" }}>{items.header}</td>
                     <td style={{ textAlign: "center" }}>{items.description}</td>
                     <td style={{ textAlign: "center" }}>
