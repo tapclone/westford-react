@@ -570,3 +570,8 @@
         margin-top: 40%;
     }
 }
+@media (max-width:695px) {
+    .settingsNewsAndEvents .slick-list{
+        padding-bottom: 3rem;
+    }
+}

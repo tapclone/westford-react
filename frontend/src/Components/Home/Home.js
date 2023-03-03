@@ -276,6 +276,33 @@ function Home() {
     ],
   };
 
+  const settingsNewsAndEvents = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    autoplay:true,
+    arrows: false,
+    autoplaySpeed: 2500,
+    responsive: [
+      {
+          breakpoint: 900,
+          settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+          }
+      },
+      {
+          breakpoint: 700,
+          settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+          }
+      }
+  ]
+  }
+
   function increment() {
     const fastItems = document.querySelectorAll(".fastCount");
     const slowItems = document.querySelectorAll(".slowCount");
@@ -831,10 +858,14 @@ function Home() {
           </p>
         </div>
 
-        <div className="reviewAll">
+        <div style={{display:'flex',alignItems:'center',justifyContent:'center',width:'100%'}}>
+          <div className="settingsNewsAndEvents" style={{width:'86%'}}>
+          <Slider {...settingsNewsAndEvents}>
           {media.map((items) => {
+            
             return (
-              <div className="reviewCard">
+              <div>
+                <div className="reviewCard">
                 <a
                   href={items.link}
                   style={{ textDecoration: "none", color: "black" }}
@@ -856,8 +887,12 @@ function Home() {
                   <p>{items.media}</p>
                 </a>
               </div>
-            );
-          })}
+              </div>
+              
+            )
+          })} 
+          </Slider>
+          </div>
         </div>
       </section>
 
