@@ -591,8 +591,9 @@ function Home() {
               World wide student Geographic Mix (2021)
             </h2>
             <p class="aos" data-aos-duration="1000">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              Our educational community boasts a global reach, with students
+              from every part of the world. Take a look at the breakdown by
+              region.
             </p>
           </div>
           <div className="globeDiv" style={{ width: "60%" }}>
@@ -622,7 +623,7 @@ function Home() {
                 <p>
                   REST OF <br /> THE WORLD
                 </p>
-                <span>20%</span>
+                <span>28%</span>
               </div>
               <div
                 className="restComp2 comps"
@@ -630,9 +631,9 @@ function Home() {
                 data-aos-duration="1000"
               >
                 <p>
-                  REST OF <br /> THE WORLD
+                  ASIA <br /> PACIFIC
                 </p>
-                <span>20%</span>
+                <span>23%</span>
               </div>
               <div
                 className="africaComp comps"
@@ -642,7 +643,7 @@ function Home() {
                 <p>
                   EUROPE, <br /> MIDDLE EAST <br /> &AFRICA
                 </p>
-                <span>20%</span>
+                <span>29%</span>
               </div>
               {/* <div class="asia aos globeItem" data-aos="zoom-in-right" data-aos-duration="1000" style={{top:'10%',left:'0'}}>
         <h4>ASIA</h4>
