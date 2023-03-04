@@ -557,17 +557,23 @@
 }
 .bannerCont{
     margin-left: 10%;
-    margin-top: 10%;
+    /* margin-top: 10%; */
 }
 .bannerCont p{
     font-size: clamp(2rem,4vw,2.4rem) !important;
     font-weight: 700;
 
 }
+.hero-banner-slider{
+    margin-top: -40px;
+}
 @media (max-width:810px) {
     .bannerCont{
         margin-left: 5%;
-        margin-top: 40%;
+        /* margin-top: 40%; */
+    }
+    .hero-banner-slider{
+        margin-top: 0;
     }
 }
 @media (max-width:695px) {
