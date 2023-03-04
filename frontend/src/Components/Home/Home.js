@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Header from "../Partials/Header";
 import banner1 from "../../images/home/home-banner.png";
-import banner2 from "../../images/home/63f3a9cae8.jpeg";
-import banner3 from "../../images/home/d4482caa15.jpeg";
+import banner2 from "../../images/home/1_20230304_183322_0000.jpg";
+import banner3 from "../../images/home/2_20230304_183322_0001.jpg";
 import "./Home.css";
 import Slider from "react-slick";
 import sliderLogo from "../../images/home/westford-logo.png";
