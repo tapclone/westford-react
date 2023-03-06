@@ -325,6 +325,7 @@ function MediaCentre() {
                           backgroundRepeat: "no-repeat",
                           backgroundPosition: "center",
                           backgroundSize: "cover",
+                          minHeight:"15rem"
                         }}
                       ></img>
                       <div

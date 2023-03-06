@@ -5,6 +5,7 @@ import banner2 from "../../images/home/1_20230304_183322_0000.jpg";
 import banner3 from "../../images/home/2_20230304_183322_0001.jpg";
 import "./Home.css";
 import Slider from "react-slick";
+import Carousel1 from "react-grid-carousel";
 import sliderLogo from "../../images/home/westford-logo.png";
 import leftArrow from "../../images/home/left.svg";
 import rightArrow from "../../images/home/right.svg";
@@ -363,7 +364,7 @@ function Home() {
               style={{ width: "100%", height: "100%" }}
             >
               <div>
-                <div className="bannerCont">
+                <div className="bannerCon">
                   <p
                     style={{
                       fontSize: "2rem",
@@ -394,7 +395,7 @@ function Home() {
               style={{ width: "100%", height: "100%" }}
             >
               <div>
-                <div className="bannerCont">
+                <div className="bannerCon">
                   <p
                     style={{
                       fontSize: "2rem",
@@ -425,7 +426,7 @@ function Home() {
               style={{ width: "100%", height: "100%" }}
             >
               <div>
-                <div className="bannerCont">
+                <div className="bannerCon">
                   <p
                     style={{
                       fontSize: "2rem",
@@ -927,36 +928,38 @@ function Home() {
           }}
         >
           <div className="settingsNewsAndEvents" style={{ width: "86%" }}>
-            <Slider {...settingsNewsAndEvents}>
+            <Carousel1 cols={4} rows={2} gap={12} showDots={true} loop>
               {media.map((items) => {
                 return (
-                  <div>
-                    <div className="reviewCard">
-                      <a
-                        href={items.link}
-                        style={{ textDecoration: "none", color: "black" }}
-                        target="_blank"
-                      >
-                        <span
-                          style={{
-                            background: "#285F71",
-                            color: "white",
-                            padding: "7px",
-                            marginTop: "7px",
-                          }}
+                  <Carousel1.Item>
+                    <div>
+                      <div className="reviewCard">
+                        <a
+                          href={items.link}
+                          style={{ textDecoration: "none", color: "black" }}
+                          target="_blank"
                         >
-                          {items.date}
-                        </span>
-                        <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
-                          {items.header}
-                        </h3>
-                        <p>{items.media}</p>
-                      </a>
+                          <span
+                            style={{
+                              background: "#285F71",
+                              color: "white",
+                              padding: "7px",
+                              marginTop: "7px",
+                            }}
+                          >
+                            {items.date}
+                          </span>
+                          <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
+                            {items.header}
+                          </h3>
+                          <p>{items.media}</p>
+                        </a>
+                      </div>
                     </div>
-                  </div>
+                  </Carousel1.Item>
                 );
               })}
-            </Slider>
+            </Carousel1>
           </div>
         </div>
       </section>
