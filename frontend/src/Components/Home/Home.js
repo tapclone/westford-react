@@ -940,12 +940,7 @@ function Home() {
                           target="_blank"
                         >
                           <span
-                            style={{
-                              background: "#285F71",
-                              color: "white",
-                              padding: "7px",
-                              marginTop: "7px",
-                            }}
+                          className="card_button"
                           >
                             {items.date}
                           </span>

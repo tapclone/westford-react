@@ -368,6 +368,15 @@
     width: 85% !important;
     justify-content: space-between;
 }
+
+.reviewCard:hover{
+     background-color: #285F71;
+    border: 1px solid #cccc;
+    border-radius: 10px;
+    color: #FFFFFF;
+
+
+}
 .reviewCard{
     width: 31%;
     min-width: 17rem;
@@ -390,6 +399,27 @@
     font-style: italic;
     margin-top: 0;
 
+}
+.reviewCard:hover p{
+color: #FFFFFF;
+
+}
+.reviewCard:hover h3{
+    color: #FFFFFF;
+    
+    }
+.reviewCard:hover .card_button{
+        color: #285F71;
+        background-color: #FFFFFF;
+        
+}
+.card_button{
+
+        background-color: #285F71;
+        color: white;
+        padding: 7px;
+        margin-top: 7px;
+      
 }
 .reviewCard span{
     width: fit-content !important;
