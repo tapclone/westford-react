@@ -370,6 +370,7 @@
 }
 
 .reviewCard:hover{
+    transition: 0.3s;
      background-color: #285F71;
     border: 1px solid #cccc;
     border-radius: 10px;
