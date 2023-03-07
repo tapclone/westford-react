@@ -387,7 +387,7 @@
     display: flex;
     flex-direction: column;
     min-height: 16rem;
-    min-width: 22rem;
+    min-width: 26rem;
     padding-left: 2rem;
     
 }
@@ -443,7 +443,8 @@ color: #FFFFFF;
 @media (max-width:659px) {
     .reviewCard{
         width: 100%;
-        min-width: 20rem;
+        min-width: 14rem;
+        min-height: 16rem;
     }
     .reviewAll{
         justify-content: center;
@@ -452,7 +453,7 @@ color: #FFFFFF;
 }
 @media (max-width:340px) {
     .reviewCard{
-        min-width: 15rem;
+        min-width: 10rem;
     }
 }
 .ataglancebox{
