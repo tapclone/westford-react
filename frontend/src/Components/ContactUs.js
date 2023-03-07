@@ -42,43 +42,46 @@ function ContactUs() {
             </section>
             <section className='contactSec2' style={{ background: '#F8F8F8', display: 'flex', alignItems: 'center', justifyContent: 'end' ,marginTop:'3rem',marginBottom:"3rem"}}>
                 <div className='contactSec2Main' style={{ width: '92.5%', display: 'flex', alignItems: 'center', justifyContent: "space-between" }}>
-                    <div className='addresses' style={{ width: '58%', display: 'flex', flexWrap: 'wrap', columnGap: '1rem',alignItems:'center',justifyContent:'space-between' }}>
-                        <div style={{ width: '48%' }}>
-                            <h3>Westford Education Group Limited</h3>
+                    <div className='addresses' style={{ width: '50%', display: 'flex', flexWrap: 'wrap', columnGap: '1rem',alignItems:'center',justifyContent:'space-between' }}>
+                        {/* <div style={{ width: '50%' }}>
+                            <h3>Corporate Office Address</h3>
 
                             <p><img src={loc} alt="" /> 225B Island Business Centre,
                                 18-36 Wellington Street,
                                 Woolwich, London Se18 6PF,</p>
                             <p><img src={mob} alt="" /> +44 7447 134 314</p>
                             <p><img src={mob} alt="" /> +971 55 879 5198</p>
-                        </div>
-                        <div style={{ width: '48%' }}>
-                            <h3>Corporate Office Address</h3>
-                            <p><img src={loc} alt="" /> 225B Island Business Centre,
-                                18-36 Wellington Street,
-                                Woolwich, London Se18 6PF,</p>
-                            <p><img src={mob} alt="" /> +44 7447 134 314</p>
-                            <p><img src={mob} alt="" /> +971 55 879 5198</p>
-                        </div>
+                        </div> */}
+               
+                 <div >
                         <div style={{ width: '48%' }}>
                             <h3>Corporate Office MENA Region</h3>
-                            <p><img src={loc} alt="" /> Post Box 50325
-                                Fujairah Freezone Authority
-                                Fujairah, UAE.
-                                2nd Floor, USA RTC,
-                                Al Tawun Area, Sharjah, UAE</p>
+                            <p><img src={loc} alt="" /> Office No 206
+                            RAKIA Business Centre 3 Building
+                            A 2RAK Investment Authority
+                            (RAKIA)Ras Al Khaimah,UAE</p>
                             <p><img src={mob} alt="" /> +9717 243 2004  +971 52 926 3000</p>
                             <p> <img src={mob} alt="" /> +971 6 5343622</p>
                             <p> <img src={mob} alt="" /> +971 52 926 3000</p>
                         </div>
                         <div style={{ width: '48%' }}>
+                            <h3>Corporate Office Address</h3>
+                            <p><img src={loc} alt="" /> Office No 206
+                            RAKIA Business Centre 3 Building
+                            A 2RAK Investment Authority
+                            (RAKIA)Ras Al Khaimah,UAE,</p>
+                            <p><img src={mob} alt="" /> +44 7447 134 314</p>
+                            <p><img src={mob} alt="" /> +971 55 879 5198</p>
+                        </div>
+                        {/* <div style={{ width: '48%' }}>
                         <p><img src={loc} alt="" />Office No 206
                             RAKIA Business Centre 3 Building
                             A 2RAK Investment Authority
                             (RAKIA)Ras Al Khaimah,UAE</p>
-                        </div>
+                        </div> */}
                     </div>
-                    <div className='map' style={{ width: '40%',aspectRatio:"1/1.2" }}>
+                    </div>
+                    <div className='map' style={{ width: '50%',aspectRatio:"1/1.2" }}>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.1978455397125!2d76.30984741479419!3d10.000510192850797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d1ec910e1d3%3A0x844cc59fa7ae47ec!2sWestford%20Education%20Group!5e0!3m2!1sen!2sin!4v1674800748742!5m2!1sen!2sin" class="con-map" style={{border:"0",width:'100%'}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
 

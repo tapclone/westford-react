@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../images/home/logo.png";
 import menuIcon from "../../images/home/menu-icon.svg";
 import "./partials.css";
+import linkedin from "../../images/home/linkedin-icon.svg";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 function Header() {
+
   const [navState, setNavState] = useState(false);
   const navigate = useNavigate();
 
@@ -20,7 +23,7 @@ function Header() {
     <div class="header">
       <div class="topbar">
         <p class="comp-name">WESTFORD EDUCATION GROUP</p>
-        <p class="comp-number">+971558795198</p>
+        <p class="comp-number"><a href="https://www.linkedin.com/company/westford-education-group/mycompany/" target="_blank"> <LinkedInIcon sx={{fontSize:"2rem"}}/></a> </p>
         <a onClick={() => navigate("/contact")}>
           <button
             class="top-btn contactUs"

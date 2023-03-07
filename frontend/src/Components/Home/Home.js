@@ -928,8 +928,9 @@ function Home() {
           }}
         >
           <div className="settingsNewsAndEvents" style={{ width: "86%" }}>
-            <Carousel1 cols={4} rows={2} gap={12} showDots={true} loop>
+            <Carousel1 cols={3} rows={2} gap={12} showDots={true} loop>
               {media.map((items) => {
+                const header=(items?.header).slice(0,80)
                 return (
                   <Carousel1.Item>
                     <div>
@@ -939,15 +940,13 @@ function Home() {
                           style={{ textDecoration: "none", color: "black" }}
                           target="_blank"
                         >
-                          <span
-                          className="card_button"
-                          >
-                            {items.date}
-                          </span>
+                          <div className="button_div">
+                            <span className="card_button">{items.date}</span>
+                          </div>
                           <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
-                            {items.header}
+                            {header}...
                           </h3>
-                          <p>{items.media}</p>
+                          <p > <img className="media" style={{width:"10rem",height:"auto"}} src={items?.Icon} /></p>
                         </a>
                       </div>
                     </div>

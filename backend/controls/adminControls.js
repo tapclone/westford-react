@@ -652,7 +652,7 @@ const EditNewsAndEvents = asyncHandler(async (req, res) => {
           link: data.link,
           description: data.description,
           date: data.date,
-          media:data.media,
+          Icon:data.Icon,
           Image:data.Image,
         },
       }

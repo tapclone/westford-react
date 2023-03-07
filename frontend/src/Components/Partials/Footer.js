@@ -48,10 +48,10 @@ function Footer() {
             readiness.
           </p>
           <div className="socialMediaIcons">
-            <img src={fb} alt="" />
+            {/* <img src={fb} alt="" />
             <img src={insta} alt="" />
-            <img src={twitter} alt="" />
-            <img src={linkedin} alt="" />
+            <img src={twitter} alt="" /> */}
+            <a href="https://www.linkedin.com/company/westford-education-group/mycompany/"><img src={linkedin} alt="" /></a>
           </div>
         </div>
         <div className="sec2">

@@ -22,12 +22,13 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 350,
+  width: 500,
   bgcolor: "background.paper",
   border: "0px solid #000",
   boxShadow: 24,
   p: 4,
   textAlign: "justify",
+  overflow:"scroll"
 };
 function OurInstitutions() {
   const [institute, setInstitute] = useState([]);
@@ -81,8 +82,8 @@ function OurInstitutions() {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <div>
-              <div class="brnd-block">
+            
+           
                 <img src={modaldescription?.Image} alt="" />
 
                 <h3>{modaldescription?.header}</h3>
@@ -90,8 +91,7 @@ function OurInstitutions() {
                 <p>{modaldescription?.description} </p>
 
                 <h4> </h4>
-              </div>
-            </div>
+           
           </Box>
         </Fade>
       </Modal>

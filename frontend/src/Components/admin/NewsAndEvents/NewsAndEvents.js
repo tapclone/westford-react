@@ -14,12 +14,13 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
-  height: 650,
+  width: 400,  
+  height: 700, 
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  overflow:"scroll"    
 };
 function Project() {
   const [loading, setLoading] = useState(false);
@@ -34,6 +35,7 @@ function Project() {
   const [error, setError] = useState();
   const adminToken = localStorage.getItem("adminToken");
   const Navigate = useNavigate();
+  const [imageIcone,setImageIcone]=useState()
 
   const {
     register,
@@ -46,9 +48,9 @@ function Project() {
       setImage();
       setValue("heading", null);
       setValue("description", null);
-      setValue("media", null);
       setValue("date", null);
       setValue("link", null);
+      setImageIcone()
     }
   }, [open]);
   useEffect(() => {
@@ -62,11 +64,11 @@ function Project() {
   const onSubmit = async (data) => {
     const obj = {
       header: data.heading,
-      media: data.media,
       link: data.link,
       date: data.date,
       description: data.description,
       Image: image,
+      Icon:imageIcone
     };
     if (image) {
       if (edit) {
@@ -159,14 +161,37 @@ function Project() {
       console.log(error);
     }
   };
+
+  const MediaIcone = async (e) => {
+    const length = e.target.files.length;
+    let formData = new FormData();
+    const file = e.target.files[0];
+    //   const fileName = e.target.files[i].name;
+    formData.append("image", file);
+
+    //   formData.append("file", fileName);
+    try {
+      const { data } = await axios.post(
+        "/api/admin/image-uploading",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+     setImageIcone(data) 
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const EditNews = (items) => {
+    console.log(items,"kcm");
     setValue("heading", items.header);
     setValue("link", items.link);
     setValue("date", items.date);
-    setValue("media", items.media);
     setValue("description", items.description);
     setImage(items.Image);
     handleOpen();
+    setImageIcone(items.Icon)
     setEdit(items._id);
   };
   return (
@@ -192,17 +217,6 @@ function Project() {
                       type="text"
                       placeholder="Heading"
                       {...register("heading", { required: true })}
-                    />
-                    <div class="input-icon">
-                      <i class="fa fa-user"></i>
-                    </div>
-                  </div>
-
-                  <div class="input-group input-group-icon">
-                    <input
-                      type="text"
-                      placeholder="Media"
-                      {...register("media", { required: true })}
                     />
                     <div class="input-icon">
                       <i class="fa fa-user"></i>
@@ -238,6 +252,30 @@ function Project() {
                       placeholder="Project Description"
                     />
                   </div>
+                  <h4>ADD MEDIA ICONE</h4>
+                  <div class="input-group input-group-icon">
+                    <input
+                      type="file"
+                      onChange={(e) => {
+                        MediaIcone(e);
+                      }}
+                      placeholder="Enter Feature Name"
+                    />
+                    <div class="input-icon">
+                      <i class="fa fa-key"></i>
+                    </div>
+                  </div>
+                  <div
+                  class="input-group input-group-icon"
+                  style={{ display: "contents", float: "left" }}
+                >
+                  {imageIcone && (
+                    <img
+                      src={imageIcone}
+                      style={{ width: "5rem", height: "2rem" }}
+                    ></img>
+                  )}
+                </div>
                   <h4>ADD IMAGES</h4>
                   <div class="input-group input-group-icon">
                     <input
@@ -331,7 +369,8 @@ function Project() {
                     <td style={{ textAlign: "center" }}>
                       <img src={items?.Image} />
                     </td>
-                    <td style={{ textAlign: "center" }}>{items.media}</td>
+                  
+                    <td style={{ textAlign: "center" }}>  <img src={items?.Icon} /></td>
                     <td style={{ textAlign: "center" }}>{items.date}</td>
                     <td style={{ textAlign: "center" }}>{items.header}</td>
                     <td style={{ textAlign: "center" }}>{items.description}</td>
