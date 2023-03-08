@@ -14,6 +14,7 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
+import Carousel1 from "react-grid-carousel";
 
 const style = {
     position: "absolute",
@@ -304,9 +305,10 @@ function MediaCentre() {
           }}
         >
           <div style={{ width: "86%" }}>
-            <Slider {...settingsss}>
+          <Carousel1 cols={2} rows={1} gap={12} showDots={true} loop>
               {news.map((items) => {
                 return (
+                  <Carousel1.Item>
                   <div>
                     <div
                       className="newsCard"
@@ -350,9 +352,10 @@ function MediaCentre() {
                       </div>
                     </div>
                   </div>
+                  </Carousel1.Item>
                 );
               })}
-            </Slider>
+            </Carousel1>
           </div>
         </div>
 
@@ -417,3 +420,4 @@ function MediaCentre() {
 }
 
 export default MediaCentre;
+ 

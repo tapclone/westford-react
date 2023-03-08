@@ -443,9 +443,18 @@
     }
     .newsCard1{
         aspect-ratio: 1/0.8;
+        min-width: 100%;
+        
     }
     .newsCard div{
         width: 100% !important;
+    }
+}
+@media (max-width: 450px){
+    .newsCard{
+       
+       
+       
     }
 }
 .filterBtns span{
