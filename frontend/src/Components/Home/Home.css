@@ -378,7 +378,7 @@
 }
 .reviewCard{
     width: 31%;
-    min-width: 17rem;
+    min-width: 100% !important;
     border: 1px solid #cccc;
     border-radius: 10px;
     text-align: start;
