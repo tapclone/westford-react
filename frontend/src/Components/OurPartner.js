@@ -458,7 +458,7 @@ function OurPartner() {
         <div className="filterCards">
           {partner.map((items) => {
             return (
-              <div className={`fiterCard ${items.country}`}>
+              <div className={`fiterCard ${items.country}`} style={{maxHeight:"3rem"}}>
                 <img src={items.Image} alt="" />
                 <p style={{ marginBottom: "0" }}>{items.description}</p>
               </div>

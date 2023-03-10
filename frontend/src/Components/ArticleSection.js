@@ -67,8 +67,8 @@ function ArticleSection() {
                         return(
                             <div onClick={()=>{navigate('/single-blog',{state:items})}} style={{cursor:"pointer"}}>
                                 
-                            <div className='articleCard' >
-                            <img src={image} style={{backgroundBlendMode: "multiply",position:"absolute",zIndex:"-1"}}></img>
+                            <div className='articleCard' style={{borderRadius:"4%"}} >
+                            <img src={image} style={{backgroundBlendMode: "multiply",position:"absolute",zIndex:"-1",borderRadius:"inherit"}}></img>
                             <div className='articleCardInner'>
                             <span style={{ background: 'white', padding: '7px', borderRadius: '5px' }}>MARKETING</span>
                                 <p className='articleCardChild1' style={{ color: 'white', padding: '0 2%',fontSize: '1.2rem', fontWeight: '500' }}>{items.header}</p>

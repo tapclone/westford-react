@@ -533,6 +533,7 @@
 .articleContents .articleCard{
     width: 100% !important;
     min-width: 15rem;
+    border-radius: 4%;
 }
 @media (max-width:930px) {
     .articleContents{

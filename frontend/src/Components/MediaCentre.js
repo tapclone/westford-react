@@ -17,22 +17,22 @@ import { useNavigate } from "react-router-dom";
 import Carousel1 from "react-grid-carousel";
 
 const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 600,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-    textAlign: "justify",
-  };
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 600,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+  textAlign: "justify",
+};
 function MediaCentre() {
   const [blog, setBlog] = useState([]);
   const [length, setLength] = useState();
   const [lastBlog, setLastBlog] = useState();
-  const [modalview,setModalview]=useState()
+  const [modalview, setModalview] = useState();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -80,11 +80,10 @@ function MediaCentre() {
     ],
   };
 
-  const viewModal=(items)=>{
-    setModalview(items)
-    handleOpen()
-
-  }
+  const viewModal = (items) => {
+    setModalview(items);
+    handleOpen();
+  };
 
   const settingsBanner = {
     dots: false,
@@ -94,12 +93,12 @@ function MediaCentre() {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 3000
-  }
+    autoplaySpeed: 3000,
+  };
 
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
-         <Modal
+      <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
@@ -112,42 +111,41 @@ function MediaCentre() {
       >
         <Fade in={open}>
           <Box sx={style}>
-          <div>
-                    <div
-                      className="newsCard"
-                      style={{
-                        height: "fit-content",
-                        display: "flex",
-                        border: "1px solid #CCCCCC",
-                        borderRadius: "20px",
-                      }}
-                    >
-                      <img
-                        src={"/" + modalview?.Image}
-                        className="newsCard1"
-                        style={{
-                          width: "40%",
-                          backgroundRepeat: "no-repeat",
-                          backgroundPosition: "center",
-                          backgroundSize: "cover",
-                        }}
-                      ></img>
-                      <div
-                        style={{
-                          width: "60%",
-                          height: "100%",
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "stretch",
-                          padding: "1rem",
-                        }}
-                      >
-                        <h3 style={{ fontWeight: "normal" }}>{modalview?.header}</h3>
-                        <p>{modalview?.description}</p>
-                
-                      </div>
-                    </div>
-                  </div>
+            <div>
+              <div
+                className="newsCard"
+                style={{
+                  height: "fit-content",
+                  display: "flex",
+                  border: "1px solid #CCCCCC",
+                  borderRadius: "20px",
+                }}
+              >
+                <img
+                  src={modalview?.Image}
+                  className="newsCard1"
+                  style={{
+                    width: "40%",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                  }}
+                ></img>
+                <div
+                  style={{
+                    width: "60%",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "stretch",
+                    padding: "1rem",
+                  }}
+                >
+                  <h3 style={{ fontWeight: "normal" }}>{modalview?.header}</h3>
+                  <p>{modalview?.description}</p>
+                </div>
+              </div>
+            </div>
           </Box>
         </Fade>
       </Modal>
@@ -161,15 +159,14 @@ function MediaCentre() {
           backgroundBlendMode: "multiply",
         }}
       >
-        <div style={{ width: "100%", height: '100%' }}>
+        <div style={{ width: "100%", height: "100%" }}>
           <Slider {...settingsBanner}>
-          <div>
+            <div>
               <div className="bannerCont">
                 <p style={{ fontSize: "2rem", color: "white" }}>
                   Empowering minds, <br /> changing the world
                 </p>
               </div>
-
             </div>
 
             <div>
@@ -178,16 +175,15 @@ function MediaCentre() {
                   Shaping the future <br /> of work
                 </p>
               </div>
-
             </div>
 
             <div>
               <div className="bannerCont">
                 <p style={{ fontSize: "2rem", color: "white" }}>
-                  Limitless possibilities <br />through learning
+                  Limitless possibilities <br />
+                  through learning
                 </p>
               </div>
-
             </div>
           </Slider>
         </div>
@@ -205,7 +201,8 @@ function MediaCentre() {
             Article and Blogs
           </h2>
           <p>
-          Here's where you'll find the latest trends, best practices, and research in education.
+            Here's where you'll find the latest trends, best practices, and
+            research in education.
           </p>
         </div>
 
@@ -262,7 +259,7 @@ function MediaCentre() {
                 {blog[length - 1]?.header}
               </h1>
               <p style={{ lineHeight: "28px" }}>
-                {blog[length - 1]?.description.slice(0, 500)}
+                {blog[length - 1]?.description[0].paragraph.slice(0, 500)}
               </p>
               <button
                 style={{
@@ -273,11 +270,12 @@ function MediaCentre() {
                   border: "none",
                   cursor: "pointer",
                 }}
-                onClick={()=>{navigate('/single-blog',{state:blog[length - 1]})}}
-            
+                onClick={() => {
+                  navigate("/single-blog", { state: blog[length - 1] });
+                }}
               >
                 Read More
-              </button> 
+              </button>
             </div>
           </div>
         </div>
@@ -291,8 +289,7 @@ function MediaCentre() {
         <div class="ma-headings">
           <h2>News and Events</h2>
           <p>
-          Find the latest news, events, and updates related to the group here.
-
+            Find the latest news, events, and updates related to the group here.
           </p>
         </div>
         <div
@@ -305,53 +302,58 @@ function MediaCentre() {
           }}
         >
           <div style={{ width: "86%" }}>
-          <Carousel1 cols={2} rows={1} gap={12} showDots={true} loop>
+            <Carousel1 cols={2} rows={1} gap={12} showDots={true} loop>
               {news.map((items) => {
                 return (
                   <Carousel1.Item>
-                  <div>
-                    <div
-                      className="newsCard"
-                      style={{
-                        height: "fit-content",
-                        display: "flex",
-                        border: "1px solid #CCCCCC",
-                        borderRadius: "20px",
-                      }}
-                    >
-                      <img
-                        src={items.Image}
-                        className="newsCard1"
-                        style={{
-                          width: "40%",
-                          backgroundRepeat: "no-repeat",
-                          backgroundPosition: "center",
-                          backgroundSize: "cover",
-                          minHeight:"15rem"
-                        }}
-                      ></img>
+                    <div>
                       <div
+                        className="newsCard"
                         style={{
-                          width: "60%",
-                          height: "100%",
+                          height: "fit-content",
                           display: "flex",
-                          flexDirection: "column",
-                          alignItems: "stretch",
-                          padding: "1rem",
+                          border: "1px solid #CCCCCC",
+                          borderRadius: "20px",
                         }}
                       >
-                        <h3 style={{ fontWeight: "normal" }}>{items.header}</h3>
-                        <p>{items.description.slice(0, 60)}</p>
-                        <a
-                        target="_blank"
-                    href={items.link}
-                          style={{ color: "red", textDecoration: "underline" }}
+                        <img
+                          src={items.Image}
+                          className="newsCard1"
+                          style={{
+                            width: "40%",
+                            backgroundRepeat: "no-repeat",
+                            backgroundPosition: "center",
+                            backgroundSize: "cover",
+                            minHeight: "15rem",
+                          }}
+                        ></img>
+                        <div
+                          style={{
+                            width: "60%",
+                            height: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "stretch",
+                            padding: "1rem",
+                          }}
                         >
-                          Read More
-                        </a>
+                          <h3 style={{ fontWeight: "normal" }}>
+                            {items.header}
+                          </h3>
+                          <p>{items.description.slice(0, 60)}</p>
+                          <a
+                            target="_blank"
+                            href={items.link}
+                            style={{
+                              color: "red",
+                              textDecoration: "underline",
+                            }}
+                          >
+                            Read More
+                          </a>
+                        </div>
                       </div>
                     </div>
-                  </div>
                   </Carousel1.Item>
                 );
               })}
@@ -420,4 +422,3 @@ function MediaCentre() {
 }
 
 export default MediaCentre;
- 

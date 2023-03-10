@@ -81,7 +81,7 @@ router.route("/view-all-media").get(ViewAllMedia);
 router.route("/add-blog").post(AddBlog);
 router.route("/edit-blog").post(BlogAwards)
 router.route("/view-all-blog").get(ViewAllBlog);
-router.route("/delete-blog/:id").delete(DeleteBlog);
+router.route("/delete-media-blog/:id").delete(DeleteBlog);
 router.route("/add-leadership").post(AddLeadership);
 router.route("/edit-leadership").post(EditLeaderShip)
 router.route("/view-all-leadership").get(ViewAllLeadership);

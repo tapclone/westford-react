@@ -21,19 +21,22 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  overflow: "scroll",
 };
 function Project() {
   const [loading, setLoading] = useState(false);
   const [Project, setProject] = useState([]);
   const [heading, setHeading] = useState();
   const [image, setImage] = useState();
-  const [description, setDescription] = useState();
+  const [description, setDescription] = useState([]);
   const [date, setDate] = useState();
   const [open, setOpen] = useState(false);
   const [edit, setEdit] = useState(null);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [error, setError] = useState();
+  const [content, setContent] = useState();
+  const [paragraph, setParagraph] = useState();
   const adminToken = localStorage.getItem("adminToken");
   const Navigate = useNavigate();
 
@@ -49,7 +52,7 @@ function Project() {
       setImage();
       setDate();
       setValue("Heading", null);
-      setValue("description", null);
+      // setValue("description", null);
     }
   }, [open]);
 
@@ -63,11 +66,25 @@ function Project() {
       }
     })();
   }, [loading]);
+  const addPharagaraph = () => {
+    const obj = {
+      content,
+      paragraph,
+    };
+    console.log(obj);
+    description.push(obj);
+    setContent("");
+    setParagraph("");
+    console.log(description);
+  };
   const onSubmit = async (data) => {
+    if (content && paragraph) {
+      description.push({ content, paragraph });
+    }
     const obj = {
       header: data.Heading,
       date: date,
-      description: data.description,
+      description: description,
       Image: image,
     };
     if (image && date) {
@@ -120,12 +137,13 @@ function Project() {
             },
           };
           await axios
-            .delete(`/api/admin/delete-blog/${id}`, config)
+            .delete(`/api/admin/delete-media-blog/${id}`, config)
             .then((res) => {
+              console.log(res);
               if (loading) {
                 setLoading(false);
               } else {
-                setLoading(true);
+                setLoading(true); 
               }
             })
             .catch((err) => {
@@ -171,7 +189,7 @@ function Project() {
   };
   const EditBlogs = (items) => {
     setValue("Heading", items.header);
-    setValue("description", items.description);
+    // setValue("description", items.description);
     setImage(items.Image);
     setDate(items.date);
     handleOpen();
@@ -206,6 +224,7 @@ function Project() {
                       <i class="fa fa-user"></i>
                     </div>
                   </div>
+
                   <div class="input-group ">
                     <input
                       type="text"
@@ -216,14 +235,51 @@ function Project() {
                       placeholder="Enter Date"
                     />
                   </div>
+                  <h4>content</h4>
+                  <div class="input-group input-group-icon">
+                    <input
+                      type="text"
+                      placeholder="paragraph"
+                      value={content}
+                      onChange={(e) => {
+                        setContent(e.target.value);
+                      }}
+                    />
+                    <div class="input-icon">
+                      <i class="fa fa-user"></i>
+                    </div>
+                  </div>
                   <div class="input-group ">
                     <textarea
                       type="message"
-                      {...register("description", { required: true })}
+                      value={paragraph}
+                      onChange={(e) => {
+                        setParagraph(e.target.value);
+                      }}
                       rows={4}
                       placeholder="Project Description"
                     />
                   </div>
+                  <a
+                    style={{
+                      cursor: "pointer",
+                      backgroundColor: "#4CAF50",
+                      border: "none",
+                      color: "white",
+                      padding: "8px 8px",
+                      textAlign: "center",
+                      textDecoration: "none",
+                      borderRadius: "3px",
+                      display: "inline-block",
+                      fontSize: "16px",
+                      marginRight: "1rem",
+                      marginTop: "2rem",
+                    }}
+                    className="btn btn-primary"
+                    onClick={addPharagaraph}
+                  >
+                    Add New Paragraph
+                  </a>
 
                   <h4>ADD IMAGES</h4>
                   <div class="input-group input-group-icon">
@@ -305,7 +361,7 @@ function Project() {
                 <th>Image</th>
                 <th>Heading</th>
                 <th>Date</th>
-                <th>Description</th>
+                {/* <th>Description</th> */}
                 <th>Action</th>
               </tr>
             </thead>
@@ -315,28 +371,27 @@ function Project() {
                   <tr key={index}>
                     <td style={{ textAlign: "center" }}>{index + 1}</td>
                     <td style={{ textAlign: "center" }}>
-                      <img src={items?.Image} />
+                      <img src={items?.Image}/>
                     </td>
                     <td style={{ textAlign: "center" }}>{items.header}</td>
                     <td style={{ textAlign: "center" }}>{items.date}</td>
-                    <td style={{ textAlign: "center" }}>{items.description}</td>
+                    {/* <td style={{ textAlign: "center" }}>{items.description}</td> */}
                     <td style={{ textAlign: "center" }}>
                       <button
                         onClick={(e) => {
                           DeleteBlog(items._id);
-                        }}
+                        }}  
                       >
                         Delete
                       </button>
-                      <button
-                      style={{marginTop:"1rem"}}
-                      
+                      {/* <button
+                        style={{ marginTop: "1rem" }}
                         onClick={(e) => {
                           EditBlogs(items);
                         }}
                       >
                         Edit
-                      </button>
+                      </button> */}
                     </td>
                   </tr>
                 );

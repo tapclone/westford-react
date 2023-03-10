@@ -79,6 +79,7 @@ function SingleArticle() {
             width: "80%",
             display: "flex",
             justifyContent: "space-between",
+    
           }}
         >
           <div className="articleContentsSub1" style={{ width: "62%" }}>
@@ -87,21 +88,21 @@ function SingleArticle() {
             >
               {singleBlog?.header}
             </h1>
+            {singleBlog?.description.map((items)=>{
+              return(
+                <>
+                <h5>{items?.content}</h5>
+                 <p> {items?.paragraph}</p> 
+                </>
+              )
+            })}
+         
 
-            <p> {singleBlog?.description}</p>
+           
             <img
               style={{ width: "100%", aspectRatio: "1/0.5" }}
-              src={"/" + singleBlog?.Image}
-              alt=""
-            />
-            <h2 style={{ fontSize: "clamp(1rem,4vw,1.5rem)" }}>
-              {blog[length - 2]?.header}
-            </h2>
-            <p> {blog[length - 2]?.description}</p>
-            <img
-              style={{ width: "100%", aspectRatio: "1/0.5" }}
-              src={"/" + blog[length - 2]?.Image}
-              alt=""
+              src={singleBlog?.Image}
+              alt="" 
             />
           </div>
           <div className="articleContentsSub2" style={{ width: "35%" }}>
@@ -123,11 +124,12 @@ function SingleArticle() {
                   >
                     <div className="articleCard">
                       <img
-                        src={"/" + items?.Image}
+                        src={items?.Image}
                         style={{
                           backgroundBlendMode: "multiply",
                           position: "absolute",
                           zIndex: "-1",
+                          borderRadius:"inherit"
                         }}
                       ></img>
 
