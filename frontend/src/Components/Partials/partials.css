@@ -4,6 +4,7 @@ font-size: 0.8rem;
 }
 
 .logo{
+    cursor: pointer;
     left: 10%;
     margin-left: 0 !important;
     height: 140px !important;
