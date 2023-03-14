@@ -36,21 +36,19 @@ body{
     font-style: normal;
     font-weight: 400;
     font-size: 1.7vh;
- 
     color: #303030;
 }
 
 .topbar .comp-number { 
-    margin-right: 10em;   
+    margin-right: 1em;   
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 1.7vh;
- 
     color: #303030;
 }
 
-.topbar .top-btn {
+.topbar .top-btn {  
     margin-right: 10em;
     width: 135px;
     height: 38px;
@@ -58,7 +56,6 @@ body{
     border-radius: 6px;
     border: 0;
     cursor: pointer;
-
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 600;

@@ -70,7 +70,7 @@ function ArticleSection() {
                             <div className='articleCard' style={{borderRadius:"4%"}} >
                             <img src={image} style={{backgroundBlendMode: "multiply",position:"absolute",zIndex:"-1",borderRadius:"inherit"}}></img>
                             <div className='articleCardInner'>
-                            <span style={{ background: 'white', padding: '7px', borderRadius: '5px' }}>MARKETING</span>
+                            <span style={{ padding: '7px', borderRadius: '5px' }}></span>
                                 <p className='articleCardChild1' style={{ color: 'white', padding: '0 2%',fontSize: '1.2rem', fontWeight: '500' }}>{items.header}</p>
                                 <p className='articleCardChild2' style={{ color: 'white', padding: '0 2%' }}>{items.date}</p>
                             </div> 

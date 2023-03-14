@@ -9,7 +9,7 @@ import axios from "axios";
 import Slider from "react-slick";
 
 function OurPartner() {
-  const [btnColour, setBtnColour] = useState('fiterCard');
+  const [btnColour, setBtnColour] = useState("fiterCard");
   const [partner, setPartner] = useState([]);
   const [unique, setUnique] = useState([]);
   useEffect(() => {
@@ -34,7 +34,7 @@ function OurPartner() {
   }, []);
 
   function filterItems(category) {
-        setBtnColour(category);
+    setBtnColour(category);
 
     var items = document.querySelectorAll(".fiterCard");
     items.forEach(function (item) {
@@ -53,10 +53,7 @@ function OurPartner() {
   useEffect(() => {
     var filterButtons = document.querySelectorAll(".filter");
     filterButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-       
-        
-      });
+      button.addEventListener("click", function () {});
     });
   }, []);
 
@@ -68,9 +65,9 @@ function OurPartner() {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 3000
-  }
-  
+    autoplaySpeed: 3000,
+  };
+
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
       <div
@@ -83,15 +80,14 @@ function OurPartner() {
           backgroundBlendMode: "multiply",
         }}
       >
-        <div style={{ width: "100%", height: '100%' }}>
+        <div style={{ width: "100%", height: "100%" }}>
           <Slider {...settingsBanner}>
-          <div>
+            <div>
               <div className="bannerCont">
                 <p style={{ fontSize: "2rem", color: "white" }}>
                   Empowering minds, <br /> changing the world
                 </p>
               </div>
-
             </div>
 
             <div>
@@ -100,16 +96,15 @@ function OurPartner() {
                   Shaping the future <br /> of work
                 </p>
               </div>
-
             </div>
 
             <div>
               <div className="bannerCont">
                 <p style={{ fontSize: "2rem", color: "white" }}>
-                  Limitless possibilities <br />through learning
+                  Limitless possibilities <br />
+                  through learning
                 </p>
               </div>
-
             </div>
           </Slider>
         </div>
@@ -417,7 +412,7 @@ function OurPartner() {
                 width: "48%",
                 background: "white",
                 display: "flex",
-                flexWrap: 'wrap',
+                flexWrap: "wrap",
                 alignItems: "center",
               }}
             >
@@ -428,7 +423,7 @@ function OurPartner() {
                 }}
                 data-filter="fiterCard"
                 className="filterall filter"
-                onClick={()=>filterItems('fiterCard')}
+                onClick={() => filterItems("fiterCard")}
               >
                 All
               </span>
@@ -441,29 +436,25 @@ function OurPartner() {
                     }}
                     data-filter={items}
                     className={`filter filter${items}`}
-                    onClick={()=>filterItems(items)}
-                   
+                    onClick={() => filterItems(items)}
                   >
                     {items}
                   </span>
                 );
               })}
-
-
             </div>
           </div>
         </div>
 
-
         <div className="filterCards">
           {partner.map((items) => {
             return (
-              <div className={`fiterCard ${items.country}`} >
+              <div className={`fiterCard ${items.country}`}>
                 <img src={items.Image} alt="" />
                 <p style={{ marginBottom: "0" }}>{items.description}</p>
               </div>
             );
-          })} 
+          })}
         </div>
       </section>
     </div>

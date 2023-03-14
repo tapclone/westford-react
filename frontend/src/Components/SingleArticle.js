@@ -136,12 +136,12 @@ function SingleArticle() {
                       <div className="articleCardInner">
                         <span
                           style={{
-                            background: "white",
+                          
                             padding: "7px",
                             borderRadius: "5px",
                           }}
                         >
-                          MARKETING
+                         
                         </span>
                         <p
                           className="articleCardChild1"
