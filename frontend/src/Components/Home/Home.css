@@ -592,9 +592,9 @@ color: #FFFFFF;
     .redFooter{
         margin-bottom: -5%;
     }
-    .topbar .top-btn{
+    /* .topbar .top-btn{
         margin-right: 4em;
-    }
+    } */
 }
 .bannerCont{
     margin-left: 10%;
@@ -602,7 +602,7 @@ color: #FFFFFF;
 }
 .bannerCon{
    padding-top: 9rem;
-   padding-left: 3rem;
+   padding-left: 8%;
 }
 .bannerCon p{
     font-size: clamp(2rem,4vw,2.4rem) !important;
