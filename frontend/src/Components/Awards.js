@@ -215,7 +215,7 @@ function Awards() {
               height: "fit-content",
               rowGap: "1rem",
               alignItems: "center",
-              justifyContent: "space-between",
+              justifyContent: "flex-start",
               columnGap: "0.5rem",
               width: "90%",
             }}
